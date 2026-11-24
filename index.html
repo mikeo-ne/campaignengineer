@@ -17,191 +17,168 @@
   --text:#f5f5fc; --muted:#a2a2c0;
   --cyan:#2fd6ff; --gold:#f5c542; --red:#ff3b3b; --green:#34d399; --magenta:#ff4fd8;
   --ugy:#fcd116; --ugr:#d90000;
+  --scale:1;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{background:#020208;font-family:'Montserrat',system-ui,-apple-system,sans-serif;color:var(--text);overflow:hidden}
 
-/* ───────── deck chrome ───────── */
-#deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-.slide{position:absolute;width:min(100vw,177.78vh);height:min(100vh,56.25vw);
+/* ───────── fixed 1280×720 canvas, auto-scaled to the screen ───────── */
+#deck{position:fixed;inset:0}
+.slide{position:absolute;left:50%;top:50%;
+  width:1280px;height:720px;
+  transform:translate(-50%,-50%) scale(var(--scale));
+  transform-origin:center center;
   background:radial-gradient(1100px 650px at 85% -10%,#171738 0%,transparent 60%),
              radial-gradient(800px 550px at -8% 112%,#151531 0%,transparent 55%),var(--bg);
-  overflow:hidden;display:none;flex-direction:column;padding:2.9% 3.8%}
-.slide.active{display:flex;animation:in .4s cubic-bezier(.2,.9,.25,1)}
-@keyframes in{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+  overflow:hidden;display:none;flex-direction:column;padding:24px 46px}
+.slide.active{display:flex;animation:in .38s ease}
+@keyframes in{from{opacity:0}to{opacity:1}}
 #progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:40;
   background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--gold));
   box-shadow:0 0 14px rgba(47,214,255,.6);transition:width .35s ease}
-#hud{position:fixed;right:14px;bottom:10px;z-index:40;display:flex;align-items:center;gap:8px;
-  opacity:.35;transition:opacity .25s}
+#hud{position:fixed;right:14px;bottom:10px;z-index:40;display:flex;align-items:center;gap:8px;opacity:.35;transition:opacity .25s}
 #hud:hover{opacity:1}
-#hud button{cursor:pointer;background:rgba(13,13,31,.85);border:1px solid var(--line);color:var(--text);
-  border-radius:8px;width:32px;height:32px;font-size:15px;backdrop-filter:blur(6px)}
+#hud button{cursor:pointer;background:rgba(13,13,31,.85);border:1px solid var(--line);color:var(--text);border-radius:8px;width:32px;height:32px;font-size:15px}
 #hud button:hover{border-color:var(--cyan);color:var(--cyan)}
 #hud button.on{border-color:var(--gold);color:var(--gold)}
 #counter{min-width:56px;text-align:center;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--muted)}
-#notes{position:fixed;left:0;right:0;bottom:0;z-index:50;max-height:34vh;overflow:auto;
-  background:rgba(4,4,12,.96);border-top:2px solid var(--gold);padding:12px 20px 16px;
-  transform:translateY(105%);transition:transform .3s ease}
+#notes{position:fixed;left:0;right:0;bottom:0;z-index:50;max-height:34vh;overflow:auto;background:rgba(4,4,12,.96);border-top:2px solid var(--gold);padding:12px 20px 16px;transform:translateY(105%);transition:transform .3s ease}
 #notes.show{transform:none}
 #notes h4{color:var(--gold);font-size:10px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:6px}
 #notes p{font-size:12.5px;line-height:1.55;color:#e8e8f5;max-width:120ch}
 
 /* ───────── shared primitives ───────── */
-.kick{display:flex;align-items:center;gap:.6rem;font-size:clamp(8px,.8vw,11px);font-weight:800;
-  letter-spacing:.3em;text-transform:uppercase;color:var(--cyan)}
+.kick{display:flex;align-items:center;gap:.6rem;font-size:10.5px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan)}
 .kick::after{content:"";flex:0 0 2.4em;height:2px;background:var(--cyan);opacity:.7}
 h1,h2{font-family:'Archivo Black','Montserrat',sans-serif;font-weight:400}
-.slide h2{font-size:clamp(24px,3.35vw,44px);line-height:1.04;letter-spacing:.005em;
-  text-transform:uppercase;margin:.3em 0 .45em}
+.slide h2{font-size:40px;line-height:1.04;text-transform:uppercase;margin:.22em 0 .4em}
 .accent{color:var(--gold)} .cyan{color:var(--cyan)} .mag{color:var(--magenta)}
-.lede{color:var(--muted);font-size:clamp(10px,1vw,14.5px);line-height:1.5;max-width:78ch}
-.foot{position:absolute;left:3.8%;right:3.8%;bottom:2.3%;display:flex;justify-content:space-between;
-  align-items:center;border-top:1px solid var(--line-soft);padding-top:.8%;
-  font-size:clamp(7px,.68vw,9.5px);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);font-size:13px;line-height:1.5;max-width:82ch}
+.foot{position:absolute;left:46px;right:46px;bottom:11px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line-soft);padding-top:9px;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .foot b{color:var(--gold)}
 .ug{display:inline-flex;gap:3px;margin:0 .4em;vertical-align:middle}
 .ug i{width:.62em;height:.62em;border-radius:50%;display:inline-block}
 .ug i:nth-child(1){background:#111;border:1px solid #555}.ug i:nth-child(2){background:var(--ugy)}.ug i:nth-child(3){background:var(--ugr)}
-.grid{display:grid;gap:1.2%;flex:1;min-height:0}
-.row{display:flex;gap:1.4%}
-.col{display:flex;flex-direction:column;gap:.65em;min-height:0}
+.grid{display:grid;gap:14px;flex:1;min-height:0}
+.row{display:flex;gap:16px}
+.col{display:flex;flex-direction:column;gap:10px;min-height:0}
 .fill{flex:1;min-height:0}
 .center{align-items:center;justify-content:center;text-align:center}
-.panel{background:linear-gradient(165deg,var(--panel-2),var(--panel));border:1px solid var(--line-soft);
-  border-radius:14px;padding:1em 1.2em;position:relative;overflow:hidden}
+.panel{background:linear-gradient(165deg,var(--panel-2),var(--panel));border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;position:relative;overflow:hidden}
 .panel .bar{position:absolute;top:0;left:0;bottom:0;width:3px}
-.tag{font-size:clamp(7px,.66vw,9.5px);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:800}
-.chip{display:inline-flex;align-items:center;gap:.4em;border:1px solid var(--line);
-  background:rgba(255,255,255,.04);border-radius:999px;padding:.34em .9em;
-  font-size:clamp(8px,.76vw,11px);font-weight:700;letter-spacing:.05em;color:#dcdcf0;white-space:nowrap}
+.tag{font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.chip{display:inline-flex;align-items:center;gap:.4em;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:5px 13px;font-size:10px;font-weight:700;letter-spacing:.04em;color:#dcdcf0;white-space:nowrap}
 .chip.gold{border-color:rgba(245,197,66,.5);color:var(--gold)}
 .chip.cyan{border-color:rgba(47,214,255,.45);color:var(--cyan)}
 .chip.green{border-color:rgba(52,211,153,.45);color:var(--green)}
 .chip.red{border-color:rgba(255,59,59,.45);color:#ff8a8a}
-.small{font-size:clamp(8px,.74vw,10.5px);color:var(--muted);line-height:1.45}
+.small{font-size:9.5px;color:var(--muted);line-height:1.45}
 .art{border-radius:12px;border:1px solid rgba(255,255,255,.14);object-fit:cover;box-shadow:0 14px 44px rgba(0,0,0,.6)}
-.cov{border-radius:10px;border:1px solid rgba(255,255,255,.16);object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,.55)}
-ul.tick{list-style:none;display:flex;flex-direction:column;gap:.5em}
-ul.tick li{position:relative;padding-left:1.45em;font-size:clamp(9px,.86vw,12.5px);line-height:1.45;color:#e3e3f2}
+ul.tick{list-style:none;display:flex;flex-direction:column;gap:7px}
+ul.tick li{position:relative;padding-left:1.45em;font-size:11px;line-height:1.45;color:#e3e3f2}
 ul.tick li::before{content:"▸";position:absolute;left:.15em;color:var(--gold)}
-table{width:100%;border-collapse:collapse;font-size:clamp(8px,.76vw,11px)}
-th{text-align:left;letter-spacing:.16em;text-transform:uppercase;font-size:.8em;color:var(--cyan);
-  padding:.5em .55em;border-bottom:2px solid rgba(47,214,255,.3)}
-td{padding:.46em .55em;border-bottom:1px solid var(--line-soft);vertical-align:top;color:#dbdbec}
+table{width:100%;border-collapse:collapse;font-size:10px}
+th{text-align:left;letter-spacing:.16em;text-transform:uppercase;font-size:8px;color:var(--cyan);padding:7px 8px;border-bottom:2px solid rgba(47,214,255,.3)}
+td{padding:6px 8px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:#dbdbec}
 tr:last-child td{border-bottom:none}
-.stat{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.15em;
-  background:var(--panel-2);border:1px solid var(--line-soft);border-radius:12px;padding:.7em .4em}
-.stat b{font-family:'Archivo Black';font-size:clamp(17px,1.95vw,28px);color:var(--gold);letter-spacing:.02em}
-.stat span{font-size:clamp(6.5px,.66vw,9.5px);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.stat{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px;background:var(--panel-2);border:1px solid var(--line-soft);border-radius:12px;padding:10px 6px}
+.stat b{font-family:'Archivo Black';font-size:22px;color:var(--gold);letter-spacing:.02em}
+.stat span{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
 /* ───────── S1 hero ───────── */
 #s1{padding:0;flex-direction:row;background:#07070f}
 #s1 .photo{width:47%;position:relative;overflow:hidden}
 #s1 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%}
-#s1 .photo::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg,transparent 52%,#07070f 99%),linear-gradient(0deg,#07070f 4%,transparent 42%)}
-#s1 .badge{position:absolute;left:2.1%;bottom:9%;z-index:3;display:flex;align-items:center;gap:.7em;
-  background:rgba(7,7,15,.72);border:1px solid rgba(47,214,255,.4);backdrop-filter:blur(8px);
-  border-radius:12px;padding:.55em .8em}
-#s1 .badge img{width:52px;height:52px;object-fit:cover;border-radius:8px}
-#s1 .badge div b{font-size:12px;letter-spacing:.05em;display:block}
-#s1 .badge div span{font-size:9px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
-#s1 .body{width:53%;display:flex;flex-direction:column;justify-content:center;padding:4% 5.5% 4% 3.5%}
-#s1 .pre{font-size:clamp(8px,.78vw,11px);letter-spacing:.42em;color:var(--cyan);font-weight:800;text-transform:uppercase}
-#s1 h1{font-size:clamp(64px,9.2vw,132px);line-height:.94;margin:.14em 0 .1em;
-  background:linear-gradient(180deg,#ffffff 28%,#ffd76a 58%,#2fd6ff 105%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 30px rgba(47,214,255,.3))}
-#s1 .sub{font-size:clamp(10px,1.05vw,15px);color:var(--text);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-#s1 .quote{font-family:'Archivo Black';font-size:clamp(13px,1.4vw,19px);color:var(--gold);margin:.75em 0 1.05em;
-  border-left:4px solid var(--ugr);padding-left:.6em;letter-spacing:.02em}
-#s1 .meta{display:flex;flex-direction:column;gap:.42em;border-top:1px solid var(--line);padding-top:1em}
-#s1 .meta div{font-size:clamp(8.5px,.86vw,12px);color:var(--muted)}
+#s1 .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 52%,#07070f 99%),linear-gradient(0deg,#07070f 4%,transparent 42%)}
+#s1 .badge{position:absolute;left:26px;bottom:64px;z-index:3;display:flex;align-items:center;gap:12px;background:rgba(7,7,15,.72);border:1px solid rgba(47,214,255,.4);backdrop-filter:blur(8px);border-radius:12px;padding:9px 14px}
+#s1 .badge img{width:52px;height:52px;object-fit:cover;border-radius:8px;object-position:center 18%}
+#s1 .badge div b{font-size:12px;letter-spacing:.08em;display:block}
+#s1 .badge div span{font-size:8px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
+#s1 .body{width:53%;display:flex;flex-direction:column;justify-content:center;padding:4% 6% 4% 5%}
+#s1 .pre{font-size:10px;letter-spacing:.4em;color:var(--cyan);font-weight:800;text-transform:uppercase}
+#s1 h1{font-size:110px;line-height:.94;margin:.12em 0 .1em;background:linear-gradient(180deg,#ffffff 28%,#ffd76a 58%,#2fd6ff 105%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 30px rgba(47,214,255,.3))}
+#s1 .sub{font-size:13px;color:var(--text);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+#s1 .quote{font-family:'Archivo Black';font-size:17px;color:var(--gold);margin:.7em 0 1em;border-left:4px solid var(--ugr);padding-left:.6em;letter-spacing:.02em}
+#s1 .meta{display:flex;flex-direction:column;gap:7px;border-top:1px solid var(--line);padding-top:16px}
+#s1 .meta div{font-size:11px;color:var(--muted)}
 #s1 .meta b{color:var(--text);font-weight:600}
 
 /* ───────── agenda ───────── */
-.agenda-wrap{display:grid;grid-template-columns:1.28fr .72fr;gap:2.4%;flex:1;min-height:0}
-.agenda-list{display:flex;flex-direction:column;justify-content:center;gap:.35em}
-.a-item{display:flex;align-items:center;gap:1em;padding:.4em .85em;border-radius:11px;transition:.25s;
-  border:1px solid transparent}
+.agenda-wrap{display:grid;grid-template-columns:1.28fr .72fr;gap:26px;flex:1;min-height:0}
+.agenda-list{display:flex;flex-direction:column;justify-content:center;gap:6px}
+.a-item{display:flex;align-items:center;gap:16px;padding:8px 14px;border-radius:11px;transition:.25s;border:1px solid transparent}
 .a-item:hover{border-color:var(--line);background:rgba(255,255,255,.035);transform:translateX(8px)}
-.a-item .n{font-family:'Archivo Black';font-size:clamp(14px,1.55vw,21px);color:transparent;
-  -webkit-text-stroke:1.1px var(--cyan);min-width:1.55em}
-.a-item .t b{display:block;font-size:clamp(10.5px,1vw,14.5px);font-weight:800}
-.a-item .t span{font-size:clamp(7.5px,.74vw,10.5px);color:var(--muted)}
-.collage{display:grid;grid-template-rows:1fr auto;gap:.65em;min-height:0}
-.collage .frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-.collage .frame img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
-.collage .caps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5em}
+.a-item .n{font-family:'Archivo Black';font-size:20px;color:transparent;-webkit-text-stroke:1.1px var(--cyan);min-width:1.55em}
+.a-item .t b{display:block;font-size:13px;font-weight:800}
+.a-item .t span{font-size:9px;color:var(--muted)}
+.collage{display:grid;grid-template-rows:1fr auto;gap:10px;min-height:0}
+.collage .frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);min-height:0}
+.collage .frame img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.collage .caps{display:grid;grid-template-columns:.75fr 1fr 1fr;gap:10px;align-items:end}
 
-/* covers grid (S4) */
-.covers{display:grid;grid-template-columns:1fr 1fr;gap:.75em}
-.covers figure{display:flex;flex-direction:column;gap:.35em;min-height:0}
-.covers figcaption{font-size:clamp(7px,.68vw,9.5px);color:var(--muted);letter-spacing:.06em}
+/* covers (S4) */
+.covers{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center}
+.covers figure{display:flex;flex-direction:column;gap:5px;min-height:0}
+.covers figcaption{font-size:9px;color:var(--muted);letter-spacing:.05em}
 .covers figcaption b{color:var(--text)}
+.covers img{width:100%;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 30px rgba(0,0,0,.55)}
 
 /* calendar week cards */
-.week{display:flex;flex-direction:column;gap:.32em;background:var(--panel);border:1px solid var(--line-soft);
-  border-radius:12px;padding:.68em .8em}
-.week .wk{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line-soft);padding-bottom:.32em}
-.week .wk b{font-family:'Archivo Black';font-size:clamp(9px,.9vw,12px);color:var(--cyan);letter-spacing:.06em}
-.week .wk span{font-size:clamp(6px,.6vw,8px);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.week ul{list-style:none;display:flex;flex-direction:column;gap:.26em}
-.week li{font-size:clamp(7px,.68vw,9.5px);line-height:1.35;color:#d5d5e8;padding-left:.95em;position:relative}
+.week{display:flex;flex-direction:column;gap:6px;background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:12px 13px}
+.week .wk{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line-soft);padding-bottom:6px}
+.week .wk b{font-size:10.5px;color:var(--cyan);letter-spacing:.05em}
+.week .wk span{font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.week ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.week li{font-size:9px;line-height:1.38;color:#d5d5e8;padding-left:.95em;position:relative}
 .week li b{color:#fff}
 .week li::before{content:"•";position:absolute;left:0;color:var(--magenta)}
-.hook{margin-top:auto;font-size:clamp(6.5px,.63vw,8.5px);color:var(--gold);
-  border-top:1px dashed rgba(245,197,66,.4);padding-top:.4em;line-height:1.4;font-style:italic}
+.hook{margin-top:auto;font-size:8px;color:var(--gold);border-top:1px dashed rgba(245,197,66,.4);padding-top:7px;line-height:1.4;font-style:italic}
 
 /* timeline phases */
-.phase{flex:1;display:flex;flex-direction:column;gap:.55em;padding:1.05em 1.15em;border-radius:16px;border:1px solid var(--line-soft)}
+.phase{flex:1;display:flex;flex-direction:column;gap:9px;padding:16px 18px;border-radius:16px;border:1px solid var(--line-soft)}
 .p1{background:linear-gradient(165deg,#122740,#0f1526);border-color:rgba(47,214,255,.35)}
 .p2{background:linear-gradient(165deg,#2a1232,#170f28);border-color:rgba(255,79,216,.35)}
 .p3{background:linear-gradient(165deg,#2b230e,#191307);border-color:rgba(245,197,66,.4)}
-.phase h3{font-size:clamp(9px,.9vw,13px);letter-spacing:.16em;text-transform:uppercase}
-.phase .rng{font-family:'Archivo Black';font-size:clamp(15px,1.65vw,23px)}
+.phase h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.phase .rng{font-family:'Archivo Black';font-size:21px}
 .p1 .rng{color:var(--cyan)} .p2 .rng{color:var(--magenta)} .p3 .rng{color:var(--gold)}
-.phase ul{list-style:none;display:flex;flex-direction:column;gap:.32em}
-.phase li{font-size:clamp(7.5px,.72vw,10px);line-height:1.4;color:#dcdcec;padding-left:1.1em;position:relative}
-.phase li::before{content:"▸";position:absolute;left:0;color:inherit;opacity:.75}
-.goal{margin-top:auto;align-self:flex-start;font-size:clamp(7px,.66vw,9px);letter-spacing:.18em;
-  text-transform:uppercase;font-weight:800;border:1px solid;border-radius:999px;padding:.38em 1.1em}
+.phase ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.phase li{font-size:9.5px;line-height:1.4;color:#dcdcec;padding-left:1.1em;position:relative}
+.phase li b{color:#fff}
+.phase li::before{content:"▸";position:absolute;left:0;opacity:.75}
+.goal{margin-top:auto;align-self:flex-start;font-size:8px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;border:1px solid;border-radius:999px;padding:6px 16px}
 .p1 .goal{color:var(--cyan);border-color:rgba(47,214,255,.5)}
 .p2 .goal{color:var(--magenta);border-color:rgba(255,79,216,.5)}
 .p3 .goal{color:var(--gold);border-color:rgba(245,197,66,.5)}
 
 /* swot */
-.swot{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:1.1%;flex:1}
-.cell{border-radius:14px;padding:.8em 1em;background:var(--panel);border:1px solid var(--line-soft)}
+.swot{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:12px;flex:1;min-height:0}
+.cell{border-radius:14px;padding:12px 15px;background:var(--panel);border:1px solid var(--line-soft);overflow:hidden}
 .cell.s{border-left:3px solid var(--green)} .cell.w{border-left:3px solid var(--red)}
 .cell.o{border-left:3px solid var(--cyan)} .cell.t{border-left:3px solid var(--gold)}
-.cell h4{letter-spacing:.22em;text-transform:uppercase;font-size:clamp(8px,.78vw,11px);margin-bottom:.4em}
+.cell h4{letter-spacing:.22em;text-transform:uppercase;font-size:9.5px;margin-bottom:6px}
 .cell.s h4{color:var(--green)} .cell.w h4{color:#ff8a8a} .cell.o h4{color:var(--cyan)} .cell.t h4{color:var(--gold)}
-.cell ul{list-style:none;display:flex;flex-direction:column;gap:.26em}
-.cell li{font-size:clamp(7px,.68vw,9.5px);line-height:1.35;color:#dcdcec;padding-left:1em;position:relative}
+.cell ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.cell li{font-size:9px;line-height:1.35;color:#dcdcec;padding-left:1em;position:relative}
 .cell li::before{content:"–";position:absolute;left:0;color:var(--muted)}
 
 /* swatches */
 .swatch{border-radius:10px;overflow:hidden;border:1px solid var(--line-soft)}
 .swatch .fill2{height:52px}
-.swatch figcaption{padding:.4em .6em;background:var(--panel-2)}
-.swatch b{display:block;font-size:clamp(7px,.7vw,10px)}
-.swatch span{font-size:clamp(6px,.58vw,8.5px);color:var(--muted)}
+.swatch figcaption{padding:6px 10px;background:var(--panel-2)}
+.swatch b{display:block;font-size:9px}
+.swatch span{font-size:8px;color:var(--muted)}
 
 /* checklist */
-.check{display:flex;align-items:center;gap:.85em;padding:.5em .75em;border-radius:12px;
-  background:var(--panel);border:1px solid var(--line-soft);font-size:clamp(9px,.88vw,13px);line-height:1.35}
-.check .box{width:1.3em;height:1.3em;border-radius:.3em;flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  border:2px solid var(--cyan);color:var(--cyan);font-weight:900;font-size:.8em}
+.check{display:flex;align-items:center;gap:13px;padding:9px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line-soft);font-size:12px;line-height:1.35}
+.check .box{width:1.3em;height:1.3em;border-radius:.3em;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:2px solid var(--cyan);color:var(--cyan);font-weight:900;font-size:.8em}
 
 @page{size:1280px 720px;margin:0}
 @media print{
   body{overflow:visible;background:#fff}
   #deck{position:static}
-  .slide{position:relative;display:flex !important;page-break-after:always;transform:none !important;
-    width:1280px;height:720px;animation:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide{position:relative;left:0;top:0;transform:none !important;display:flex !important;page-break-after:always;animation:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   #hud,#progress,#notes{display:none !important}
 }
 </style>
@@ -255,7 +232,7 @@ tr:last-child td{border-bottom:none}
       <div class="caps">
         <img class="art" src="assets/real/badman-cover.jpg" alt="Badman single cover" style="width:100%;aspect-ratio:.62" />
         <img class="art" src="assets/real/chapters-teaser.jpg" alt="CHAPTERS I NEVER WROTE official teaser art" style="width:100%;aspect-ratio:1" />
-        <img class="art" src="assets/real/chapters-cover.jpg" alt="CHAPTERS I NEVER WROTE — official album art" style="width:100%;aspect-ratio:1" />
+        <img src="assets/real/chapters-cover.jpg" alt="CHAPTERS I NEVER WROTE — official album art" style="height:148px" />
       </div>
     </div>
   </div>
@@ -299,10 +276,10 @@ tr:last-child td{border-bottom:none}
   <h2>The <span class="cyan">catalogue</span> &amp; <span class="accent">momentum</span></h2>
   <div class="row fill">
     <div class="covers" style="flex:.92;align-content:center">
-      <figure><img class="art" src="assets/real/badman-cover.jpg" alt="Badman — official single cover" style="width:100%;aspect-ratio:.78;object-position:center 18%" /><figcaption><b>Badman</b> · 3 May 2025</figcaption></figure>
-      <figure><img class="art" src="assets/real/chapters-teaser.jpg" alt="CHAPTERS I NEVER WROTE — official teaser" style="width:100%;aspect-ratio:1" /><figcaption><b>CHAPTERS I NEVER WROTE</b> · teaser</figcaption></figure>
-      <figure><img class="art" src="assets/real/chapters-cover.jpg" alt="CHAPTERS I NEVER WROTE — official album art" style="width:100%;aspect-ratio:1" /><figcaption><b>CHAPTERS I NEVER WROTE</b> · album</figcaption></figure>
-      <figure><img class="art" src="assets/real/party-riddim-cover.jpg" alt="Party Riddim — official single art" style="width:100%;aspect-ratio:1" /><figcaption><b>Party Riddim</b> · Ace Kaawa × BARANGA</figcaption></figure>
+      <figure><img src="assets/real/badman-cover.jpg" alt="Badman — official single cover" style="height:148px;object-position:center 18%" /><figcaption><b>Badman</b> · 3 May 2025</figcaption></figure>
+      <figure><img src="assets/real/chapters-teaser.jpg" alt="CHAPTERS I NEVER WROTE — official teaser" style="height:148px" /><figcaption><b>CHAPTERS I NEVER WROTE</b> · teaser</figcaption></figure>
+      <figure><img src="assets/real/chapters-cover.jpg" alt="CHAPTERS I NEVER WROTE — official album art" style="height:148px" /><figcaption><b>CHAPTERS I NEVER WROTE</b> · album</figcaption></figure>
+      <figure><img src="assets/real/party-riddim-cover.jpg" alt="Party Riddim — official single art" style="height:148px" /><figcaption><b>Party Riddim</b> · Ace Kaawa × BARANGA</figcaption></figure>
     </div>
     <div class="col" style="flex:1.08">
       <div class="row" style="gap:.55em">
@@ -348,12 +325,12 @@ tr:last-child td{border-bottom:none}
   <h2>From <span class="accent">spark</span> to <span class="cyan">system</span></h2>
   <div class="lede">One goal: sustainable momentum for BARANGA as the authentic Gen Z “Badman” voice — every target numbered, dated and owned.</div>
   <div class="grid" style="grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;margin-top:1%">
-    <div class="panel"><div class="bar" style="background:var(--cyan)"></div><div class="tag" style="color:var(--cyan)">01 · Awareness</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">2–3× reach</b><span class="small">Monthly listeners &amp; video views double-to-triple by Week 12; Badman plus one album deep cut trending on UG short-form.</span></div>
-    <div class="panel"><div class="bar" style="background:var(--gold)"></div><div class="tag" style="color:var(--gold)">02 · Streams</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">+50–100%</b><span class="small">Spotify streams and saves up 50–100%+ over the window; album tracks compounding week-over-week.</span></div>
-    <div class="panel"><div class="bar" style="background:var(--magenta)"></div><div class="tag" style="color:var(--magenta)">03 · Audience</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">+10–15K fans</b><span class="small">Combined IG / TikTok / YouTube growth, plus 5,000 in the WhatsApp community — an audience he owns.</span></div>
-    <div class="panel"><div class="bar" style="background:var(--green)"></div><div class="tag" style="color:var(--green)">04 · UGC Engine</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">500+ fan videos</b><span class="small">#BarangaBadman across TikTok/Reels; three recurring challenge formats; 20+ creator duets and stitches.</span></div>
-    <div class="panel"><div class="bar" style="background:var(--red)"></div><div class="tag" style="color:#ff8a8a">05 · Industry</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">3 playlists · 2 interviews · 1 show</b><span class="small">≥3 playlist adds (incl. one UG editorial), ≥2 radio/interview slots, ≥1 live showcase booked in Kampala or western Uganda.</span></div>
-    <div class="panel"><div class="bar" style="background:var(--ugy)"></div><div class="tag" style="color:var(--ugy)">06 · Long game</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">A system, not a spike</b><span class="small">Repeatable content engine + 2027 release calendar + label-ready campaign report.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--cyan)"></div><div class="tag" style="color:var(--cyan)">01 · Awareness</div><b style="font-size:15px;display:block;margin:.3em 0">2–3× reach</b><span class="small">Monthly listeners &amp; video views double-to-triple by Week 12; Badman plus one album deep cut trending on UG short-form.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--gold)"></div><div class="tag" style="color:var(--gold)">02 · Streams</div><b style="font-size:15px;display:block;margin:.3em 0">+50–100%</b><span class="small">Spotify streams and saves up 50–100%+ over the window; album tracks compounding week-over-week.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--magenta)"></div><div class="tag" style="color:var(--magenta)">03 · Audience</div><b style="font-size:15px;display:block;margin:.3em 0">+10–15K fans</b><span class="small">Combined IG / TikTok / YouTube growth, plus 5,000 in the WhatsApp community — an audience he owns.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--green)"></div><div class="tag" style="color:var(--green)">04 · UGC Engine</div><b style="font-size:15px;display:block;margin:.3em 0">500+ fan videos</b><span class="small">#BarangaBadman across TikTok/Reels; three recurring challenge formats; 20+ creator duets and stitches.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--red)"></div><div class="tag" style="color:#ff8a8a">05 · Industry</div><b style="font-size:15px;display:block;margin:.3em 0">3 playlists · 2 interviews · 1 show</b><span class="small">≥3 playlist adds (incl. one UG editorial), ≥2 radio/interview slots, ≥1 live showcase booked in Kampala or western Uganda.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--ugy)"></div><div class="tag" style="color:var(--ugy)">06 · Long game</div><b style="font-size:15px;display:block;margin:.3em 0">A system, not a spike</b><span class="small">Repeatable content engine + 2027 release calendar + label-ready campaign report.</span></div>
   </div>
   <div class="foot"><span><b>BARANGA</b> — Objectives<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>05 / 18</span></div>
   <div class="notes">Each number has a source of truth and a Week 12 deadline. Sequencing: awareness → streams → follows → UGC → industry leverage. The line to land: “We are not buying fame; we are compounding a fanbase that already exists.” 05 and 06 are the management-relevant wins.</div>
@@ -394,8 +371,8 @@ tr:last-child td{border-bottom:none}
   <div class="row fill" style="align-items:stretch">
     <div class="panel fill"><div class="bar" style="background:var(--red)"></div>
       <div class="tag" style="color:#ff8a8a">Primary · Outlaw / Rebel</div>
-      <b style="font-size:clamp(15px,1.5vw,22px);display:block;margin:.4em 0 .1em;font-family:'Archivo Black'">THE BADMAN</b>
-      <p class="small" style="font-size:clamp(8px,.8vw,11.5px)">Rules are suggestions. The walk, the snarl, the hook — “Ayagala badman, Ayagala intensive care.” Swagger without apology: smoke, neon, leather, red/blue. The archetype <i>is</i> the record.</p>
+      <b style="font-size:19px;display:block;margin:.4em 0 .1em;font-family:'Archivo Black'">THE BADMAN</b>
+      <p class="small" style="font-size:10px">Rules are suggestions. The walk, the snarl, the hook — “Ayagala badman, Ayagala intensive care.” Swagger without apology: smoke, neon, leather, red/blue. The archetype <i>is</i> the record.</p>
       <div class="row" style="gap:.4em;flex-wrap:wrap;margin-top:.6em"><span class="chip red">Confidence</span><span class="chip red">Defiance</span><span class="chip red">Independence</span></div>
     </div>
     <div class="col center" style="flex:.72;justify-content:center;gap:.7em">
@@ -405,12 +382,12 @@ tr:last-child td{border-bottom:none}
     <div class="col fill" style="gap:.65em">
       <div class="panel fill"><div class="bar" style="background:var(--cyan)"></div>
         <div class="tag" style="color:var(--cyan)">Secondary · Everyman</div>
-        <b style="font-size:clamp(12px,1.15vw,17px);display:block;margin:.3em 0">The high-school kid who made it</b>
+        <b style="font-size:15px;display:block;margin:.3em 0">The high-school kid who made it</b>
         <p class="small">Family in the industry, breakout written in class — fans grew up with him. Trust before fame; the relatable root system under the flex.</p>
       </div>
       <div class="panel fill"><div class="bar" style="background:var(--ugy)"></div>
         <div class="tag" style="color:var(--ugy)">Tertiary · Jester / Lover</div>
-        <b style="font-size:clamp(12px,1.15vw,17px);display:block;margin:.3em 0">The party frequency</b>
+        <b style="font-size:15px;display:block;margin:.3em 0">The party frequency</b>
         <p class="small">Party Riddim, melodic hooks, romance records — humor and pull that keep the catalogue re-listenable long after the snarl fades.</p>
       </div>
     </div>
@@ -457,15 +434,15 @@ tr:last-child td{border-bottom:none}
   <h2>Own the <span class="accent">“Badman”</span> lane</h2>
   <div class="panel" style="border-left:4px solid var(--gold);margin-bottom:1.1%">
     <div class="tag">Positioning statement</div>
-    <p style="font-size:clamp(11px,1.12vw,16px);line-height:1.5;margin-top:.35em;font-weight:600">For <b>Ugandan &amp; East African Gen Z (16–25)</b> who want music that feels <b>raw, local and theirs</b>, <b>BARANGA</b> is the <b style="color:var(--cyan)">emerging Afro-pop / rap artist</b> who turns <b>true-story, high-school-rooted songwriting</b> into <b>party-ready trap anthems</b> — written in the classroom, not a boardroom. <span style="color:var(--gold)">You know it’s Baranga.</span></p>
+    <p style="font-size:14px;line-height:1.5;margin-top:.35em;font-weight:600">For <b>Ugandan &amp; East African Gen Z (16–25)</b> who want music that feels <b>raw, local and theirs</b>, <b>BARANGA</b> is the <b style="color:var(--cyan)">emerging Afro-pop / rap artist</b> who turns <b>true-story, high-school-rooted songwriting</b> into <b>party-ready trap anthems</b> — written in the classroom, not a boardroom. <span style="color:var(--gold)">You know it’s Baranga.</span></p>
   </div>
   <div class="grid" style="grid-template-columns:repeat(6,1fr);margin-bottom:1.1%">
-    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">🎥</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Content Engine</div><div class="small">4–7 posts/wk, non-negotiable</div></div>
-    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">📢</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Amplification</div><div class="small">Boost winners, never guesses</div></div>
-    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">🤝</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Community</div><div class="small">WhatsApp channel + weekly replies</div></div>
-    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">🎯</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Paid · Optional</div><div class="small">Only proven creatives, capped spend</div></div>
-    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">📰</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Earned</div><div class="small">NRG, blogs, podcasts, radio</div></div>
-    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">🎨</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Visual Identity</div><div class="small">Dark · neon · street · East African</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:23px">🎥</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Content Engine</div><div class="small">4–7 posts/wk, non-negotiable</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:23px">📢</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Amplification</div><div class="small">Boost winners, never guesses</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:23px">🤝</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Community</div><div class="small">WhatsApp channel + weekly replies</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:23px">🎯</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Paid · Optional</div><div class="small">Only proven creatives, capped spend</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:23px">📰</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Earned</div><div class="small">NRG, blogs, podcasts, radio</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:23px">🎨</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Visual Identity</div><div class="small">Dark · neon · street · East African</div></div>
   </div>
   <div class="row" style="align-items:center;justify-content:space-between;gap:1%">
     <div class="row" style="gap:.5em;align-items:center"><span class="tag">Flow</span>
@@ -503,7 +480,7 @@ tr:last-child td{border-bottom:none}
         <div class="swatch" style="flex:1"><div class="fill2" style="background:#f4f4fb"></div><figcaption><b>Bone White</b><span>#F4F4FB · type</span></figcaption></div>
       </div>
       <div class="panel" style="padding:.7em 1em"><div class="tag" style="color:var(--cyan)">Typography</div>
-        <div style="font-family:'Archivo Black';font-size:clamp(13px,1.4vw,19px);margin:.25em 0">ARCHIVO BLACK · MONTSERRAT</div>
+        <div style="font-family:'Archivo Black';font-size:18px;margin:.25em 0">ARCHIVO BLACK · MONTSERRAT</div>
         <div class="small">Display: heavy uppercase, tight leading. Body: Montserrat 400/600. Kickers: letterspaced all-caps. No serif, no thin weights on dark.</div>
       </div>
       <div class="panel" style="padding:.7em 1em"><div class="tag" style="color:var(--gold)">Image language</div>
@@ -742,7 +719,7 @@ tr:last-child td{border-bottom:none}
     <div class="col" style="flex:.82;justify-content:center;gap:.7em">
       <div class="panel center" style="padding:1.3em 1em">
         <div class="tag">Launch window</div>
-        <div style="font-family:'Archivo Black';font-size:clamp(38px,4.9vw,70px);line-height:.98;color:var(--cyan);text-shadow:0 0 30px rgba(47,214,255,.45)">DECEMBER<br />2026</div>
+        <div style="font-family:'Archivo Black';font-size:63px;line-height:.98;color:var(--cyan);text-shadow:0 0 30px rgba(47,214,255,.45)">DECEMBER<br />2026</div>
         <div class="small" style="margin-top:.35em">Week 0 starts Monday after sign-off</div>
       </div>
       <img class="art" src="assets/real/badman-cover.jpg" alt="Badman — official single cover" style="aspect-ratio:2.35;object-fit:cover;object-position:center 30%;width:100%" />
@@ -761,7 +738,7 @@ tr:last-child td{border-bottom:none}
   </div>
   <div style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:4% 6%">
     <div class="kick" style="justify-content:center;color:var(--gold)">THANK YOU</div>
-    <div style="font-family:'Archivo Black';font-size:clamp(38px,6.6vw,96px);line-height:.98;margin:.25em 0 .2em;
+    <div style="font-family:'Archivo Black';font-size:84px;line-height:.98;margin:.25em 0 .2em;
       background:linear-gradient(180deg,#fff 25%,#ffd76a 62%,#ff8a3d 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
       filter:drop-shadow(0 0 34px rgba(245,197,66,.35))">YOU KNOW IT’S<br />BARANGA.</div>
     <p class="lede" style="max-width:52ch;text-align:center;color:#d8d8ee">12 weeks. Three phases. One fanbase.<br />From high-school notebook to the whole timeline.</p>
@@ -795,6 +772,8 @@ tr:last-child td{border-bottom:none}
   const slides=[...document.querySelectorAll('.slide')];
   let i=0;
   const counter=document.getElementById('counter'), progress=document.getElementById('progress');
+  function fit(){const s=Math.min(window.innerWidth/1280, window.innerHeight/720);document.documentElement.style.setProperty('--scale', s);}
+  window.addEventListener('resize', fit); fit();
   const notes=document.getElementById('notes'), notesBody=document.getElementById('notesBody');
   const notesTitle=document.getElementById('notesTitle'), notesBtn=document.getElementById('notesBtn');
   function show(n){
