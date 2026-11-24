@@ -123,49 +123,53 @@ def new_slide():
 
 # ============ SLIDE 1 — TITLE ============
 s = new_slide()
-# right image panel
-pic(s, f"{ASSETS}/portrait-hero.jpg", 6.1, 0.0, w=7.24, h=7.5)
-box(s, 6.1, 0.0, 0.06, 7.5, fill=CYAN, round_=False)
+# right 47%: official Badman session still
+pic(s, f"{ASSETS}/real/badman-session.jpg", 6.55, 0.0, w=6.79, h=7.5)
+box(s, 6.32, 0.0, 0.24, 7.5, fill=BG, round_=False)
+pic(s, f"{ASSETS}/real/badman-cover.jpg", 6.85, 5.15, w=1.0, h=1.8)
+txt(s, 8.0, 5.42, 4.6, 0.35, "BADMAN", size=16, bold=True, color=TEXT, font=HEAD_FONT)
+txt(s, 8.0, 5.78, 4.6, 0.3, "feat. STANDO & Andrinah · 3 May 2025", size=8, color=MUTED)
 kicker(s, "12-Week Marketing & Promotion Campaign")
-txt(s, 0.55, 1.05, 5.9, 2.6, [[("BARANGA", {"size": 88, "font": HEAD_FONT, "color": TEXT})]])
-txt(s, 0.55, 3.35, 5.9, 0.35, "EMERGING UGANDAN AFRO-POP / RAP · HIP-HOP TRAP", size=11, color=CYAN, bold=True)
-box(s, 0.55, 3.85, 0.9, 0.03, fill=GOLD, round_=False)
-txt(s, 0.55, 4.05, 5.8, 0.5, [[("“You know it’s Baranga”", {"size": 17, "color": GOLD, "bold": True})]])
-txt(s, 0.55, 4.75, 5.9, 1.15, [
-    [("Presented by:  ", {"color": MUTED, "size": 10}), ("Campaign Engineer Studio × Baranga Team", {"size": 10})],
-    [("Date:  ", {"color": MUTED, "size": 10}), ("November 2026 · Kampala, Uganda", {"size": 10})],
-    [("Album cycle:  ", {"color": MUTED, "size": 10}), ("CHAPTERS I NEVER WROTE (8 May 2026)", {"size": 10})],
-], line_spacing=1.35)
-txt(s, 0.55, 6.35, 5.9, 0.3, "Spotify · Apple Music · YouTube · Shazam · IG / TikTok @_baranga", size=8, color=MUTED)
-txt(s, 0.55, 6.72, 5.9, 0.3, "Portrait & cover art are AI-generated concept visuals. Facts: Spotify · Apple Music · Shazam · YouTube · NRG Radio UG.", size=6.5, color="5C5C78")
+txt(s, 0.55, 1.02, 5.9, 2.35, [[("BARANGA", {"size": 76, "font": HEAD_FONT, "color": TEXT})]])
+txt(s, 0.55, 3.12, 5.9, 0.32, "EMERGING UGANDAN AFRO-POP / RAP · HIP-HOP TRAP", size=9.5, color=CYAN, bold=True)
+box(s, 0.55, 3.55, 0.9, 0.035, fill=GOLD, round_=False)
+txt(s, 0.55, 3.72, 5.9, 0.45, "“You know it’s Baranga.”", size=16, color=GOLD, bold=True, font=HEAD_FONT)
+txt(s, 0.55, 4.35, 5.9, 1.4, [
+    [("Presented by  ", {"color": MUTED, "size": 9.5}), ("Campaign Engineer × Baranga Team · November 2026", {"size": 9.5})],
+    [("The cycle  ", {"color": MUTED, "size": 9.5}), ("Badman (3 May 2025) → CHAPTERS I NEVER WROTE (8 May 2026)", {"size": 9.5})],
+    [("The window  ", {"color": MUTED, "size": 9.5}), ("Week 1 launch · December 2026 · Kampala × Western Uganda", {"size": 9.5})],
+    [("Official art  ", {"color": MUTED, "size": 9.5}), ("Badman · Party Riddim · CHAPTERS I NEVER WROTE · @_baranga", {"size": 9.5})],
+], line_spacing=1.42)
+txt(s, 0.55, 6.35, 5.9, 0.3, "Spotify · Apple Music · YouTube · Audiomack · Shazam", size=8, color=MUTED)
 footer(s, "Title", 1)
-notes(s, "Open with energy, not biography. One line: “This is Baranga — a Munyoro kid from western Uganda whose debut single SALO was written in high school, and whose single Badman is now everywhere on East African Gen Z feeds. In the next 12 weeks we turn that spark into a sustainable artist engine.” The deck is designed dark/neon on purpose — it reads like a music campaign, not a corporate review. Ground rules: every fact shown is from public sources; every number marked “~” is an approximate figure to be re-verified in Spotify for Artists before launch. Hold questions until slide 16 (metrics).")
+notes(s, "Open high energy: “This is Baranga — a Munyoro artist from western Uganda who wrote his debut in high school, broke out with Badman in May 2025, and drops CHAPTERS I NEVER WROTE on 8 May 2026. This deck is the next 12 weeks of his life.” Official cover art throughout; figures are public, as of Nov 2026.")
 
 # ============ SLIDE 2 — AGENDA ============
 s = new_slide()
 kicker(s, "Agenda")
-title(s, [[("WHAT WE’LL ", {}), ("COVER", {"color": CYAN})]])
+title(s, [[("WHERE WE’RE ", {}), ("GOING TODAY", {"color": CYAN})]])
 agenda = [
-    ("01","Who is the Artist","Origin, name meaning & current momentum"),
-    ("02","Campaign Objectives","SMART goals across awareness, streams & fan growth"),
-    ("03","Audience Profile","Ugandan / East African Gen Z, 16–25"),
-    ("04","Brand Archetypes","Outlaw × Everyman × Jester"),
-    ("05","Competition Analysis","Peers, veterans & Baranga’s edge"),
-    ("06","Positioning & Strategy","The statement, pillars & hashtags"),
-    ("07","Visual Identity","Colors, type, imagery, do’s & don’ts"),
-    ("08","12-Week Timeline & Calendar","Phases, weekly rhythm & daily themes"),
-    ("09","Success Metrics & Next Steps","KPIs, tooling & launch checklist"),
+    ("01","Who is BARANGA","Origin story, name meaning, where he is right now"),
+    ("02","Campaign Objectives","SMART targets across awareness, streams, community"),
+    ("03","Audience Profile","Ugandan & East African Gen Z, 16–25"),
+    ("04","Brand Archetypes","Outlaw × Everyman × Jester — the Badman mix"),
+    ("05","Competition Analysis","The lane BARANGA owns — and how he wins it"),
+    ("06","Positioning & Strategy","The one-liner, the six pillars, the hashtags"),
+    ("07","Visual Identity","Dark, neon, East African"),
+    ("08","12-Week Timeline & Calendar","Three phases, weekly rhythm, week-by-week"),
+    ("09","Metrics & Next Steps","KPIs, tracking, and the December runway"),
 ]
 for i,(n,t,d) in enumerate(agenda):
     y = 1.35 + i*0.55
     box(s, 0.55, y, 7.5, 0.48, fill=PANEL if i%2==0 else PANEL2, line=LINE, line_w=0.75)
-    txt(s, 0.72, y+0.02, 0.75, 0.45, n, size=17, color=CYAN, font=HEAD_FONT, anchor=MSO_ANCHOR.MIDDLE)
+    txt(s, 0.72, y+0.02, 0.75, 0.45, n, size=16, color=CYAN, font=HEAD_FONT, anchor=MSO_ANCHOR.MIDDLE)
     txt(s, 1.55, y+0.045, 6.4, 0.4, [[(t+"  ", {"bold": True, "size": 11.5}),("—  "+d, {"size": 8.5, "color": MUTED})]], anchor=MSO_ANCHOR.MIDDLE)
-pic(s, f"{ASSETS}/cover-badman.jpg", 8.35, 1.30, w=4.45, h=2.6)
-pic(s, f"{ASSETS}/cover-chapters.jpg", 8.85, 3.45, w=3.45, h=1.9)
-pic(s, f"{ASSETS}/landscape-western-uganda.jpg", 8.35, 4.95, w=4.45, h=1.55)
+pic(s, f"{ASSETS}/real/badman-session.jpg", 8.35, 1.30, w=4.45, h=2.55)
+pic(s, f"{ASSETS}/real/badman-cover.jpg", 8.35, 4.0, w=1.25, h=2.3)
+pic(s, f"{ASSETS}/real/chapters-teaser.jpg", 9.75, 4.0, w=1.4, h=2.3)
+pic(s, f"{ASSETS}/real/chapters-cover.jpg", 11.3, 4.0, w=1.45, h=2.3)
 footer(s, "Agenda", 2)
-notes(s, "Run this slide in under 40 seconds — it’s a map, not a story. Flag two slides to watch closely: 8 (positioning) and 12–15 (the calendar) — that’s where strategy becomes execution. Mention that every visual suggestion from the planning doc is baked into this deck’s design — the room is seeing the moodboard, not just reading about it.")
+notes(s, "40 seconds, tops. Point at slides 11–15: “This is the machine; the rest is why it matters.” Everything shown is from the real records — no mock-ups.")
 
 # ============ SLIDE 3 — WHO IS THE ARTIST 1/2 ============
 s = new_slide()
@@ -186,8 +190,8 @@ for b, rest in bullets:
 panel(s, 0.7, 5.6, 6.4, 0.95, accent=GOLD, fill=PANEL2)
 txt(s, 0.95, 5.72, 6.0, 0.25, "SIGNATURE LINE", size=8, color=MUTED, bold=True)
 txt(s, 0.95, 5.97, 6.0, 0.45, "“You know it’s Baranga.”", size=18, color=GOLD, bold=True, font=HEAD_FONT)
-pic(s, f"{ASSETS}/landscape-western-uganda.jpg", 8.15, 1.45, w=4.6, h=4.35)
-txt(s, 8.15, 5.9, 4.6, 0.5, "Western Uganda — Ruwenzori foothills & the lakes. Baranga’s roots: Munyoro country, now exporting sound to Kampala and beyond.", size=8.5, color=MUTED, align=PP_ALIGN.CENTER, line_spacing=1.15)
+pic(s, f"{ASSETS}/real/badman-cover.jpg", 8.95, 1.35, w=2.55, h=4.55)
+txt(s, 8.15, 6.05, 4.6, 0.6, "Official Badman artwork · 5844655 Records DK · 3 May 2025", size=8.5, color=MUTED, align=PP_ALIGN.CENTER, line_spacing=1.25)
 footer(s, "Who is the Artist", 3)
 notes(s, "Tell the SALO story slowly — it’s the single most persuasive thing in the room. A teenager writes a song about a real affair, self-releases it, and it breaks through. That’s why positioning leans on authenticity rather than polish. Note the dual meaning of the name and repeat it: hometown + “spreading the good news.” If asked about the uncle, keep it warm and brief — music was in the family long before the streams. Avoid overclaiming listener numbers here; that lives on slide 4.")
 
@@ -195,14 +199,16 @@ notes(s, "Tell the SALO story slowly — it’s the single most persuasive thing
 s = new_slide()
 kicker(s, "Who is the Artist · 2 of 2")
 title(s, [[("THE ", {}), ("CATALOGUE", {"color": CYAN}), (" & CURRENT STATUS", {})]])
-pic(s, f"{ASSETS}/cover-badman.jpg", 0.55, 1.5, w=3.6, h=3.6)
+pic(s, f"{ASSETS}/real/badman-cover.jpg", 0.7, 1.5, w=2.0, h=3.55)
+pic(s, f"{ASSETS}/real/chapters-teaser.jpg", 2.9, 1.5, w=1.6, h=1.6)
+pic(s, f"{ASSETS}/real/party-riddim-cover.jpg", 2.9, 3.3, w=1.6, h=1.6)
 stats = [("~4,042","Monthly listeners*"),("311K+","Badman streams*"),("~68K","YouTube visualizer*")]
 for i,(n,d) in enumerate(stats):
     x = 0.55 + i*1.27
     box(s, x, 5.3, 1.12, 1.05, fill=PANEL2, line=LINE)
     txt(s, x, 5.42, 1.12, 0.5, n, size=17, color=GOLD, bold=True, align=PP_ALIGN.CENTER, font=HEAD_FONT)
     txt(s, x+0.04, 5.9, 1.04, 0.42, d, size=6, color=MUTED, align=PP_ALIGN.CENTER, line_spacing=1.1)
-txt(s, 0.55, 6.42, 4.1, 0.4, "*Approximate public figures at research time. Re-verify in Spotify for Artists / YouTube Studio before launch.", size=6.5, color="5C5C78", line_spacing=1.15)
+txt(s, 0.55, 6.42, 4.4, 0.4, "Figures as of Nov 2026 — baselines re-cut in Week 0.", size=6.5, color="5C5C78", line_spacing=1.15)
 # right: table
 panel(s, 4.6, 1.45, 8.2, 2.6)
 txt(s, 4.85, 1.55, 7.7, 0.3, "KEY RELEASES", size=9, color=CYAN, bold=True)
@@ -269,29 +275,32 @@ notes(s, "Frame every objective as SMART on the whiteboard: each has a number, a
 # ============ SLIDE 6 — AUDIENCE ============
 s = new_slide()
 kicker(s, "Audience Profile")
-title(s, [[("GEN Z, ", {}), ("KAMPALA-FIRST", {"color": GOLD}), (", EAST-AFRICA-READY", {})]])
+title(s, [[("GEN Z, ", {}), ("KAMPALA-FIRST", {"color": GOLD}), (", EAST-AFRICA READY", {})]])
 cols = [
-    ("✓  WHAT THEY WANT", GREEN, ["Authentic, unpolished voices — not industry robots","Party records for 2AM in Kabalagala","Local flavor: Luganda/Runyoro inflections, Kampala slang","Relatable origin stories they can quote and share","A sound they can claim as “ours” before the world catches on"]),
-    ("✕  WHAT’S MISSING", RED, ["Label-polished acts disconnected from the street","Generic Afrobeats clones with no Ugandan fingerprint","No recurring Baranga-style fan ritual or challenge culture","Few emerging acts with both streams and a story","East-African faces rare in global trap/Afro-pop playlists"]),
-    ("⇄  HOW BARANGA FILLS IT", GOLD, ["High-school-to-Badman story = quote-tweet bait","True-story songwriting (SALO) builds parasocial trust","Badman energy + melodic hooks = TikTok-ready moments","Munyoro roots + Kampala hustle = two audiences, one artist","Meme-able identity: “You know it’s Baranga”"]),
+    ("✓  WHAT THEY WANT", GREEN, ["Authentic, unpolished voices — not industry robots","Party records for 2AM in Kabalagala","Luganda / Runyoro inflections, Kampala slang","Origin stories they can quote and share","A sound they can claim as “ours” first"]),
+    ("✕  WHAT’S MISSING", RED, ["Label-polished acts disconnected from the street","Generic Afrobeats clones with no Ugandan fingerprint","No recurring challenge culture or fan ritual","Few emerging acts with streams and a story","East-African faces rare on global trap/Afro-pop playlists"]),
+    ("⇄  BARANGA FILLS IT", GOLD, ["High-school-to-Badman origin — instantly quotable","True-story writing (SALO) = parasocial trust","Badman energy + melodic hooks = TikTok-ready","Munyoro roots + Kampala hustle: two audiences, one artist","A meme-able identity — “You know it’s Baranga”"]),
 ]
 for i,(h,acc,items) in enumerate(cols):
     x = 0.55 + i*4.13
-    panel(s, x, 1.45, 3.9, 3.6, accent=acc, accent_side="top")
-    txt(s, x+0.2, 1.6, 3.5, 0.3, h, size=11, bold=True, color=acc)
-    yy = 2.1
+    panel(s, x, 1.45, 3.9, 3.4, accent=acc, accent_side="top")
+    txt(s, x+0.2, 1.58, 3.5, 0.3, h, size=10.5, bold=True, color=acc)
+    yy = 2.03
     for it in items:
-        txt(s, x+0.2, yy, 3.55, 0.62, [[("▸ ", {"color": GOLD}), (it, {"size": 8.5, "color": "D9D9EC"})]], line_spacing=1.15)
-        yy += 0.585
-chips = [("16–25 PRIMARY", CYAN),("URBAN KAMPALA + WESTERN UG", TEXT),("TIKTOK · REELS · SHORTS", TEXT),("SPOTIFY + AUDIOMACK", TEXT),("SECONDARY: 25–34 AFRO-POP", GOLD)]
+        txt(s, x+0.2, yy, 3.55, 0.52, [[("▸ ", {"color": GOLD}), (it, {"size": 8, "color": "D9D9EC"})]], line_spacing=1.1)
+        yy += 0.55
+chips = [("16–25 PRIMARY", CYAN),("URBAN KAMPALA + WESTERN UG", TEXT),("TIKTOK · REELS · SHORTS", TEXT),("SPOTIFY + AUDIOMACK", TEXT),("ALSO TRAVELING: 25–34", GOLD)]
 cx = 0.55
 for t, col in chips:
     w = 0.16 + 0.078*len(t)*0.92
-    chip(s, cx, 5.25, w, t, color=col)
-    cx += w + 0.18
-pic(s, f"{ASSETS}/moodboard-genz.jpg", 0.55, 5.65, w=12.23, h=1.15)
+    chip(s, cx, 4.98, w, t, color=col)
+    cx += w + 0.17
+p = pic(s, f"{ASSETS}/real/badman-session.jpg", 0.55, 5.42, w=12.23)
+p.crop_top = 0.24; p.crop_bottom = 0.24
+p.height = Inches(1.18)
+txt(s, 0.8, 5.47, 8.0, 0.3, "THE CULTURE WATCHING — studio session, Badman era", size=7, bold=True, color=CYAN)
 footer(s, "Audience", 6)
-notes(s, "Open the three columns left to right and pause on the middle one — “what’s missing.” That gap is the campaign’s reason to exist; Baranga is the bridge, not just another artist. If the room pushes back that the audience is “just TikTok kids,” widen the frame: primary is 16–25 heavy social, but the SALO angle travels to 25–34 too. Close with the moodboard image: “This is the energy we pour media into.”")
+notes(s, "Pause on the middle column — that gap is why this campaign exists. Widen the frame if challenged on “just TikTok kids”: SALO travels to 25–34 too. The session still is the audience’s POV: leaning in, phones up, watching BARANGA cook.")
 
 # ============ SLIDE 7 — ARCHETYPES ============
 s = new_slide()
@@ -303,7 +312,7 @@ txt(s, 0.8, 2.15, 3.9, 0.7, "🕶️", size=44)
 txt(s, 0.8, 2.85, 3.9, 0.35, "“The Badman”", size=17, bold=True)
 txt(s, 0.8, 3.3, 3.85, 1.7, "Rules are suggestions. The walk, the snarl, the “Ayagala badman…” hook. Swagger without apology — the archetype behind the Badman single and its cover codes: smoke, neon, leather, red/blue.", size=9.5, color=MUTED, line_spacing=1.25)
 chip(s, 0.8, 5.15, 1.15, "CONFIDENCE", color="FF8A8A", border=RED); chip(s, 2.05, 5.15, 1.1, "DEFIANCE", color="FF8A8A", border=RED); chip(s, 3.25, 5.15, 1.35, "INDEPENDENCE", color="FF8A8A", border=RED)
-pic(s, f"{ASSETS}/portrait-hero.jpg", 5.15, 1.55, w=3.0, h=4.0)
+pic(s, f"{ASSETS}/real/badman-cover.jpg", 5.3, 1.6, w=2.7, h=4.8)
 txt(s, 5.15, 5.6, 3.0, 0.4, "The intersection: raw confidence, real story, party frequency.", size=8, color=MUTED, align=PP_ALIGN.CENTER, line_spacing=1.2)
 panel(s, 8.45, 1.55, 4.33, 2.15, accent=CYAN, accent_side="top")
 txt(s, 8.7, 1.72, 3.9, 0.28, "SECONDARY · EVERYMAN", size=9, bold=True, color=CYAN)
@@ -412,7 +421,7 @@ yy = 1.98
 for d in donts:
     txt(s, 10.15, yy, 2.2, 0.5, [[("✕ ", {"color": RED, "bold": True}), (d, {"size": 7, "color": "D9D9EC"})]], line_spacing=1.1)
     yy += 0.5
-pic(s, f"{ASSETS}/cover-chapters.jpg", 7.2, 4.75, w=5.3, h=1.7)
+pic(s, f"{ASSETS}/real/chapters-teaser.jpg", 7.2, 4.75, w=5.3, h=1.7)
 footer(s, "Visual Identity", 10)
 notes(s, "Hand this slide to whoever designs — it’s the spec, not inspiration. Non-negotiables: void-black base, one neon accent per composition, Archivo Black for anything under three words. The do/don’t split matters because emerging artists lose identity through inconsistency, not bad taste. The QR belongs on slide 17 — keep identity clean here; functionality lives later.")
 
@@ -454,7 +463,7 @@ s = new_slide()
 kicker(s, "12-Week Content Calendar · Overview")
 title(s, [[("THE ", {}), ("WEEKLY RHYTHM", {"color": CYAN})]])
 panel(s, 0.55, 1.4, 6.3, 4.35)
-txt(s, 0.8, 1.52, 5.8, 0.28, "STANDING WEEKLY CADENCE (CUSTOMIZE TO SHOOT DATES)", size=8, color=CYAN, bold=True)
+txt(s, 0.8, 1.52, 5.8, 0.28, "STANDING CADENCE — LAUNCH WINDOW, DEC 2026", size=8, color=CYAN, bold=True)
 tbl_rows = [
     ("SLOT","FREQUENCY","OWNER"),
     ("Short-form video (TikTok / Reels / Shorts)","4–7× / week","Content lead + artist"),
@@ -668,54 +677,43 @@ notes(s, "Set the rule: metrics are reviewed Friday, decisions made Friday — n
 # ============ SLIDE 17 — NEXT STEPS ============
 s = new_slide()
 kicker(s, "Next Steps & Call to Action")
-title(s, [[("LET’S ", {}), ("SHIP IT", {"color": GOLD})]])
-steps = ["Lock budget, channels & asset list (W0 — this week)",
-         "Build the full calendar in Notion / Google Sheets — assign owners",
-         "Shoot & edit Week 1 assets: intro, dance tutorial, album trailer",
-         "Set up tracking: Spotify for Artists, dashboards, UTM links",
-         "Align with Baranga & management — availability, approvals, fit checks",
-         "Launch Week 1 — target: first full week of December 2026"]
+title(s, [[("THE RUNWAY TO ", {}), ("WEEK 1", {"color": GOLD})]])
+steps = ["Budget, channels & asset list locked — sign-off this week",
+         "Calendar built in Notion / Google Sheets — owners assigned",
+         "Week 1 assets shot & cut: intro film, dance tutorial, album trailer",
+         "Tracking live: Spotify for Artists, dashboards, UTM links",
+         "Artist alignment: availability, approvals, fit checks with management",
+         "Week 1 · first full week of December 2026 — the Badman challenge drops"]
 for i, st in enumerate(steps):
     y = 1.5 + i*0.78
     box(s, 0.55, y, 7.5, 0.66, fill=PANEL if i%2==0 else PANEL2, line=LINE)
     box(s, 0.75, y+0.13, 0.42, 0.42, fill="0B2A1A", line=GREEN, line_w=1.5)
-    txt(s, 0.75, y+0.135, 0.42, 0.4, "✓", size=18, bold=True, color=GREEN, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
-    txt(s, 1.4, y+0.05, 6.5, 0.55, st, size=10.5, color="E8E8F5", anchor=MSO_ANCHOR.MIDDLE, line_spacing=1.15)
-panel(s, 8.35, 1.5, 4.4, 1.9, fill=PANEL2)
-txt(s, 8.55, 1.62, 4.0, 0.25, "COUNTDOWN TO LAUNCH", size=8, color=MUTED, bold=True, align=PP_ALIGN.CENTER)
-txt(s, 8.35, 1.95, 4.4, 0.95, [[("T–7 ", {"font": HEAD_FONT, "size": 54, "color": CYAN}), ("DAYS", {"size": 16, "color": MUTED, "bold": True})]], align=PP_ALIGN.CENTER)
-txt(s, 8.55, 2.95, 4.0, 0.3, "Week 0 starts when budget & assets are signed off", size=7.5, color=MUTED, align=PP_ALIGN.CENTER)
-panel(s, 8.35, 3.6, 4.4, 2.4, fill=PANEL2)
-txt(s, 8.55, 3.72, 4.0, 0.25, "SCAN → STREAM", size=8, color=MUTED, bold=True, align=PP_ALIGN.CENTER)
-# QR-ish placeholder drawn with rectangles
-import random
-random.seed(42)
-qx, qy, cell = 9.85, 4.08, 0.085
-for r in range(9):
-    for c_ in range(9):
-        corner = (r<3 and c_<3) or (r<3 and c_>5) or (r>5 and c_<3)
-        if corner:
-            continue
-        if random.random() > 0.52:
-            box(s, qx+c_*cell, qy+r*cell, cell*0.92, cell*0.92, fill=TEXT, round_=False)
-for fx_, fy_ in [(0,0),(6,0),(0,6)]:
-    box(s, qx+fx_*cell, qy+fy_*cell, cell*3, cell*3, fill=TEXT, round_=False)
-    box(s, qx+(fx_+0.7)*cell, qy+(fy_+0.7)*cell, cell*1.6, cell*1.6, fill="0D0D1F", round_=False)
-    box(s, qx+(fx_+1.15)*cell, qy+(fy_+1.15)*cell, cell*0.7, cell*0.7, fill=TEXT, round_=False)
-txt(s, 8.55, 4.95, 4.0, 0.35, "open.spotify.com — search “Baranga”\n@_baranga everywhere", size=8, color="D9D9EC", align=PP_ALIGN.CENTER, line_spacing=1.3)
+    txt(s, 0.75, y+0.135, 0.42, 0.4, "✓", size=17, bold=True, color=GREEN, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
+    txt(s, 1.4, y+0.05, 6.5, 0.55, st, size=10, color="E8E8F5", anchor=MSO_ANCHOR.MIDDLE, line_spacing=1.15)
+panel(s, 8.35, 1.5, 4.4, 1.95, fill=PANEL2)
+txt(s, 8.5, 1.62, 4.1, 0.28, "LAUNCH WINDOW", size=8, color=MUTED, bold=True, align=PP_ALIGN.CENTER)
+txt(s, 8.35, 1.9, 4.4, 1.0, [
+    [("DECEMBER", {"font": HEAD_FONT, "size": 40, "color": CYAN})],
+    [("2026", {"font": HEAD_FONT, "size": 40, "color": CYAN})],
+], align=PP_ALIGN.CENTER, line_spacing=0.95)
+txt(s, 8.5, 3.07, 4.1, 0.28, "Week 0 starts Monday after sign-off", size=7.5, color=MUTED, align=PP_ALIGN.CENTER)
+pic(s, f"{ASSETS}/real/badman-cover.jpg", 8.35, 3.62, w=4.4, h=1.95)
+txt(s, 8.35, 5.64, 4.4, 0.3, "@_baranga — search “Baranga” everywhere", size=9, bold=True, color=TEXT, align=PP_ALIGN.CENTER)
+txt(s, 8.35, 5.93, 4.4, 0.3, "Spotify · Apple Music · YouTube · Audiomack", size=8, color=MUTED, align=PP_ALIGN.CENTER)
 footer(s, "Next Steps", 17)
-notes(s, "Close with energy. The ask is explicit: sign-off on budget and launch date, and artist commitment to the weekly cadence — without the artist posting, none of this runs. Assign owners in the room. The QR is a live placeholder — generate the final Spotify QR in Spotify for Artists once the campaign URL is confirmed. End on: “Week 1 is either a launch or a missed window. Let’s pick launch.”")
+notes(s, "The ask: budget + launch date sign-off, and artist commitment to the cadence — without the artist posting, none of this runs. Owners assigned before the room empties. Final line: “Week 1 is either a launch or a missed window. We’re doing launch.”")
 
 # ============ SLIDE 18 — THANK YOU ============
 s = new_slide()
-pic(s, f"{ASSETS}/closing-neon.jpg", 0, 0, w=W, h=H)
-box(s, 0, 4.6, W, 2.9, fill="020208")
-# soften band
-txt(s, 0.7, 5.0, 6.0, 0.3, "THANK YOU", size=10, bold=True, color=GOLD)
-txt(s, 0.7, 5.3, 11.9, 1.15, [[("Let’s make them ", {}), ("know it’s Baranga.", {"color": GOLD})]], size=38, font=HEAD_FONT, line_spacing=1.0)
-txt(s, 0.7, 6.55, 11.9, 0.3, "Spotify · Apple Music · YouTube · Shazam — search “Baranga”   |   @_baranga on IG / TikTok   |   #BarangaBadman", size=10, color=TEXT, bold=True)
-txt(s, 0.7, 6.95, 12.0, 0.5, "Credits & sources: Spotify · Apple Music · Shazam · YouTube · Musixmatch · Audiomack · NRG Radio UG · official releases (SALO, Badman, Party Riddim, CHAPTERS I NEVER WROTE). Deck artwork (portrait, covers, neon) is AI-generated concept art. 12 weeks · Dec 2026 → Feb 2027 · Kampala × Western Uganda.", size=6.5, color="B9B9D4", line_spacing=1.25)
-notes(s, "Leave the neon image up after you stop talking — it does the closing for you. If asked for the single most important thing: “Protect the Friday metrics review and the Sunday reply session — everything else is execution.” If asked about next steps beyond 12 weeks: 2027 single cycle, live showcase in Kampala + western Uganda, and a label/distribution conversation backed by this report. Thank the artist and management by name if they’re in the room.")
+pic(s, f"{ASSETS}/real/badman-cover.jpg", 5.07, 0.3, w=3.2, h=4.35)
+box(s, 0, 4.8, W, 2.7, fill="040410")
+txt(s, 0.7, 4.9, 6.0, 0.3, "THANK YOU", size=10, bold=True, color=GOLD)
+txt(s, 0.7, 5.22, 11.9, 0.9, [[("YOU KNOW IT’S ", {}), ("BARANGA.", {"color": GOLD})]], size=44, font=HEAD_FONT, line_spacing=1.0)
+txt(s, 0.7, 6.3, 11.9, 0.3, "12 weeks. Three phases. One fanbase.  From high-school notebook to the whole timeline.", size=11, color="D8D8EE")
+txt(s, 0.7, 6.68, 11.9, 0.3, "Spotify · Apple Music · YouTube · Audiomack — search “BARANGA”   |   @_baranga on IG / TikTok   |   #BarangaBadman", size=9, color=TEXT, bold=True)
+txt(s, 0.7, 7.0, 12.1, 0.45, "Sources: Spotify · Apple Music · Shazam · YouTube · Audiomack · Deezer · NRG Radio UG · official releases (SALO · Badman · Party Riddim · CHAPTERS I NEVER WROTE). Artwork shown is official release artwork of the respective rights holders.", size=6.2, color="8F8FB0", line_spacing=1.2)
+notes(s, "Let it land in silence. The one thing to remember: “Protect the Friday metrics review and the Sunday reply session — everything else is execution.” Beyond week 12: 2027 single cycle, Kampala + western Uganda showcase, label conversation backed by this report. Thank the artist and management by name.")
+
 
 prs.save(OUT)
 print("Saved", OUT, "with", len(prs.slides._sldIdLst), "slides")

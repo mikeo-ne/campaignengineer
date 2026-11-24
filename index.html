@@ -4,229 +4,202 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BARANGA — 12-Week Marketing &amp; Promotion Campaign</title>
-<meta name="description" content="12-week marketing and promotion campaign for Baranga, emerging Ugandan Afro-Pop / Rap artist. Facts sourced from Spotify, Apple Music, Shazam, YouTube and NRG Radio UG interviews." />
+<meta name="description" content="The 12-week marketing and promotion campaign for BARANGA, emerging Ugandan Afro-Pop / Rap artist — Badman era. Prepared by Campaign Engineer × the Baranga team." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎤</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Archivo+Black&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#07070f;
-  --bg-2:#0d0d1f;
-  --panel:#12122a;
-  --panel-2:#171733;
-  --line:rgba(255,255,255,.09);
-  --text:#f4f4fb;
-  --muted:#9a9ab8;
-  --cyan:#2fd6ff;
-  --blue:#3b82f6;
-  --gold:#f5c542;
-  --red:#ff3b3b;
-  --green:#34d399;
-  --magenta:#ff4fd8;
-  --ug-yellow:#fcd116;
-  --ug-red:#d90000;
-  --ug-black:#111;
+  --bg:#07070f; --bg-2:#0d0d1f;
+  --panel:#111126; --panel-2:#161631; --panel-3:#1b1b3a;
+  --line:rgba(255,255,255,.10); --line-soft:rgba(255,255,255,.06);
+  --text:#f5f5fc; --muted:#a2a2c0;
+  --cyan:#2fd6ff; --gold:#f5c542; --red:#ff3b3b; --green:#34d399; --magenta:#ff4fd8;
+  --ugy:#fcd116; --ugr:#d90000;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{
-  background:#020208;
-  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
-  color:var(--text);
-  overflow:hidden;
-}
-/* ============ DECK SHELL ============ */
+body{background:#020208;font-family:'Montserrat',system-ui,-apple-system,sans-serif;color:var(--text);overflow:hidden}
+
+/* ───────── deck chrome ───────── */
 #deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-.slide{
-  position:absolute;
-  width:min(100vw,177.78vh); /* 16:9 */
-  height:min(100vh,56.25vw);
-  background:radial-gradient(1200px 700px at 80% -10%, #191938 0%, transparent 60%),
-             radial-gradient(900px 600px at -10% 110%, #161630 0%, transparent 55%),
-             var(--bg);
-  overflow:hidden;
-  display:none;
-  flex-direction:column;
-  padding:3.2% 4%;
-}
-.slide.active{display:flex;animation:slideIn .45s cubic-bezier(.2,.9,.25,1)}
-@keyframes slideIn{from{opacity:0;transform:translateX(48px) scale(.985)}to{opacity:1;transform:none}}
-/* header kicker */
-.kicker{
-  display:flex;align-items:center;gap:.6rem;
-  font-size:clamp(8px,.85vw,12px);font-weight:800;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--cyan);
-}
-.kicker .dot{width:.55em;height:.55em;border-radius:50%;background:var(--cyan);box-shadow:0 0 .8em var(--cyan)}
-h1,h2{font-family:'Archivo Black','Montserrat',sans-serif;letter-spacing:.01em}
-.slide h2{
-  font-size:clamp(22px,3.4vw,46px);font-weight:900;line-height:1.05;
-  margin:.35em 0 .5em;text-transform:uppercase;
-}
-.slide h2 .accent{color:var(--gold)}
-.slide h2 .cyan{color:var(--cyan)}
-.lede{color:var(--muted);font-size:clamp(10px,1.05vw,15px);max-width:60ch}
-/* footer strip */
-.foot{
-  position:absolute;left:4%;right:4%;bottom:2.6%;
-  display:flex;justify-content:space-between;align-items:center;
-  border-top:1px solid var(--line);padding-top:.9%;
-  font-size:clamp(7px,.72vw,10px);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
-}
-.foot b{color:var(--gold);font-weight:800}
-.foot .ug-dots{display:inline-flex;gap:3px;vertical-align:middle;margin:0 .45em}
-.foot .ug-dots i{width:.62em;height:.62em;border-radius:50%;display:inline-block}
-.foot .ug-dots i:nth-child(1){background:#111;border:1px solid #444}
-.foot .ug-dots i:nth-child(2){background:var(--ug-yellow)}
-.foot .ug-dots i:nth-child(3){background:var(--ug-red)}
-/* content helpers */
-.grid{display:grid;gap:1.1%;flex:1;min-height:0}
-.panel{
-  background:linear-gradient(160deg,var(--panel-2),var(--panel));
-  border:1px solid var(--line);border-radius:14px;padding:1.1em 1.25em;
-  position:relative;overflow:hidden;
-}
-.panel::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.55}
-.chip{display:inline-flex;align-items:center;gap:.4em;border:1px solid var(--line);
-  background:rgba(255,255,255,.04);border-radius:999px;padding:.32em .85em;
-  font-size:clamp(8px,.78vw,11px);font-weight:700;letter-spacing:.06em;color:#dcdcf0}
-.chip.gold{border-color:rgba(245,197,66,.45);color:var(--gold)}
-.chip.cyan{border-color:rgba(47,214,255,.4);color:var(--cyan)}
-.chip.red{border-color:rgba(255,59,59,.45);color:#ff8a8a}
-.chip.green{border-color:rgba(52,211,153,.4);color:var(--green)}
-.tag-label{font-size:clamp(7px,.68vw,9px);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:800}
-img.cover{border-radius:12px;border:1px solid var(--line);object-fit:cover;box-shadow:0 18px 50px rgba(0,0,0,.6)}
-.small{font-size:clamp(8px,.8vw,11px);color:var(--muted);line-height:1.45}
-strong.hl{color:var(--gold)}
-.neon-text{text-shadow:0 0 18px rgba(47,214,255,.65),0 0 42px rgba(47,214,255,.3)}
-.gold-glow{text-shadow:0 0 18px rgba(245,197,66,.6),0 0 42px rgba(245,197,66,.28)}
-/* progress + chrome */
-#progress{position:fixed;top:0;left:0;height:3px;width:0%;
+.slide{position:absolute;width:min(100vw,177.78vh);height:min(100vh,56.25vw);
+  background:radial-gradient(1100px 650px at 85% -10%,#171738 0%,transparent 60%),
+             radial-gradient(800px 550px at -8% 112%,#151531 0%,transparent 55%),var(--bg);
+  overflow:hidden;display:none;flex-direction:column;padding:2.9% 3.8%}
+.slide.active{display:flex;animation:in .4s cubic-bezier(.2,.9,.25,1)}
+@keyframes in{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+#progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:40;
   background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--gold));
-  box-shadow:0 0 12px rgba(47,214,255,.7);transition:width .35s ease;z-index:40}
-#hud{position:fixed;right:14px;bottom:12px;z-index:40;display:flex;align-items:center;gap:8px;
-  font-size:11px;color:#cfcfE6;letter-spacing:.14em}
+  box-shadow:0 0 14px rgba(47,214,255,.6);transition:width .35s ease}
+#hud{position:fixed;right:14px;bottom:10px;z-index:40;display:flex;align-items:center;gap:8px;
+  opacity:.35;transition:opacity .25s}
+#hud:hover{opacity:1}
 #hud button{cursor:pointer;background:rgba(13,13,31,.85);border:1px solid var(--line);color:var(--text);
-  border-radius:8px;width:34px;height:34px;font-size:16px;transition:.2s;backdrop-filter:blur(6px)}
-#hud button:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 12px rgba(47,214,255,.35)}
-#counter{min-width:64px;text-align:center;font-weight:800;color:var(--muted)}
-#notesBtn.on{border-color:var(--gold);color:var(--gold)}
-/* speaker notes drawer */
-#notes{position:fixed;left:0;right:0;bottom:0;z-index:50;max-height:38vh;overflow:auto;
-  background:rgba(4,4,12,.96);border-top:2px solid var(--gold);padding:14px 22px 18px;
-  transform:translateY(105%);transition:transform .3s ease;backdrop-filter:blur(8px)}
+  border-radius:8px;width:32px;height:32px;font-size:15px;backdrop-filter:blur(6px)}
+#hud button:hover{border-color:var(--cyan);color:var(--cyan)}
+#hud button.on{border-color:var(--gold);color:var(--gold)}
+#counter{min-width:56px;text-align:center;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--muted)}
+#notes{position:fixed;left:0;right:0;bottom:0;z-index:50;max-height:34vh;overflow:auto;
+  background:rgba(4,4,12,.96);border-top:2px solid var(--gold);padding:12px 20px 16px;
+  transform:translateY(105%);transition:transform .3s ease}
 #notes.show{transform:none}
-#notes h4{color:var(--gold);font-size:11px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:6px}
-#notes p{font-size:13px;line-height:1.6;color:#e8e8f5;max-width:110ch}
-/* ============ SLIDE 1 — TITLE ============ */
-#s1{padding:0;flex-direction:row}
-#s1 .art{width:52%;position:relative;overflow:hidden}
-#s1 .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
-#s1 .art::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(7,7,15,0) 40%,#07070f 100%),
-             linear-gradient(0deg,#07070f 2%,transparent 35%)}
-#s1 .body{width:48%;display:flex;flex-direction:column;justify-content:center;padding:6% 7% 8% 1%}
-#s1 .pre{font-size:clamp(8px,.82vw,11px);letter-spacing:.4em;color:var(--cyan);font-weight:800;text-transform:uppercase}
-#s1 h1{font-size:clamp(56px,8.6vw,124px);line-height:.95;font-weight:400;margin:.12em 0 .08em;
-  background:linear-gradient(180deg,#fff 30%,#ffd76a 55%,#2fd6ff 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 26px rgba(47,214,255,.35))}
-#s1 .tag{font-size:clamp(10px,1.15vw,16px);color:var(--text);font-weight:700;letter-spacing:.08em;margin-bottom:.9em}
-#s1 .tag em{color:var(--gold);font-style:normal;border-left:3px solid var(--ug-red);padding-left:.6em}
-#s1 .meta{display:flex;flex-direction:column;gap:.5em;margin-top:1.2em}
-#s1 .meta div{font-size:clamp(9px,.9vw,13px);color:var(--muted)}
-#s1 .meta b{color:var(--text);font-weight:600}
-.platforms{display:flex;gap:.55em;margin-top:1.4em}
-.platforms span{width:2em;height:2em;border-radius:.5em;display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--line);background:rgba(255,255,255,.05)}
-.ai-note{margin-top:1.6em;font-size:clamp(6px,.62vw,9px);color:#5c5c78;letter-spacing:.04em}
-/* ============ SLIDE 2 — AGENDA ============ */
-.agenda-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:2.5%;flex:1;min-height:0}
-.agenda-list{display:flex;flex-direction:column;gap:.42em;justify-content:center}
-.agenda-item{display:flex;align-items:center;gap:1em;padding:.42em .9em;border-radius:12px;
-  border:1px solid transparent;transition:.25s;background:rgba(255,255,255,.025)}
-.agenda-item:hover{border-color:var(--line);background:rgba(255,255,255,.05);transform:translateX(8px)}
-.agenda-item .num{font-family:'Archivo Black';font-size:clamp(14px,1.6vw,22px);color:transparent;
-  -webkit-text-stroke:1.2px var(--cyan);min-width:1.6em}
-.agenda-item .txt b{display:block;font-size:clamp(11px,1.02vw,15px);font-weight:800;letter-spacing:.02em}
-.agenda-item .txt span{font-size:clamp(8px,.78vw,11px);color:var(--muted)}
-.collage{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-.collage img{position:absolute;border-radius:10px;border:1px solid rgba(255,255,255,.15);box-shadow:0 10px 30px rgba(0,0,0,.55)}
-/* ============ TABLES ============ */
-table{width:100%;border-collapse:collapse;font-size:clamp(8px,.78vw,11px)}
-th{text-align:left;letter-spacing:.14em;text-transform:uppercase;font-size:.82em;color:var(--cyan);
-  padding:.55em .6em;border-bottom:2px solid rgba(47,214,255,.3)}
-td{padding:.5em .6em;border-bottom:1px solid var(--line);vertical-align:top;color:#d9d9ec}
-tr:hover td{background:rgba(255,255,255,.03)}
-/* stat cards */
-.stat{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.2em;
-  background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:.8em}
-.stat b{font-family:'Archivo Black';font-size:clamp(18px,2.1vw,30px);color:var(--gold)}
-.stat span{font-size:clamp(7px,.7vw,10px);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-/* objective cards */
-.obj{display:flex;flex-direction:column;gap:.35em;padding:1em 1.1em;border-radius:14px;background:var(--panel);
-  border:1px solid var(--line);border-left:3px solid var(--cyan)}
-.obj:nth-child(2){border-left-color:var(--gold)} .obj:nth-child(3){border-left-color:var(--magenta)}
-.obj:nth-child(4){border-left-color:var(--green)} .obj:nth-child(5){border-left-color:var(--red)}
-.obj:nth-child(6){border-left-color:var(--ug-yellow)}
-.obj b{font-size:clamp(10px,.95vw,14px)}
-.obj span{font-size:clamp(8px,.75vw,11px);color:var(--muted);line-height:1.4}
-.obj .n{font-family:'Archivo Black';font-size:clamp(16px,1.8vw,26px);color:rgba(255,255,255,.18)}
-/* bullets */
-ul.tick{list-style:none;display:flex;flex-direction:column;gap:.45em}
-ul.tick li{position:relative;padding-left:1.5em;font-size:clamp(9px,.88vw,13px);line-height:1.45;color:#e2e2f2}
-ul.tick li::before{content:"▸";position:absolute;left:.2em;color:var(--gold)}
-/* calendar cards */
-.week{display:flex;flex-direction:column;gap:.3em;background:var(--panel);border:1px solid var(--line);
-  border-radius:12px;padding:.75em .85em}
-.week .wk{display:flex;align-items:center;justify-content:space-between}
-.week .wk b{font-family:'Archivo Black';font-size:clamp(10px,.95vw,13px);color:var(--cyan);letter-spacing:.08em}
-.week ul{list-style:none;display:flex;flex-direction:column;gap:.28em}
-.week li{font-size:clamp(7.5px,.72vw,10.5px);line-height:1.35;color:#d5d5e8;padding-left:1.05em;position:relative}
-.week li::before{content:"•";position:absolute;left:0;color:var(--magenta)}
-.hook{font-size:clamp(7px,.68vw,9.5px);color:var(--gold);border-top:1px dashed rgba(245,197,66,.35);padding-top:.4em;line-height:1.4}
-/* timeline */
-.phase{flex:1;display:flex;flex-direction:column;gap:.6em;padding:1.1em 1.2em;border-radius:16px;border:1px solid var(--line)}
-.phase.p1{background:linear-gradient(165deg,#14263b,#101530);border-color:rgba(47,214,255,.35)}
-.phase.p2{background:linear-gradient(165deg,#2b1430,#181030);border-color:rgba(255,79,216,.35)}
-.phase.p3{background:linear-gradient(165deg,#2c2410,#1a1408);border-color:rgba(245,197,66,.4)}
-.phase h3{font-size:clamp(10px,1vw,15px);letter-spacing:.12em;text-transform:uppercase}
-.phase .wkrange{font-family:'Archivo Black';font-size:clamp(14px,1.5vw,22px)}
-.p1 .wkrange{color:var(--cyan)} .p2 .wkrange{color:var(--magenta)} .p3 .wkrange{color:var(--gold)}
-/* swot */
-.swot{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1%;flex:1}
-.swot .cell{border-radius:14px;padding:.9em 1.1em;border:1px solid var(--line)}
-.swot h4{letter-spacing:.2em;text-transform:uppercase;font-size:clamp(9px,.85vw,12px);margin-bottom:.45em}
-.s-s{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.4)} .s-s h4{color:var(--green)}
-.s-w{background:rgba(255,59,59,.07);border-color:rgba(255,59,59,.35)} .s-w h4{color:#ff8a8a}
-.s-o{background:rgba(47,214,255,.07);border-color:rgba(47,214,255,.35)} .s-o h4{color:var(--cyan)}
-.s-t{background:rgba(245,197,66,.07);border-color:rgba(245,197,66,.35)} .s-t h4{color:var(--gold)}
-.swot ul{list-style:none;display:flex;flex-direction:column;gap:.28em}
-.swot li{font-size:clamp(7.5px,.72vw,10.5px);line-height:1.35;color:#dcdcec;padding-left:1em;position:relative}
-.swot li::before{content:"–";position:absolute;left:0;color:var(--muted)}
-/* swatches */
-.swatch{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-.swatch .fill{height:64px}
-.swatch .meta{padding:.45em .7em;background:var(--panel-2)}
-.swatch .meta b{font-size:clamp(8px,.75vw,11px)} .swatch .meta span{display:block;font-size:clamp(6px,.62vw,9px);color:var(--muted)}
-/* checklist */
-.check{display:flex;align-items:center;gap:.9em;padding:.55em .8em;border-radius:12px;background:var(--panel);
-  border:1px solid var(--line);font-size:clamp(9px,.9vw,13px)}
-.check .box{width:1.35em;height:1.35em;border-radius:.32em;border:2px solid var(--cyan);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;color:var(--cyan);font-weight:900}
-/* utility */
-.row{display:flex;gap:1.5%}
-.col{display:flex;flex-direction:column;gap:.6em;min-height:0}
+#notes h4{color:var(--gold);font-size:10px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:6px}
+#notes p{font-size:12.5px;line-height:1.55;color:#e8e8f5;max-width:120ch}
+
+/* ───────── shared primitives ───────── */
+.kick{display:flex;align-items:center;gap:.6rem;font-size:clamp(8px,.8vw,11px);font-weight:800;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--cyan)}
+.kick::after{content:"";flex:0 0 2.4em;height:2px;background:var(--cyan);opacity:.7}
+h1,h2{font-family:'Archivo Black','Montserrat',sans-serif;font-weight:400}
+.slide h2{font-size:clamp(24px,3.35vw,44px);line-height:1.04;letter-spacing:.005em;
+  text-transform:uppercase;margin:.3em 0 .45em}
+.accent{color:var(--gold)} .cyan{color:var(--cyan)} .mag{color:var(--magenta)}
+.lede{color:var(--muted);font-size:clamp(10px,1vw,14.5px);line-height:1.5;max-width:78ch}
+.foot{position:absolute;left:3.8%;right:3.8%;bottom:2.3%;display:flex;justify-content:space-between;
+  align-items:center;border-top:1px solid var(--line-soft);padding-top:.8%;
+  font-size:clamp(7px,.68vw,9.5px);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.foot b{color:var(--gold)}
+.ug{display:inline-flex;gap:3px;margin:0 .4em;vertical-align:middle}
+.ug i{width:.62em;height:.62em;border-radius:50%;display:inline-block}
+.ug i:nth-child(1){background:#111;border:1px solid #555}.ug i:nth-child(2){background:var(--ugy)}.ug i:nth-child(3){background:var(--ugr)}
+.grid{display:grid;gap:1.2%;flex:1;min-height:0}
+.row{display:flex;gap:1.4%}
+.col{display:flex;flex-direction:column;gap:.65em;min-height:0}
 .fill{flex:1;min-height:0}
 .center{align-items:center;justify-content:center;text-align:center}
-.bar-chart rect{transition:all .3s}
-/* ============ PRINT ============ */
+.panel{background:linear-gradient(165deg,var(--panel-2),var(--panel));border:1px solid var(--line-soft);
+  border-radius:14px;padding:1em 1.2em;position:relative;overflow:hidden}
+.panel .bar{position:absolute;top:0;left:0;bottom:0;width:3px}
+.tag{font-size:clamp(7px,.66vw,9.5px);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.chip{display:inline-flex;align-items:center;gap:.4em;border:1px solid var(--line);
+  background:rgba(255,255,255,.04);border-radius:999px;padding:.34em .9em;
+  font-size:clamp(8px,.76vw,11px);font-weight:700;letter-spacing:.05em;color:#dcdcf0;white-space:nowrap}
+.chip.gold{border-color:rgba(245,197,66,.5);color:var(--gold)}
+.chip.cyan{border-color:rgba(47,214,255,.45);color:var(--cyan)}
+.chip.green{border-color:rgba(52,211,153,.45);color:var(--green)}
+.chip.red{border-color:rgba(255,59,59,.45);color:#ff8a8a}
+.small{font-size:clamp(8px,.74vw,10.5px);color:var(--muted);line-height:1.45}
+.art{border-radius:12px;border:1px solid rgba(255,255,255,.14);object-fit:cover;box-shadow:0 14px 44px rgba(0,0,0,.6)}
+.cov{border-radius:10px;border:1px solid rgba(255,255,255,.16);object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,.55)}
+ul.tick{list-style:none;display:flex;flex-direction:column;gap:.5em}
+ul.tick li{position:relative;padding-left:1.45em;font-size:clamp(9px,.86vw,12.5px);line-height:1.45;color:#e3e3f2}
+ul.tick li::before{content:"▸";position:absolute;left:.15em;color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:clamp(8px,.76vw,11px)}
+th{text-align:left;letter-spacing:.16em;text-transform:uppercase;font-size:.8em;color:var(--cyan);
+  padding:.5em .55em;border-bottom:2px solid rgba(47,214,255,.3)}
+td{padding:.46em .55em;border-bottom:1px solid var(--line-soft);vertical-align:top;color:#dbdbec}
+tr:last-child td{border-bottom:none}
+.stat{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.15em;
+  background:var(--panel-2);border:1px solid var(--line-soft);border-radius:12px;padding:.7em .4em}
+.stat b{font-family:'Archivo Black';font-size:clamp(17px,1.95vw,28px);color:var(--gold);letter-spacing:.02em}
+.stat span{font-size:clamp(6.5px,.66vw,9.5px);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* ───────── S1 hero ───────── */
+#s1{padding:0;flex-direction:row;background:#07070f}
+#s1 .photo{width:47%;position:relative;overflow:hidden}
+#s1 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%}
+#s1 .photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 52%,#07070f 99%),linear-gradient(0deg,#07070f 4%,transparent 42%)}
+#s1 .badge{position:absolute;left:2.1%;bottom:9%;z-index:3;display:flex;align-items:center;gap:.7em;
+  background:rgba(7,7,15,.72);border:1px solid rgba(47,214,255,.4);backdrop-filter:blur(8px);
+  border-radius:12px;padding:.55em .8em}
+#s1 .badge img{width:52px;height:52px;object-fit:cover;border-radius:8px}
+#s1 .badge div b{font-size:12px;letter-spacing:.05em;display:block}
+#s1 .badge div span{font-size:9px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+#s1 .body{width:53%;display:flex;flex-direction:column;justify-content:center;padding:4% 5.5% 4% 3.5%}
+#s1 .pre{font-size:clamp(8px,.78vw,11px);letter-spacing:.42em;color:var(--cyan);font-weight:800;text-transform:uppercase}
+#s1 h1{font-size:clamp(64px,9.2vw,132px);line-height:.94;margin:.14em 0 .1em;
+  background:linear-gradient(180deg,#ffffff 28%,#ffd76a 58%,#2fd6ff 105%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 30px rgba(47,214,255,.3))}
+#s1 .sub{font-size:clamp(10px,1.05vw,15px);color:var(--text);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+#s1 .quote{font-family:'Archivo Black';font-size:clamp(13px,1.4vw,19px);color:var(--gold);margin:.75em 0 1.05em;
+  border-left:4px solid var(--ugr);padding-left:.6em;letter-spacing:.02em}
+#s1 .meta{display:flex;flex-direction:column;gap:.42em;border-top:1px solid var(--line);padding-top:1em}
+#s1 .meta div{font-size:clamp(8.5px,.86vw,12px);color:var(--muted)}
+#s1 .meta b{color:var(--text);font-weight:600}
+
+/* ───────── agenda ───────── */
+.agenda-wrap{display:grid;grid-template-columns:1.28fr .72fr;gap:2.4%;flex:1;min-height:0}
+.agenda-list{display:flex;flex-direction:column;justify-content:center;gap:.35em}
+.a-item{display:flex;align-items:center;gap:1em;padding:.4em .85em;border-radius:11px;transition:.25s;
+  border:1px solid transparent}
+.a-item:hover{border-color:var(--line);background:rgba(255,255,255,.035);transform:translateX(8px)}
+.a-item .n{font-family:'Archivo Black';font-size:clamp(14px,1.55vw,21px);color:transparent;
+  -webkit-text-stroke:1.1px var(--cyan);min-width:1.55em}
+.a-item .t b{display:block;font-size:clamp(10.5px,1vw,14.5px);font-weight:800}
+.a-item .t span{font-size:clamp(7.5px,.74vw,10.5px);color:var(--muted)}
+.collage{display:grid;grid-template-rows:1fr auto;gap:.65em;min-height:0}
+.collage .frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.collage .frame img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
+.collage .caps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5em}
+
+/* covers grid (S4) */
+.covers{display:grid;grid-template-columns:1fr 1fr;gap:.75em}
+.covers figure{display:flex;flex-direction:column;gap:.35em;min-height:0}
+.covers figcaption{font-size:clamp(7px,.68vw,9.5px);color:var(--muted);letter-spacing:.06em}
+.covers figcaption b{color:var(--text)}
+
+/* calendar week cards */
+.week{display:flex;flex-direction:column;gap:.32em;background:var(--panel);border:1px solid var(--line-soft);
+  border-radius:12px;padding:.68em .8em}
+.week .wk{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line-soft);padding-bottom:.32em}
+.week .wk b{font-family:'Archivo Black';font-size:clamp(9px,.9vw,12px);color:var(--cyan);letter-spacing:.06em}
+.week .wk span{font-size:clamp(6px,.6vw,8px);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.week ul{list-style:none;display:flex;flex-direction:column;gap:.26em}
+.week li{font-size:clamp(7px,.68vw,9.5px);line-height:1.35;color:#d5d5e8;padding-left:.95em;position:relative}
+.week li b{color:#fff}
+.week li::before{content:"•";position:absolute;left:0;color:var(--magenta)}
+.hook{margin-top:auto;font-size:clamp(6.5px,.63vw,8.5px);color:var(--gold);
+  border-top:1px dashed rgba(245,197,66,.4);padding-top:.4em;line-height:1.4;font-style:italic}
+
+/* timeline phases */
+.phase{flex:1;display:flex;flex-direction:column;gap:.55em;padding:1.05em 1.15em;border-radius:16px;border:1px solid var(--line-soft)}
+.p1{background:linear-gradient(165deg,#122740,#0f1526);border-color:rgba(47,214,255,.35)}
+.p2{background:linear-gradient(165deg,#2a1232,#170f28);border-color:rgba(255,79,216,.35)}
+.p3{background:linear-gradient(165deg,#2b230e,#191307);border-color:rgba(245,197,66,.4)}
+.phase h3{font-size:clamp(9px,.9vw,13px);letter-spacing:.16em;text-transform:uppercase}
+.phase .rng{font-family:'Archivo Black';font-size:clamp(15px,1.65vw,23px)}
+.p1 .rng{color:var(--cyan)} .p2 .rng{color:var(--magenta)} .p3 .rng{color:var(--gold)}
+.phase ul{list-style:none;display:flex;flex-direction:column;gap:.32em}
+.phase li{font-size:clamp(7.5px,.72vw,10px);line-height:1.4;color:#dcdcec;padding-left:1.1em;position:relative}
+.phase li::before{content:"▸";position:absolute;left:0;color:inherit;opacity:.75}
+.goal{margin-top:auto;align-self:flex-start;font-size:clamp(7px,.66vw,9px);letter-spacing:.18em;
+  text-transform:uppercase;font-weight:800;border:1px solid;border-radius:999px;padding:.38em 1.1em}
+.p1 .goal{color:var(--cyan);border-color:rgba(47,214,255,.5)}
+.p2 .goal{color:var(--magenta);border-color:rgba(255,79,216,.5)}
+.p3 .goal{color:var(--gold);border-color:rgba(245,197,66,.5)}
+
+/* swot */
+.swot{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:1.1%;flex:1}
+.cell{border-radius:14px;padding:.8em 1em;background:var(--panel);border:1px solid var(--line-soft)}
+.cell.s{border-left:3px solid var(--green)} .cell.w{border-left:3px solid var(--red)}
+.cell.o{border-left:3px solid var(--cyan)} .cell.t{border-left:3px solid var(--gold)}
+.cell h4{letter-spacing:.22em;text-transform:uppercase;font-size:clamp(8px,.78vw,11px);margin-bottom:.4em}
+.cell.s h4{color:var(--green)} .cell.w h4{color:#ff8a8a} .cell.o h4{color:var(--cyan)} .cell.t h4{color:var(--gold)}
+.cell ul{list-style:none;display:flex;flex-direction:column;gap:.26em}
+.cell li{font-size:clamp(7px,.68vw,9.5px);line-height:1.35;color:#dcdcec;padding-left:1em;position:relative}
+.cell li::before{content:"–";position:absolute;left:0;color:var(--muted)}
+
+/* swatches */
+.swatch{border-radius:10px;overflow:hidden;border:1px solid var(--line-soft)}
+.swatch .fill2{height:52px}
+.swatch figcaption{padding:.4em .6em;background:var(--panel-2)}
+.swatch b{display:block;font-size:clamp(7px,.7vw,10px)}
+.swatch span{font-size:clamp(6px,.58vw,8.5px);color:var(--muted)}
+
+/* checklist */
+.check{display:flex;align-items:center;gap:.85em;padding:.5em .75em;border-radius:12px;
+  background:var(--panel);border:1px solid var(--line-soft);font-size:clamp(9px,.88vw,13px);line-height:1.35}
+.check .box{width:1.3em;height:1.3em;border-radius:.3em;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--cyan);color:var(--cyan);font-weight:900;font-size:.8em}
+
 @page{size:1280px 720px;margin:0}
 @media print{
   body{overflow:visible;background:#fff}
-  #deck{position:static;display:block}
+  #deck{position:static}
   .slide{position:relative;display:flex !important;page-break-after:always;transform:none !important;
     width:1280px;height:720px;animation:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   #hud,#progress,#notes{display:none !important}
@@ -234,803 +207,612 @@ ul.tick li::before{content:"▸";position:absolute;left:.2em;color:var(--gold)}
 </style>
 </head>
 <body>
-
 <div id="progress"></div>
 <div id="deck">
-
-<!-- ═══════════ SLIDE 1 — TITLE ═══════════ -->
+<!-- 1 · TITLE -->
 <section class="slide" id="s1" data-title="Title">
-  <div class="art"><img src="assets/portrait-hero.jpg" alt="Stylized portrait of Baranga (AI-generated concept art)" /></div>
+  <div class="photo">
+    <img src="assets/real/badman-session.jpg" alt="BARANGA in the studio during the Badman era" />
+    <div class="badge">
+      <img src="assets/real/badman-cover.jpg" alt="Badman — official single cover" />
+      <div><b>BADMAN</b><span>feat. STANDO &amp; Andrinah</span></div>
+    </div>
+  </div>
   <div class="body">
     <div class="pre">12-Week Marketing &amp; Promotion Campaign</div>
     <h1>BARANGA</h1>
-    <div class="tag">Emerging Ugandan Afro-Pop / Rap · Hip-Hop Trap<br /><em>“You know it’s Baranga”</em></div>
+    <div class="sub">Emerging Ugandan Afro-Pop / Rap · Hip-Hop Trap</div>
+    <div class="quote">“You know it’s Baranga.”</div>
     <div class="meta">
-      <div><b>Presented by:</b> Campaign Engineer Studio × Baranga Team</div>
-      <div><b>Date:</b> November 2026 · Kampala, Uganda</div>
-      <div><b>Album cycle:</b> CHAPTERS I NEVER WROTE (8 May 2026)</div>
+      <div><b>Presented by</b> — Campaign Engineer × Baranga Team · November 2026</div>
+      <div><b>The cycle</b> — Badman (3 May 2025) → CHAPTERS I NEVER WROTE (8 May 2026)</div>
+      <div><b>The window</b> — Week 1 launch · December 2026 · Kampala × Western Uganda</div>
+      <div><b>Official art</b> — Badman · Party Riddim · CHAPTERS I NEVER WROTE · @_baranga</div>
     </div>
-    <div class="platforms" aria-hidden="true">
-      <span title="Spotify"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.56-1.16a.748.748 0 0 1-.33-1.46c4.56-1.04 8.5-.59 11.67 1.34.35.22.46.68.25 1.03zm1.44-3.2a.94.94 0 0 1-1.29.31c-3.23-1.99-8.16-2.57-11.98-1.41a.94.94 0 1 1-.54-1.8c4.36-1.32 9.8-.68 13.5 1.6.44.27.58.86.31 1.3zm.12-3.33C15.24 8.4 8.9 8.19 5.22 9.3a1.12 1.12 0 1 1-.66-2.15C8.86 5.87 15.9 6.1 20.9 9.07a1.12 1.12 0 0 1-2.28.74z"/></svg></span>
-      <span title="Apple Music"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FA243C"><path d="M23.99 6.42a.86.86 0 0 0-.4-.7A10.6 10.6 0 0 0 20.5 4a.87.87 0 0 0-1 .38.87.87 0 0 0 .2 1.1 12.6 12.6 0 0 1 2.5 1.78.9.9 0 0 0 1.1.2.86.86 0 0 0 .69-1.04zM12.9 2.1C7.6 2.1 3.1 5.4 1.5 10.3c-1.1 3.4-.2 6.9 2.2 9.3 2 2 4.7 3 7.5 2.9a9.5 9.5 0 0 0 6.4-2.9 9.3 9.3 0 0 0 2.9-6.7c.1-4.4-3-8.1-7.6-11.8zm-1.2 11.3a3.6 3.6 0 0 1-4.9 1.5 3.6 3.6 0 0 1-1.7-4.3 3.6 3.6 0 0 1 4.7-2.6 3.6 3.6 0 0 1 1.9 5.4z"/></svg></span>
-      <span title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 4 12 4 12 4s-7.5 0-9.4.4A3 3 0 0 0 .5 6.5 32 32 0 0 0 .1 12a32 32 0 0 0 .4 5.5 3 3 0 0 0 2.1 2.1c1.9.4 9.4.4 9.4.4s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1A32 32 0 0 0 23.9 12a32 32 0 0 0-.4-5.5zM9.6 15.6V8.4L15.8 12z"/></svg></span>
-      <span title="Shazam"><svg width="18" height="18" viewBox="0 0 24 24" fill="#00D7FF"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 20.4a8.4 8.4 0 1 1 8.4-8.4A8.4 8.4 0 0 1 12 20.4zm3.6-5.1a1.2 1.2 0 1 1-1.7-1 5.3 5.3 0 0 0 0-7.4 5.2 5.2 0 0 0-7.6.2 1.2 1.2 0 1 1 1.9 1.5 3 3 0 0 1 4.3-.1 2.9 2.9 0 0 1 0 4.3 1.2 1.2 0 0 1-.5 1.5z"/></svg></span>
-      <span title="Instagram / TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="#E1306C"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 3.7a6.1 6.1 0 1 0 6.1 6.1A6.1 6.1 0 0 0 12 5.9zm0 10a3.9 3.9 0 1 1 3.9-3.9A3.9 3.9 0 0 1 12 15.9zm6.4-10.5a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4z"/></svg></span>
-    </div>
-    <div class="ai-note">Portrait &amp; cover art in this deck are AI-generated concept visuals, not official photography. Facts: Spotify · Apple Music · Shazam · YouTube · NRG Radio UG.</div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — 12-Week Campaign<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>01 / 18</span></div>
-  <div class="notes">Open with energy, not biography. One line: “This is Baranga — a Munyoro kid from western Uganda whose debut single SALO was written in high school, and whose single Badman is now everywhere on East African Gen Z feeds. In the next 12 weeks we turn that spark into a sustainable artist engine.” The deck is designed dark/neon on purpose — it reads like a music campaign, not a corporate review. Ground rules: every fact shown is from public sources (Spotify, Apple Music, Shazam, YouTube, NRG Radio UG); every number marked “~” is an approximate figure to be re-verified in Spotify for Artists before launch. Hold questions until slide 16 (metrics) — people always ask about the numbers there.</div>
+  <div class="foot"><span><b>BARANGA</b> — 12-Week Campaign<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>01 / 18</span></div>
+  <div class="notes">Open high energy: “This is Baranga — a Munyoro artist from western Uganda who wrote his debut in high school, broke out with Badman in May 2025, and lands CHAPTERS I NEVER WROTE on 8 May 2026. This deck is the next 12 weeks of his life: how we take him from streaming proof to a permanent fixture on the East African sound.” Official covers throughout; numbers are Spotify/YouTube public figures as of November 2026.</div>
 </section>
 
-<!-- ═══════════ SLIDE 2 — AGENDA ═══════════ -->
+<!-- 2 · AGENDA -->
 <section class="slide" id="s2" data-title="Agenda">
-  <div class="kicker"><span class="dot"></span>Agenda</div>
-  <h2>What we’ll <span class="cyan">cover</span></h2>
+  <div class="kick">Agenda</div>
+  <h2>Where we’re <span class="cyan">going</span> today</h2>
   <div class="agenda-wrap">
     <div class="agenda-list">
-      <div class="agenda-item"><div class="num">01</div><div class="txt"><b>Who is the Artist</b><span>Origin, name meaning &amp; current momentum</span></div></div>
-      <div class="agenda-item"><div class="num">02</div><div class="txt"><b>Campaign Objectives</b><span>SMART goals across awareness, streams &amp; fan growth</span></div></div>
-      <div class="agenda-item"><div class="num">03</div><div class="txt"><b>Audience Profile</b><span>Ugandan / East African Gen Z, 16–25</span></div></div>
-      <div class="agenda-item"><div class="num">04</div><div class="txt"><b>Brand Archetypes</b><span>Outlaw × Everyman × Jester</span></div></div>
-      <div class="agenda-item"><div class="num">05</div><div class="txt"><b>Competition Analysis</b><span>Peers, veterans &amp; Baranga’s edge</span></div></div>
-      <div class="agenda-item"><div class="num">06</div><div class="txt"><b>Positioning &amp; Strategy</b><span>The statement, pillars &amp; hashtags</span></div></div>
-      <div class="agenda-item"><div class="num">07</div><div class="txt"><b>Visual Identity</b><span>Colors, type, imagery, do’s &amp; don’ts</span></div></div>
-      <div class="agenda-item"><div class="num">08</div><div class="txt"><b>12-Week Timeline &amp; Calendar</b><span>Phases, weekly rhythm &amp; daily themes</span></div></div>
-      <div class="agenda-item"><div class="num">09</div><div class="txt"><b>Success Metrics &amp; Next Steps</b><span>KPIs, tooling &amp; launch checklist</span></div></div>
+      <div class="a-item"><div class="n">01</div><div class="t"><b>Who is BARANGA</b><span>Origin story, name meaning, where he is right now</span></div></div>
+      <div class="a-item"><div class="n">02</div><div class="t"><b>Campaign objectives</b><span>SMART targets across awareness, streams, community</span></div></div>
+      <div class="a-item"><div class="n">03</div><div class="t"><b>Audience</b><span>Ugandan &amp; East African Gen Z, 16–25</span></div></div>
+      <div class="a-item"><div class="n">04</div><div class="t"><b>Brand archetypes</b><span>Outlaw × Everyman × Jester — the Badman mix</span></div></div>
+      <div class="a-item"><div class="n">05</div><div class="t"><b>Competition</b><span>The lane BARANGA owns — and how he wins it</span></div></div>
+      <div class="a-item"><div class="n">06</div><div class="t"><b>Positioning &amp; strategy</b><span>The one-liner, the six pillars, the hashtags</span></div></div>
+      <div class="a-item"><div class="n">07</div><div class="t"><b>Visual identity</b><span>Dark, neon, unmistakably East African</span></div></div>
+      <div class="a-item"><div class="n">08</div><div class="t"><b>12-week timeline &amp; calendar</b><span>Three phases, weekly rhythm, week-by-week themes</span></div></div>
+      <div class="a-item"><div class="n">09</div><div class="t"><b>Metrics &amp; launch</b><span>KPIs, tracking, and the Week 1 runway</span></div></div>
     </div>
-    <div class="collage" style="background:var(--panel-2)">
-      <img src="assets/cover-badman.jpg" alt="Badman single concept cover" style="width:62%;top:5%;left:6%;z-index:3" />
-      <img src="assets/cover-chapters.jpg" alt="CHAPTERS I NEVER WROTE album concept cover" style="width:44%;bottom:26%;right:6%;z-index:4" />
-      <img src="assets/landscape-western-uganda.jpg" alt="Western Uganda landscape concept" style="width:70%;bottom:4%;left:6%;z-index:2" />
+    <div class="collage">
+      <div class="frame"><img src="assets/real/badman-session.jpg" alt="BARANGA recording Badman in the studio" /></div>
+      <div class="caps">
+        <img class="art" src="assets/real/badman-cover.jpg" alt="Badman single cover" style="width:100%;aspect-ratio:.62" />
+        <img class="art" src="assets/real/chapters-teaser.jpg" alt="CHAPTERS I NEVER WROTE official teaser art" style="width:100%;aspect-ratio:1" />
+        <img class="art" src="assets/real/chapters-cover.jpg" alt="CHAPTERS I NEVER WROTE — official album art" style="width:100%;aspect-ratio:1" />
+      </div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Agenda<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>02 / 18</span></div>
-  <div class="notes">Run this slide in under 40 seconds — it’s a map, not a story. Flag the two slides people should watch closely: 8 (positioning) and 12–15 (the calendar) — that’s where strategy becomes execution. Mention that every “Visual Suggestion” from the planning doc is now baked into the design of the deck itself, so this room is seeing the moodboard, not just reading about it.</div>
+  <div class="foot"><span><b>BARANGA</b> — Agenda<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>02 / 18</span></div>
+  <div class="notes">40-second roadmap. Point at slides 11–15 and say: “This is the machine — everything else is why it matters.” Official artwork throughout: no moodboards here, this is the real record.</div>
 </section>
 
-<!-- ═══════════ SLIDE 3 — WHO IS THE ARTIST 1/2 ═══════════ -->
-<section class="slide" id="s3" data-title="Who is the Artist (1/2)">
-  <div class="kicker"><span class="dot"></span>Who is the Artist · 1 of 2</div>
-  <h2>From <span class="accent">western Uganda</span><br />to the whole timeline</h2>
+<!-- 3 · WHO IS THE ARTIST 1/2 -->
+<section class="slide" id="s3" data-title="Who is BARANGA">
+  <div class="kick">Who is BARANGA · 1 of 2</div>
+  <h2>From <span class="accent">western Uganda</span><br />to <span class="cyan">every feed</span></h2>
   <div class="row fill">
-    <div class="col" style="flex:1.15">
+    <div class="col fill" style="flex:1.18;justify-content:center">
       <ul class="tick">
-        <li><strong class="hl">Baranga</strong> — Baranga Ferdinand, professionally <b>BARANGA</b> (Ferdinand Baranga). Dynamic Ugandan <b>Afro-pop</b> &amp; <b>rap / hip-hop trap</b> artist.</li>
-        <li>Career began <b>2023</b>. Debut single <strong class="hl">“SALO”</strong> (24 Aug 2024) — written and released while still in <b>high school</b>.</li>
-        <li>SALO is his first song built on a <b>true personal story</b> — widely understood to be about an affair; it established the “real stories, real chapters” identity.</li>
-        <li>From <b>western Uganda</b>; <b>Munyoro</b> heritage — self-described “Motorola by tribe” energy: tough, loud, proud.</li>
-        <li>The name <strong class="hl">“Baranga”</strong> fuses his <b>hometown</b> with the idea of <b>“spreading the good news”</b> — i.e. spreading good music.</li>
-        <li>Inspired by an <b>uncle already in the music industry</b> — music was the family business long before streaming.</li>
+        <li><b>Baranga Ferdinand</b> — professionally <b>BARANGA</b>. Ugandan <b>Afro-pop</b> &amp; <b>rap / hip-hop trap</b> artist, signed to <b>5844655 Records DK</b>.</li>
+        <li>Career began <b>2023</b>. Debut single <b>“SALO”</b> (24 Aug 2024) — written and released while he was still in <b>high school</b>.</li>
+        <li>SALO is his first song built on a <b>true personal story</b> — the affair it chronicles is the foundation of his “real chapters” identity.</li>
+        <li>From <b>western Uganda</b>; <b>Munyoro</b> heritage — “Motorola by tribe”: tough, loud, proud.</li>
+        <li>The name <b>“Baranga”</b> fuses his <b>hometown</b> with <b>“spreading the good news”</b> — spreading good music.</li>
+        <li>Inspired by <b>his uncle</b>, already working in the industry — music was family business long before streaming.</li>
       </ul>
-      <div class="row" style="gap:.6em;flex-wrap:wrap;margin-top:.2em">
+      <div class="row" style="gap:.5em;flex-wrap:wrap;margin-top:.2em">
         <span class="chip cyan">Munyoro pride</span>
         <span class="chip gold">High-school origin story</span>
         <span class="chip">Western Uganda → Kampala</span>
         <span class="chip green">“Spreading the good news”</span>
       </div>
-      <div class="panel" style="margin-top:.2em;border-left:3px solid var(--gold)">
-        <div class="tag-label">Signature line</div>
-        <div style="font-family:'Archivo Black';font-size:clamp(14px,1.6vw,22px);margin-top:.2em" class="gold-glow">“You know it’s Baranga.”</div>
-      </div>
     </div>
-    <div class="col" style="flex:.85">
-      <img class="cover fill" src="assets/landscape-western-uganda.jpg" alt="Stylized western Uganda landscape (Ruwenzori) concept art" style="min-height:0" />
-      <div class="small" style="text-align:center">Western Uganda — Ruwenzori foothills &amp; the lakes. Baranga’s roots: <b>Munyoro country</b>, now exporting sound to Kampala &amp; beyond.</div>
+    <div class="col" style="flex:.82;justify-content:center;align-items:center;gap:.6em">
+      <img class="art" src="assets/real/badman-cover.jpg" alt="Badman — official single cover (keffiyeh emblem)" style="height:78%;aspect-ratio:.56;object-fit:cover" />
+      <div class="small" style="text-align:center"><b style="color:var(--text)">Official Badman artwork</b><br />5844655 Records DK · 3 May 2025</div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Who is the Artist<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>03 / 18</span></div>
-  <div class="notes">Tell the SALO story slowly — it’s the single most persuasive thing in the room. A teenager writes a song about a real affair, self-releases it, and it breaks through. That’s why the positioning leans on authenticity rather than polish. Note the dual meaning of the name and repeat it: hometown + “spreading the good news.” If asked about the uncle, keep it warm and brief — “music was in the family long before the streams were.” Avoid overclaiming listener numbers here; that lives on slide 4.</div>
+  <div class="foot"><span><b>BARANGA</b> — Who is the Artist<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>03 / 18</span></div>
+  <div class="notes">Tell the SALO story slowly. A teenager writes a song about a real affair, self-releases it, and it breaks. That’s why positioning leans on authenticity over polish. Repeat the name’s dual meaning out loud. Warm, brief on the uncle: “Music was in his family long before it was on streaming.”</div>
 </section>
 
-<!-- ═══════════ SLIDE 4 — WHO IS THE ARTIST 2/2 ═══════════ -->
-<section class="slide" id="s4" data-title="Who is the Artist (2/2)">
-  <div class="kicker"><span class="dot"></span>Who is the Artist · 2 of 2</div>
-  <h2>The <span class="cyan">catalogue</span> &amp; current status</h2>
+<!-- 4 · WHO IS THE ARTIST 2/2 -->
+<section class="slide" id="s4" data-title="The Catalogue">
+  <div class="kick">Who is BARANGA · 2 of 2</div>
+  <h2>The <span class="cyan">catalogue</span> &amp; <span class="accent">momentum</span></h2>
   <div class="row fill">
-    <div class="col" style="flex:.9">
-      <img class="cover" src="assets/cover-badman.jpg" alt="Badman — concept single cover" style="flex:1.2;min-height:0;width:100%" />
-      <div class="row" style="gap:4%">
-        <div class="stat" style="flex:1"><b>~4,042</b><span>Spotify monthly listeners*</span></div>
-        <div class="stat" style="flex:1"><b>311K+</b><span>“Badman” streams*</span></div>
-        <div class="stat" style="flex:1"><b>~68K</b><span>YouTube — Badman visualizer*</span></div>
-      </div>
-      <div class="small">*Approximate public figures at time of research (late 2026). Re-verify in Spotify for Artists / YouTube Studio before launch; never quote in paid media without refreshing.</div>
+    <div class="covers" style="flex:.92;align-content:center">
+      <figure><img class="art" src="assets/real/badman-cover.jpg" alt="Badman — official single cover" style="width:100%;aspect-ratio:.78;object-position:center 18%" /><figcaption><b>Badman</b> · 3 May 2025</figcaption></figure>
+      <figure><img class="art" src="assets/real/chapters-teaser.jpg" alt="CHAPTERS I NEVER WROTE — official teaser" style="width:100%;aspect-ratio:1" /><figcaption><b>CHAPTERS I NEVER WROTE</b> · teaser</figcaption></figure>
+      <figure><img class="art" src="assets/real/chapters-cover.jpg" alt="CHAPTERS I NEVER WROTE — official album art" style="width:100%;aspect-ratio:1" /><figcaption><b>CHAPTERS I NEVER WROTE</b> · album</figcaption></figure>
+      <figure><img class="art" src="assets/real/party-riddim-cover.jpg" alt="Party Riddim — official single art" style="width:100%;aspect-ratio:1" /><figcaption><b>Party Riddim</b> · Ace Kaawa × BARANGA</figcaption></figure>
     </div>
-    <div class="col" style="flex:1.1">
-      <div class="panel" style="padding-bottom:.7em">
-        <div class="tag-label">Key releases</div>
+    <div class="col" style="flex:1.08">
+      <div class="row" style="gap:.55em">
+        <div class="stat" style="flex:1"><b>~4,042</b><span>Spotify monthly listeners</span></div>
+        <div class="stat" style="flex:1"><b>311K+</b><span>“Badman” streams</span></div>
+        <div class="stat" style="flex:1"><b>~68K</b><span>YouTube · Badman visualizer</span></div>
+      </div>
+      <div class="panel fill">
+        <div class="tag" style="color:var(--cyan)">Key releases</div>
         <table style="margin-top:.4em">
           <thead><tr><th>Release</th><th>Year</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td><b>SALO</b></td><td>2024</td><td>Debut single · 24 Aug 2024 · written in high school · true story</td></tr>
-            <tr><td><b>Badman</b> (feat. STANDO &amp; Andrinah)</td><td>2025</td><td><b>Biggest hit</b> — released 3 May 2025 · 5844655 Records DK · Gen Z chokehold · strong Shazam</td></tr>
-            <tr><td><b>Party Riddim</b></td><td>2025</td><td>Feat. Ace Kaawa · dance/party record</td></tr>
-            <tr><td><b>Do you?</b> · <b>Confirm</b></td><td>2025</td><td>Singles building the trap/Afro-pop lane</td></tr>
-            <tr><td><b>CHAPTERS I NEVER WROTE</b></td><td>2026</td><td>7-track debut album · <b>8 May 2026</b></td></tr>
+            <tr><td><b>SALO</b></td><td>2024</td><td>Debut · 24 Aug 2024 · written in high school</td></tr>
+            <tr><td><b>Badman</b> (feat. STANDO &amp; Andrinah)</td><td>2025</td><td><b>The hit</b> · 3 May 2025 · 5844655 Records DK</td></tr>
+            <tr><td><b>Party Riddim</b> (Ace Kaawa &amp; BARANGA)</td><td>2025</td><td>Dance record · Aug 2025</td></tr>
+            <tr><td><b>Do you?</b> · <b>Confirm</b> (feat. Smokie Cee)</td><td>2025</td><td>The trap/Afro-pop singles run</td></tr>
+            <tr><td><b>CHAPTERS I NEVER WROTE</b></td><td>2026</td><td>7-track album · <b>8 May 2026</b></td></tr>
           </tbody>
         </table>
       </div>
-      <div class="panel">
-        <div class="tag-label">Album tracklist — CHAPTERS I NEVER WROTE</div>
-        <div class="row" style="flex-wrap:wrap;gap:.45em;margin-top:.5em">
-          <span class="chip cyan">01 PARADISE (TUNGI)</span>
-          <span class="chip">02 WAGWUAN (MR FALLBACK &amp; MELLAN KUNTA)</span>
-          <span class="chip gold">03 KAMPALA (DEEJAY KLVN)</span>
-          <span class="chip">04 LOST CAUSE (KRAVYNZ &amp; KING AVO)</span>
-          <span class="chip">05 BREATHE (MR FALLBACK)</span>
-          <span class="chip red">06 JAGERMEISTER (KING AVO)</span>
-          <span class="chip magenta" style="border-color:rgba(255,79,216,.4);color:var(--magenta)">07 FREAKY</span>
+      <div class="panel" style="padding:.7em 1em">
+        <div class="tag" style="color:var(--gold)">CHAPTERS — tracklist</div>
+        <div class="row" style="flex-wrap:wrap;gap:.4em;margin-top:.4em">
+          <span class="chip cyan">01 PARADISE · TUNGI</span>
+          <span class="chip">02 WAGWUAN · MR FALLBACK &amp; MELLAN KUNTA</span>
+          <span class="chip gold">03 KAMPALA · DEEJAY KLVN</span>
+          <span class="chip">04 LOST CAUSE · KRAVYNZ &amp; KING AVO</span>
+          <span class="chip">05 BREATHE · MR FALLBACK</span>
+          <span class="chip red">06 JAGERMEISTER · KING AVO</span>
+          <span class="chip mag" style="border-color:rgba(255,79,216,.45);color:var(--magenta)">07 FREAKY</span>
         </div>
       </div>
-      <div class="row" style="gap:.6em;flex-wrap:wrap">
-        <span class="chip green">@_baranga across platforms</span>
-        <span class="chip">YouTube visualizers</span>
-        <span class="chip">Peer collabs: STANDO · Andrinah · Ace Kaawa · King Avo · TUNGI</span>
-      </div>
+      <div class="small">Figures: Spotify · YouTube · Shazam, November 2026. Island Kiss (Smokie Cee, feat. BARANGA, Aug 2026) extends the feature run.</div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Music &amp; Momentum<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>04 / 18</span></div>
-  <div class="notes">Land three proof points, in this order: (1) Badman — a 2025 record already out-streaming expectations and Shazam-ing organically; (2) the album — CHAPTERS I NEVER WROTE dropped 8 May 2026 with seven chapters and star features, so this campaign rides an album cycle, not a one-off single; (3) velocity — roughly 4k monthly listeners today means headroom, not saturation. If someone challenges the 311K figure, concede gracefully: “public counters move; treat it as order-of-magnitude, and we refresh all numbers in week 0.” Close the loop: this is an artist mid-breakout, and the next 12 weeks decide whether the spike flattens or compounds.</div>
+  <div class="foot"><span><b>BARANGA</b> — The Catalogue<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>04 / 18</span></div>
+  <div class="notes">Three beats: Badman (the hit that proved demand), the album (seven chapters of content runway), velocity (~4K listeners = headroom, not saturation). If challenged on the numbers: “Public counters move; order-of-magnitude is what matters, and Week 0 re-baselines everything.”</div>
 </section>
 
-<!-- ═══════════ SLIDE 5 — OBJECTIVES ═══════════ -->
-<section class="slide" id="s5" data-title="Campaign Objectives">
-  <div class="kicker"><span class="dot"></span>Campaign Objectives</div>
+<!-- 5 · OBJECTIVES -->
+<section class="slide" id="s5" data-title="Objectives">
+  <div class="kick">Campaign Objectives</div>
   <h2>From <span class="accent">spark</span> to <span class="cyan">system</span></h2>
-  <div class="lede">Overall goal: build sustainable momentum for BARANGA as the authentic Gen Z “Badman” voice over 12 weeks — measured, not vibes.</div>
-  <div class="grid" style="grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;margin-top:1.2%">
-    <div class="obj"><div class="n">01</div><b>Awareness ×2–3</b><span>Grow monthly listeners &amp; video views 2–3× baseline by Week 12; Badman + 1 album deep cut trending on UG TikTok/Reels.</span></div>
-    <div class="obj"><div class="n">02</div><b>Streams +50–100%</b><span>Lift Spotify streams &amp; saves 50–100%+ over the 12-week window; album tracks compounding week-over-week.</span></div>
-    <div class="obj"><div class="n">03</div><b>Audience +10–15K</b><span>Add 10–15K combined engaged followers (IG/TikTok/YouTube) with 5K+ joining email/WhatsApp community.</span></div>
-    <div class="obj"><div class="n">04</div><b>UGC Engine</b><span>Seed ≥500 user videos using #BarangaBadman; 3 recurring challenge formats; 20+ creator duets/stitches.</span></div>
-    <div class="obj"><div class="n">05</div><b>Industry Openings</b><span>3+ playlist adds (editorial/independent UG &amp; East Africa), 2+ radio interviews, 1 live performance or showcase booked.</span></div>
-    <div class="obj"><div class="n">06</div><b>Long-Term Engine</b><span>Repeatable content system + release calendar for 2027 singles; management/label-ready campaign report.</span></div>
+  <div class="lede">One goal: sustainable momentum for BARANGA as the authentic Gen Z “Badman” voice — every target numbered, dated and owned.</div>
+  <div class="grid" style="grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;margin-top:1%">
+    <div class="panel"><div class="bar" style="background:var(--cyan)"></div><div class="tag" style="color:var(--cyan)">01 · Awareness</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">2–3× reach</b><span class="small">Monthly listeners &amp; video views double-to-triple by Week 12; Badman plus one album deep cut trending on UG short-form.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--gold)"></div><div class="tag" style="color:var(--gold)">02 · Streams</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">+50–100%</b><span class="small">Spotify streams and saves up 50–100%+ over the window; album tracks compounding week-over-week.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--magenta)"></div><div class="tag" style="color:var(--magenta)">03 · Audience</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">+10–15K fans</b><span class="small">Combined IG / TikTok / YouTube growth, plus 5,000 in the WhatsApp community — an audience he owns.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--green)"></div><div class="tag" style="color:var(--green)">04 · UGC Engine</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">500+ fan videos</b><span class="small">#BarangaBadman across TikTok/Reels; three recurring challenge formats; 20+ creator duets and stitches.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--red)"></div><div class="tag" style="color:#ff8a8a">05 · Industry</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">3 playlists · 2 interviews · 1 show</b><span class="small">≥3 playlist adds (incl. one UG editorial), ≥2 radio/interview slots, ≥1 live showcase booked in Kampala or western Uganda.</span></div>
+    <div class="panel"><div class="bar" style="background:var(--ugy)"></div><div class="tag" style="color:var(--ugy)">06 · Long game</div><b style="font-size:clamp(13px,1.2vw,17px);display:block;margin:.3em 0">A system, not a spike</b><span class="small">Repeatable content engine + 2027 release calendar + label-ready campaign report.</span></div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Objectives<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>05 / 18</span></div>
-  <div class="notes">Frame every objective as SMART on the whiteboard: each has a number, a deadline (end of Week 12) and a source of truth. Stress sequencing — awareness feeds streams, streams feed follows, follows feed UGC, UGC feeds industry leverage. If the room only remembers one line: “We are not buying fame; we are compounding a fanbase that already exists.” Objectives 05 and 06 are the ones management cares about most — playlist adds and a booked showcase are the tangible wins that unlock the next conversation about touring or distribution.</div>
+  <div class="foot"><span><b>BARANGA</b> — Objectives<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>05 / 18</span></div>
+  <div class="notes">Each number has a source of truth and a Week 12 deadline. Sequencing: awareness → streams → follows → UGC → industry leverage. The line to land: “We are not buying fame; we are compounding a fanbase that already exists.” 05 and 06 are the management-relevant wins.</div>
 </section>
 
-<!-- ═══════════ SLIDE 6 — AUDIENCE ═══════════ -->
-<section class="slide" id="s6" data-title="Audience Profile">
-  <div class="kicker"><span class="dot"></span>Audience Profile</div>
-  <h2>Gen Z, <span class="accent">Kampala-first</span>,<br />East-Africa-ready</h2>
+<!-- 6 · AUDIENCE -->
+<section class="slide" id="s6" data-title="Audience">
+  <div class="kick">Audience Profile</div>
+  <h2>Gen Z, <span class="accent">Kampala-first</span>,<br /><span class="cyan">East Africa ready</span></h2>
   <div class="row fill">
-    <div class="col" style="flex:1.05">
-      <div class="row" style="flex:1">
-        <div class="panel fill" style="border-top:3px solid var(--green)">
-          <div class="tag-label" style="color:var(--green)">✓ What they want</div>
-          <ul class="tick" style="margin-top:.5em">
-            <li>Authentic, unpolished voices — not industry robots</li>
-            <li>Party records they can dance to at 2AM in Kabalagala</li>
-            <li>Local flavor: Luganda/Runyoro inflections, Kampala slang</li>
-            <li>Relatable origin stories they can quote and share</li>
-            <li>Sound they can claim as “ours” before the world catches on</li>
-          </ul>
-        </div>
-        <div class="panel fill" style="border-top:3px solid var(--red)">
-          <div class="tag-label" style="color:#ff8a8a">✕ What’s missing</div>
-          <ul class="tick" style="margin-top:.5em">
-            <li>Young artists polished by majors, disconnected from street</li>
-            <li>Generic “Afrobeats” clones with no Ugandan fingerprint</li>
-            <li>No recurring Baranga-style fan ritual or challenge culture</li>
-            <li>Few emerging acts with both streaming numbers <i>and</i> a story</li>
-            <li>East-African faces rare in global trap/Afro-pop playlists</li>
-          </ul>
-        </div>
-        <div class="panel fill" style="border-top:3px solid var(--gold)">
-          <div class="tag-label" style="color:var(--gold)">⇄ How Baranga fills it</div>
-          <ul class="tick" style="margin-top:.5em">
-            <li>High-school-to-Badman story = instant quote-tweet bait</li>
-            <li>True-story songwriting (SALO) builds parasocial trust</li>
-            <li>Badman energy + melodic hooks = TikTok-ready moments</li>
-            <li>Munyoro roots + Kampala hustle = two audiences, one artist</li>
-            <li>Visual, meme-able identity: “You know it’s Baranga”</li>
-          </ul>
-        </div>
+    <div class="col" style="flex:1.12">
+      <div class="row fill">
+        <div class="panel fill"><div class="bar" style="background:var(--green)"></div><div class="tag" style="color:var(--green)">✓ What they want</div>
+          <ul class="tick" style="margin-top:.45em"><li>Authentic voices — not industry robots</li><li>Party records for 2AM in Kabalagala</li><li>Luganda/Runyoro inflections, Kampala slang, local flavor</li><li>Origin stories they can quote and share</li><li>A sound they can claim as <i>ours</i> before the world catches on</li></ul></div>
+        <div class="panel fill"><div class="bar" style="background:var(--red)"></div><div class="tag" style="color:#ff8a8a">✕ What’s missing</div>
+          <ul class="tick" style="margin-top:.45em"><li>Label-polished acts disconnected from the street</li><li>Generic Afrobeats clones with no Ugandan fingerprint</li><li>No recurring challenge culture or fan ritual</li><li>Few emerging acts with both streams <i>and</i> a story</li><li>East-African faces rare on global trap/Afro-pop playlists</li></ul></div>
+        <div class="panel fill"><div class="bar" style="background:var(--gold)"></div><div class="tag" style="color:var(--gold)">⇄ BARANGA fills it</div>
+          <ul class="tick" style="margin-top:.45em"><li>High-school-to-Badman origin — instantly quotable</li><li>True-story songwriting builds parasocial trust</li><li>Badman energy + melodic hooks = TikTok-ready</li><li>Munyoro roots + Kampala hustle: two audiences, one artist</li><li>A meme-able identity — “You know it’s Baranga”</li></ul></div>
       </div>
-      <div class="row" style="gap:.5em;flex-wrap:wrap">
+      <div class="row" style="gap:.45em;flex-wrap:wrap">
         <span class="chip cyan">16–25 primary</span>
         <span class="chip">Urban Kampala + western UG spillover</span>
-        <span class="chip">TikTok · Reels · YouTube Shorts</span>
-        <span class="chip">Spotify + Audiomack streaming</span>
-        <span class="chip gold">Secondary: 25–34 nostalgic Afro-pop fans</span>
+        <span class="chip">TikTok · Reels · Shorts</span>
+        <span class="chip">Spotify + Audiomack</span>
+        <span class="chip gold">Also traveling: 25–34 Afro-pop listeners</span>
       </div>
     </div>
-    <img class="cover" src="assets/moodboard-genz.jpg" alt="Gen Z Kampala nightlife moodboard — concept art" style="flex:.78;min-height:0" />
+    <img class="art" src="assets/real/badman-session.jpg" alt="BARANGA recording in the Badman era — the culture watching" style="flex:.88;min-height:0;object-position:58% center;object-fit:cover" />
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Audience<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>06 / 18</span></div>
-  <div class="notes">Open the three columns left to right and pause on the middle one — “what’s missing.” That gap is the campaign’s reason to exist; Baranga is the bridge, not just another artist. If the room pushes back that the audience is “just TikTok kids,” widen the frame: primary is 16–25 heavy social, but the SALO true-story angle travels to 25–34 too. Close with the moodboard image: “This is the energy we’re pouring media into.”</div>
+  <div class="foot"><span><b>BARANGA</b> — Audience<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>06 / 18</span></div>
+  <div class="notes">Pause on the middle column — that gap is why this campaign exists. Widen the frame if challenged on “just TikTok kids”: the SALO angle travels to 25–34 too. The studio still is the audience’s POV: leaning in, phones up, watching BARANGA cook.</div>
 </section>
 
-<!-- ═══════════ SLIDE 7 — ARCHETYPES ═══════════ -->
+<!-- 7 · ARCHETYPES -->
 <section class="slide" id="s7" data-title="Brand Archetypes">
-  <div class="kicker"><span class="dot"></span>Brand Archetypes</div>
-  <h2>Outlaw <span class="cyan">×</span> Everyman <span class="cyan">×</span> Jester</h2>
-  <div class="row fill center" style="gap:2%">
-    <div class="panel" style="flex:1;border-top:3px solid var(--red);height:88%">
-      <div class="tag-label" style="color:#ff8a8a">Primary · Outlaw / Rebel</div>
-      <div style="font-size:clamp(30px,4vw,54px);margin:.15em 0">🕶️</div>
-      <b style="font-size:clamp(12px,1.15vw,17px)">“The Badman”</b>
-      <p class="small" style="margin-top:.4em">Rules are suggestions. The walk, the snarl, the “Ayagala badman…” hook. Swagger without apology — the archetype behind the Badman single and its cover codes: smoke, neon, leather, red/blue.</p>
-      <div class="row" style="flex-wrap:wrap;gap:.4em;margin-top:.6em"><span class="chip red">Confidence</span><span class="chip red">Defiance</span><span class="chip red">Independence</span></div>
+  <div class="kick">Brand Archetypes</div>
+  <h2>Outlaw <span class="mag">×</span> Everyman <span class="mag">×</span> Jester</h2>
+  <div class="row fill" style="align-items:stretch">
+    <div class="panel fill"><div class="bar" style="background:var(--red)"></div>
+      <div class="tag" style="color:#ff8a8a">Primary · Outlaw / Rebel</div>
+      <b style="font-size:clamp(15px,1.5vw,22px);display:block;margin:.4em 0 .1em;font-family:'Archivo Black'">THE BADMAN</b>
+      <p class="small" style="font-size:clamp(8px,.8vw,11.5px)">Rules are suggestions. The walk, the snarl, the hook — “Ayagala badman, Ayagala intensive care.” Swagger without apology: smoke, neon, leather, red/blue. The archetype <i>is</i> the record.</p>
+      <div class="row" style="gap:.4em;flex-wrap:wrap;margin-top:.6em"><span class="chip red">Confidence</span><span class="chip red">Defiance</span><span class="chip red">Independence</span></div>
     </div>
-    <div class="col center" style="flex:.8">
-      <img class="cover" src="assets/portrait-hero.jpg" alt="Baranga stylized portrait (AI concept art)" style="width:100%;aspect-ratio:3/4;object-position:center 15%" />
-      <div class="small" style="text-align:center">The intersection: <b>raw confidence</b>, <b>real story</b>, <b>party frequency</b>.</div>
+    <div class="col center" style="flex:.72;justify-content:center;gap:.7em">
+      <img class="art" src="assets/real/badman-cover.jpg" alt="Badman — official single cover" style="width:min(64%,220px);aspect-ratio:1;object-fit:cover;border-radius:50%;border:3px solid rgba(47,214,255,.5);box-shadow:0 0 60px rgba(47,214,255,.35)" />
+      <div class="small" style="text-align:center;max-width:26ch"><b style="color:var(--text)">The Badman code</b><br />Click on the cover. Stay for the story.</div>
     </div>
-    <div class="col" style="flex:1;height:88%;gap:4%">
-      <div class="panel fill" style="border-top:3px solid var(--blue)">
-        <div class="tag-label" style="color:var(--cyan)">Secondary · Everyman</div>
-        <div style="font-size:clamp(26px,3.2vw,42px);margin:.1em 0">🤝</div>
-        <b style="font-size:clamp(11px,1vw,15px)">“The High-School Kid Who Made It”</b>
-        <p class="small" style="margin-top:.35em">Relatable roots, family in the industry, wrote his breakout in a classroom. Fans feel like they grew up with him — trust before fame.</p>
+    <div class="col fill" style="gap:.65em">
+      <div class="panel fill"><div class="bar" style="background:var(--cyan)"></div>
+        <div class="tag" style="color:var(--cyan)">Secondary · Everyman</div>
+        <b style="font-size:clamp(12px,1.15vw,17px);display:block;margin:.3em 0">The high-school kid who made it</b>
+        <p class="small">Family in the industry, breakout written in class — fans grew up with him. Trust before fame; the relatable root system under the flex.</p>
       </div>
-      <div class="panel fill" style="border-top:3px solid var(--ug-yellow)">
-        <div class="tag-label" style="color:var(--ug-yellow)">Tertiary · Jester / Lover</div>
-        <div style="font-size:clamp(26px,3.2vw,42px);margin:.1em 0">🎉</div>
-        <b style="font-size:clamp(11px,1vw,15px)">“The Party Frequency”</b>
-        <p class="small" style="margin-top:.35em">Party Riddim, melodic hooks, romance records — the Jester’s humor and the Lover’s pull keep the catalogue re-listenable beyond the snarl.</p>
+      <div class="panel fill"><div class="bar" style="background:var(--ugy)"></div>
+        <div class="tag" style="color:var(--ugy)">Tertiary · Jester / Lover</div>
+        <b style="font-size:clamp(12px,1.15vw,17px);display:block;margin:.3em 0">The party frequency</b>
+        <p class="small">Party Riddim, melodic hooks, romance records — humor and pull that keep the catalogue re-listenable long after the snarl fades.</p>
       </div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Archetypes<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>07 / 18</span></div>
-  <div class="notes">Use the center portrait as the pivot point: “Outlaw gets the click, Everyman gets the save, Jester gets the replay.” Kill the idea that Baranga is only ‘the angry badman’ — the mix is what makes the persona sustainable for 12 weeks of content without audience fatigue. Ask the room: which archetype does the next single lead with? That answer determines the Week 9+ content ratio.</div>
+  <div class="foot"><span><b>BARANGA</b> — Archetypes<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>07 / 18</span></div>
+  <div class="notes">Center is the pivot: “Outlaw gets the click, Everyman gets the save, Jester gets the replay.” Kill the one-note ‘angry badman’ read — the mix is what carries 12 weeks without fatigue. Ask the room: which archetype leads the next single?</div>
 </section>
 
-<!-- ═══════════ SLIDE 8 — COMPETITION ═══════════ -->
-<section class="slide" id="s8" data-title="Competition Analysis">
-  <div class="kicker"><span class="dot"></span>Competition Analysis</div>
-  <h2>Where Baranga <span class="accent">wins</span></h2>
+<!-- 8 · COMPETITION -->
+<section class="slide" id="s8" data-title="Competition">
+  <div class="kick">Competition Analysis</div>
+  <h2>The lane <span class="accent">nobody else</span> owns</h2>
   <div class="row fill">
-    <div class="swot" style="flex:1.15">
-      <div class="cell s-s"><h4>Strengths</h4>
-        <ul>
-          <li>True-story songwriting (SALO) — instant narrative credibility</li>
-          <li>Badman: real traction (311K+ streams*, Shazam momentum, Gen Z pull)</li>
-          <li>High-school origin = fresh, quotable, underexposed angle in UG hip-hop</li>
-          <li>Peer collab web: STANDO, Andrinah, Ace Kaawa, King Avo, MR FALLBACK, TUNGI, DEEJAY KLVN, KRAVYNZ</li>
-          <li>Hungry, available, visually distinct (streetwear + neon)</li>
-        </ul>
-      </div>
-      <div class="cell s-w"><h4>Weaknesses</h4>
-        <ul>
-          <li>Small baseline audience (~4K monthly listeners*) — thin paid-media efficiency today</li>
-          <li>Low content volume / inconsistent posting cadence</li>
-          <li>No owned community asset (channel/list) yet</li>
-          <li>Limited live &amp; TV/radio footprint vs. veterans</li>
-          <li>Single-hit risk if Badman momentum isn’t converted</li>
-        </ul>
-      </div>
-      <div class="cell s-o"><h4>Opportunities</h4>
-        <ul>
-          <li>Album cycle (CHAPTERS I NEVER WROTE) gives 7 tracks of content runway</li>
-          <li>Afro-trap + Afro-pop gap for authentic young UG voices on global playlists</li>
-          <li>Short-form video is underpriced for UG artists; first-mover on Badman challenge</li>
-          <li>NRG Radio UG &amp; UG blogs actively cover emerging artists</li>
-          <li>Diaspora UG communities (London, Toronto, Dubai) as streaming multipliers</li>
-        </ul>
-      </div>
-      <div class="cell s-t"><h4>Threats</h4>
-        <ul>
-          <li>Established acts (e.g., label-backed urban acts) dominate playlists &amp; shows</li>
-          <li>Viral fatigue — Badman may not chart again without reinvention</li>
-          <li>Copycat challenges from better-resourced artists</li>
-          <li>Weak monetization turns momentum into burnout</li>
-          <li>Platform algorithm shifts (TikTok/IG reach volatility)</li>
-        </ul>
-      </div>
+    <div class="swot" style="flex:1.28">
+      <div class="cell s"><h4>Strengths</h4>
+        <ul><li>True-story songwriting (SALO) — instant narrative credibility</li><li>Badman: 311K+ streams, organic Shazam traction, Gen Z pull</li><li>High-school origin — an underexposed angle in UG hip-hop</li><li>Peer collab web: STANDO · Andrinah · Ace Kaawa · King Avo · MR FALLBACK · TUNGI</li><li>Available, hungry, visually distinct</li></ul></div>
+      <div class="cell w"><h4>Weaknesses</h4>
+        <ul><li>Small baseline (~4K monthly listeners) — paid efficiency is earned, not bought</li><li>Inconsistent posting cadence to date</li><li>No owned channel yet — WhatsApp community fixes this</li><li>Limited live &amp; radio footprint vs. veterans</li><li>Single-hit risk if Badman momentum isn’t converted</li></ul></div>
+      <div class="cell o"><h4>Opportunities</h4>
+        <ul><li>CHAPTERS = 7 tracks of content runway, all dated &amp; credited</li><li>Afro-trap + Afro-pop gap for authentic young UG voices</li><li>Short-form video underpriced in Uganda — first-mover window</li><li>NRG Radio UG &amp; UG blogs actively champion emerging artists</li><li>Diaspora multipliers: London, Toronto, Dubai</li></ul></div>
+      <div class="cell t"><h4>Threats</h4>
+        <ul><li>Label-backed urban acts dominate playlists &amp; billing</li><li>Viral fatigue — reinvention required after Badman</li><li>Better-resourced copycat challenges</li><li>Weak monetization → artist burnout</li><li>Algorithm reach volatility across TikTok / IG</li></ul></div>
     </div>
-    <div class="col" style="flex:.85">
+    <div class="col" style="flex:.72">
       <div class="panel fill">
-        <div class="tag-label">Peer set (sound &amp; lane)</div>
-        <div class="row" style="flex-wrap:wrap;gap:.4em;margin:.5em 0">
-          <span class="chip cyan">Ace Kaawa</span>
-          <span class="chip cyan">STANDO</span>
-          <span class="chip cyan">Andrinah</span>
-          <span class="chip">King Avo</span>
-          <span class="chip">MR FALLBACK</span>
-          <span class="chip">TUNGI</span>
-          <span class="chip">MELLAN KUNTA</span>
-          <span class="chip">DEEJAY KLVN</span>
+        <div class="tag" style="color:var(--cyan)">The peer set</div>
+        <p class="small" style="margin:.35em 0 .5em">Collaborators become co-marketers — the network <i>is</i> the distribution:</p>
+        <div class="row" style="flex-wrap:wrap;gap:.4em">
+          <span class="chip cyan">STANDO</span><span class="chip cyan">Andrinah</span><span class="chip cyan">Ace Kaawa</span><span class="chip">King Avo</span><span class="chip">MR FALLBACK</span><span class="chip">TUNGI</span><span class="chip">MELLAN KUNTA</span><span class="chip">DEEJAY KLVN</span><span class="chip">KRAVYNZ</span><span class="chip">Smokie Cee</span>
         </div>
-        <div class="tag-label" style="margin-top:.3em">Established reference points</div>
-        <p class="small" style="margin:.35em 0 .6em">Label-backed UG urban/Afro-pop acts set the ceiling on playlists and billing. Baranga doesn’t outspend them — he <b>out-stories</b> and <b>out-posts</b> them.</p>
-        <div class="tag-label">Baranga’s differentiation</div>
-        <ul class="tick" style="margin-top:.4em">
-          <li><b>Authenticity over polish</b> — the story IS the marketing</li>
-          <li><b>Speed</b> — weekly shipping cadence vs. quarterly veteran cycles</li>
-          <li><b>Origin story</b> — high-school true-story lane nobody else owns</li>
-          <li><b>Peer network</b> — collabs as distribution, not decoration</li>
-        </ul>
+        <div class="tag" style="margin-top:.7em;color:var(--gold)">How BARANGA wins</div>
+        <ul class="tick" style="margin-top:.4em;gap:.42em"><li><b>Authenticity over polish</b> — the story is the marketing</li><li><b>Speed</b> — weekly shipping cadence vs. quarterly cycles</li><li><b>Origin story</b> — nobody else owns the classroom-to-Badman arc</li><li><b>Collabs as distribution</b> — every feature is a cross-post channel</li></ul>
       </div>
-      <div class="small">*Stream figures are public approximations (see slide 4). Peer list reflects credited collaborators on released &amp; upcoming records — not a claim of relationship beyond the music.</div>
+      <div class="small">Feature credits: official Apple Music / Deezer release data, Nov 2026. Stream figures are public approximations.</div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Competition<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>08 / 18</span></div>
-  <div class="notes">Be honest in the weaknesses column — credibility with the artist’s team comes from not flinching. Then pivot hard to opportunities: the album cycle is a 12-week content goldmine. The closing line: “We can’t out-budget the majors; we out-authenticity them.” If pressed on King Avo or MR FALLBACK being ‘competition,’ reframe: they’re feature partners first, competitors second — collabs are distribution in this market.</div>
+  <div class="foot"><span><b>BARANGA</b> — Competition<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>08 / 18</span></div>
+  <div class="notes">Don’t flinch on weaknesses — it buys credibility. The pivot line: “We can’t out-budget the majors; we out-authenticity them.” If pressed on whether features are ‘competition’: partners first, rivals second — collabs are distribution in this market.</div>
 </section>
 
-<!-- ═══════════ SLIDE 9 — POSITIONING & STRATEGY ═══════════ -->
+<!-- 9 · POSITIONING & STRATEGY -->
 <section class="slide" id="s9" data-title="Positioning &amp; Strategy">
-  <div class="kicker"><span class="dot"></span>Positioning &amp; Strategy</div>
+  <div class="kick">Positioning &amp; Strategy</div>
   <h2>Own the <span class="accent">“Badman”</span> lane</h2>
   <div class="panel" style="border-left:4px solid var(--gold);margin-bottom:1.1%">
-    <div class="tag-label">Positioning statement</div>
-    <p style="font-size:clamp(11px,1.15vw,17px);line-height:1.5;margin-top:.35em;font-weight:600">For <b>Ugandan &amp; East African Gen Z (16–25)</b> who want music that feels <b>raw, local and theirs</b>, <b>BARANGA</b> is the <b>emerging Afro-pop / rap artist</b> who turns <b>true-story, high-school-rooted songwriting</b> into <b>party-ready trap anthems</b> — because unlike polished industry acts, his music was <b>written in the classroom, not in a boardroom</b>. <span class="gold-glow" style="color:var(--gold)">You know it’s Baranga.</span></p>
+    <div class="tag">Positioning statement</div>
+    <p style="font-size:clamp(11px,1.12vw,16px);line-height:1.5;margin-top:.35em;font-weight:600">For <b>Ugandan &amp; East African Gen Z (16–25)</b> who want music that feels <b>raw, local and theirs</b>, <b>BARANGA</b> is the <b style="color:var(--cyan)">emerging Afro-pop / rap artist</b> who turns <b>true-story, high-school-rooted songwriting</b> into <b>party-ready trap anthems</b> — written in the classroom, not a boardroom. <span style="color:var(--gold)">You know it’s Baranga.</span></p>
   </div>
   <div class="grid" style="grid-template-columns:repeat(6,1fr);margin-bottom:1.1%">
-    <div class="panel center" style="padding:.9em .5em"><div style="font-size:clamp(18px,2vw,28px)">🎥</div><div class="tag-label" style="margin-top:.35em;color:var(--cyan)">Content Engine</div><div class="small">4–7 short-form posts/wk</div></div>
-    <div class="panel center" style="padding:.9em .5em"><div style="font-size:clamp(18px,2vw,28px)">📢</div><div class="tag-label" style="margin-top:.35em;color:var(--cyan)">Amplification</div><div class="small">Boost winners, not guesses</div></div>
-    <div class="panel center" style="padding:.9em .5em"><div style="font-size:clamp(18px,2vw,28px)">🤝</div><div class="tag-label" style="margin-top:.35em;color:var(--cyan)">Community</div><div class="small">WhatsApp/Discord + replies</div></div>
-    <div class="panel center" style="padding:.9em .5em"><div style="font-size:clamp(18px,2vw,28px)">🎯</div><div class="tag-label" style="margin-top:.35em;color:var(--gold)">Paid (Optional)</div><div class="small">Only proven creatives</div></div>
-    <div class="panel center" style="padding:.9em .5em"><div style="font-size:clamp(18px,2vw,28px)">📰</div><div class="tag-label" style="margin-top:.35em;color:var(--gold)">Earned</div><div class="small">NRG, blogs, podcasts, radio</div></div>
-    <div class="panel center" style="padding:.9em .5em"><div style="font-size:clamp(18px,2vw,28px)">🎨</div><div class="tag-label" style="margin-top:.35em;color:var(--gold)">Visual Identity</div><div class="small">Dark · neon · street · UG</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">🎥</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Content Engine</div><div class="small">4–7 posts/wk, non-negotiable</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">📢</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Amplification</div><div class="small">Boost winners, never guesses</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">🤝</div><div class="tag" style="margin:.35em 0 .3em;color:var(--cyan)">Community</div><div class="small">WhatsApp channel + weekly replies</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">🎯</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Paid · Optional</div><div class="small">Only proven creatives, capped spend</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">📰</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Earned</div><div class="small">NRG, blogs, podcasts, radio</div></div>
+    <div class="panel center" style="padding:.75em .35em"><div style="font-size:clamp(17px,1.8vw,26px)">🎨</div><div class="tag" style="margin:.35em 0 .3em;color:var(--gold)">Visual Identity</div><div class="small">Dark · neon · street · East African</div></div>
   </div>
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:1%">
-    <div class="row" style="gap:.6em;align-items:center">
-      <span class="tag-label">Flow</span>
+  <div class="row" style="align-items:center;justify-content:space-between;gap:1%">
+    <div class="row" style="gap:.5em;align-items:center"><span class="tag">Flow</span>
       <span class="chip cyan">Awareness</span><span style="color:var(--muted)">→</span>
-      <span class="chip" style="border-color:rgba(255,79,216,.4);color:var(--magenta)">Engagement</span><span style="color:var(--muted)">→</span>
+      <span class="chip mag" style="border-color:rgba(255,79,216,.45);color:var(--magenta)">Engagement</span><span style="color:var(--muted)">→</span>
       <span class="chip gold">Conversion</span><span style="color:var(--muted)">→</span>
       <span class="chip green">Sustain</span>
     </div>
-    <div class="row" style="gap:.5em">
+    <div class="row" style="gap:.45em">
       <span class="chip cyan">#BarangaBadman</span>
       <span class="chip">#ChaptersINeverWrote</span>
       <span class="chip gold">#YouKnowItsBaranga</span>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Positioning &amp; Strategy<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>09 / 18</span></div>
-  <div class="notes">Read the positioning statement aloud, verbatim — it’s written to be said. Then walk the six pillars left to right and land the operating rule: “Content engine is non-negotiable; paid only amplifies what organic proves.” The hashtags are the spine of the UGC program — every post in weeks 1–12 must carry at least one. If the team questions the WhatsApp community idea, remind them email fails for this demo — WhatsApp is where UG Gen Z actually lives.</div>
+  <div class="foot"><span><b>BARANGA</b> — Positioning<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>09 / 18</span></div>
+  <div class="notes">Read the statement out loud, verbatim. Six pillars left to right; the operating rule: content engine is non-negotiable, paid only amplifies what organic proves. Every post in weeks 1–12 carries at least one hashtag. WhatsApp over email for this demographic — it’s where the audience lives.</div>
 </section>
-
-<!-- ═══════════ SLIDE 10 — VISUAL IDENTITY ═══════════ -->
+<!-- 10 · VISUAL IDENTITY -->
 <section class="slide" id="s10" data-title="Visual Identity">
-  <div class="kicker"><span class="dot"></span>Visual Identity Guidelines</div>
-  <h2>Dark. <span class="cyan">Neon.</span> <span class="accent">Unmistakably UG.</span></h2>
+  <div class="kick">Visual Identity</div>
+  <h2>Dark. <span class="cyan">Neon.</span> <span class="accent">East African.</span></h2>
   <div class="row fill">
-    <div class="col" style="flex:1.05">
-      <div class="tag-label">Core palette</div>
-      <div class="row" style="gap:2%">
-        <div class="swatch" style="flex:1"><div class="fill" style="background:#07070f"></div><div class="meta"><b>Void Black</b><span>#07070F · base</span></div></div>
-        <div class="swatch" style="flex:1"><div class="fill" style="background:#12122a"></div><div class="meta"><b>Deep Navy</b><span>#12122A · panels</span></div></div>
-        <div class="swatch" style="flex:1"><div class="fill" style="background:#2fd6ff"></div><div class="meta"><b>Electric Blue</b><span>#2FD6FF · energy</span></div></div>
-        <div class="swatch" style="flex:1"><div class="fill" style="background:#f5c542"></div><div class="meta"><b>Gold</b><span>#F5C542 · premium</span></div></div>
+    <div class="col" style="flex:1.08">
+      <div class="tag">Core palette — pulled from the records</div>
+      <div class="row" style="gap:.9%">
+        <div class="swatch" style="flex:1"><div class="fill2" style="background:#07070f"></div><figcaption><b>Void Black</b><span>#07070F · base</span></figcaption></div>
+        <div class="swatch" style="flex:1"><div class="fill2" style="background:#171733"></div><figcaption><b>Deep Navy</b><span>#171733 · panels</span></figcaption></div>
+        <div class="swatch" style="flex:1"><div class="fill2" style="background:#2fd6ff"></div><figcaption><b>Electric Blue</b><span>#2FD6FF · energy</span></figcaption></div>
+        <div class="swatch" style="flex:1"><div class="fill2" style="background:#f5c542"></div><figcaption><b>Keffiyeh Gold</b><span>#F5C542 · premium</span></figcaption></div>
       </div>
-      <div class="row" style="gap:2%">
-        <div class="swatch" style="flex:1"><div class="fill" style="background:#fcd116"></div><div class="meta"><b>UG Yellow</b><span>#FCD116 · flag</span></div></div>
-        <div class="swatch" style="flex:1"><div class="fill" style="background:#d90000"></div><div class="meta"><b>UG Red</b><span>#D90000 · flag</span></div></div>
-        <div class="swatch" style="flex:1"><div class="fill" style="background:#ff4fd8"></div><div class="meta"><b>Neon Pink</b><span>#FF4FD8 · pop</span></div></div>
-        <div class="swatch" style="flex:1"><div class="fill" style="background:#34d399"></div><div class="meta"><b>Street Green</b><span>#34D399 · go</span></div></div>
+      <div class="row" style="gap:.9%">
+        <div class="swatch" style="flex:1"><div class="fill2" style="background:#fcd116"></div><figcaption><b>UG Yellow</b><span>#FCD116 · flag</span></figcaption></div>
+        <div class="swatch" style="flex:1"><div class="fill2" style="background:#d90000"></div><figcaption><b>UG Red</b><span>#D90000 · flag</span></figcaption></div>
+        <div class="swatch" style="flex:1"><div class="fill2" style="background:#2b2b33"></div><figcaption><b>Badman Ash</b><span>#2B2B33 · mono art</span></figcaption></div>
+        <div class="swatch" style="flex:1"><div class="fill2" style="background:#f4f4fb"></div><figcaption><b>Bone White</b><span>#F4F4FB · type</span></figcaption></div>
       </div>
-      <div class="panel">
-        <div class="tag-label">Typography</div>
-        <div style="font-family:'Archivo Black';font-size:clamp(16px,1.9vw,26px);margin:.25em 0">ARCHIVO BLACK / MONTSERRAT EXTRA-BOLD</div>
-        <div class="small">Headings: heavy display sans, uppercase, tight leading. Body: Montserrat Medium 400/600. Accents: letterspaced all-caps kickers. No serif. No thin weights on dark.</div>
+      <div class="panel" style="padding:.7em 1em"><div class="tag" style="color:var(--cyan)">Typography</div>
+        <div style="font-family:'Archivo Black';font-size:clamp(13px,1.4vw,19px);margin:.25em 0">ARCHIVO BLACK · MONTSERRAT</div>
+        <div class="small">Display: heavy uppercase, tight leading. Body: Montserrat 400/600. Kickers: letterspaced all-caps. No serif, no thin weights on dark.</div>
       </div>
-      <div class="panel">
-        <div class="tag-label">Imagery direction</div>
-        <div class="row" style="flex-wrap:wrap;gap:.4em;margin-top:.4em"><span class="chip">Streetwear &amp; leather</span><span class="chip">Party energy / confetti</span><span class="chip">Authentic BTS, unposed</span><span class="chip">Kampala nights &amp; western UG landscapes</span><span class="chip">Album art as texture</span><span class="chip">High-contrast, low-key lighting</span></div>
+      <div class="panel" style="padding:.7em 1em"><div class="tag" style="color:var(--gold)">Image language</div>
+        <div class="row" style="flex-wrap:wrap;gap:.35em;margin-top:.4em"><span class="chip">Studio-raw, unposed</span><span class="chip">Keffiyeh / mono textures</span><span class="chip">Torn-paper CHAPTERS motif</span><span class="chip">Kampala nights</span><span class="chip">High contrast, low-key</span><span class="chip">Album art as backdrop</span></div>
       </div>
     </div>
-    <div class="col" style="flex:.95">
-      <div class="row" style="flex:1;gap:4%">
-        <div class="panel fill" style="border-left:3px solid var(--green)">
-          <div class="tag-label" style="color:var(--green)">Do</div>
-          <ul class="tick" style="margin-top:.4em">
-            <li>Raw, candid BTS &amp; rehearsal moments</li>
-            <li>Luganda / Runyoro flavor in captions</li>
-            <li>UGC-first formats; fan reposts over polish</li>
-            <li>Album art &amp; wordmark on everything</li>
-            <li>Neon-on-black contrast; bold type</li>
-          </ul>
-        </div>
-        <div class="panel fill" style="border-left:3px solid var(--red)">
-          <div class="tag-label" style="color:#ff8a8a">Don’t</div>
-          <ul class="tick" style="margin-top:.4em">
-            <li>Overly polished corporate stock</li>
-            <li>Generic “African” tropes (no safari clichés)</li>
-            <li>Busy layouts — one message per frame</li>
-            <li>Unverified stream claims in creative</li>
-            <li>Inconsistent wordmark casing (“baranga” ✗)</li>
-          </ul>
-        </div>
+    <div class="col" style="flex:.92">
+      <div class="row" style="flex:1;gap:.6em">
+        <div class="panel fill"><div class="bar" style="background:var(--green)"></div><div class="tag" style="color:var(--green)">Do</div>
+          <ul class="tick" style="margin-top:.4em;gap:.4em"><li>Raw studio BTS &amp; rehearsal frames</li><li>Luganda / Runyoro caption flavor</li><li>UGC-first formats; fan reposts over polish</li><li>Album art + wordmark on every asset</li><li>One neon accent per frame</li></ul></div>
+        <div class="panel fill"><div class="bar" style="background:var(--red)"></div><div class="tag" style="color:#ff8a8a">Don’t</div>
+          <ul class="tick" style="margin-top:.4em;gap:.4em"><li>Corporate-stock polish</li><li>Generic “African” tropes / safari cliché</li><li>Three messages in one frame</li><li>Unverified stream claims in creative</li><li>“baranga” in lowercase — the wordmark is <b>BARANGA</b></li></ul></div>
       </div>
-      <img class="cover" src="assets/cover-chapters.jpg" alt="CHAPTERS I NEVER WROTE — concept album art" style="flex:1;min-height:0;width:100%;object-position:center 30%" />
+      <img class="art" src="assets/real/chapters-teaser.jpg" alt="CHAPTERS I NEVER WROTE — official teaser artwork" style="flex:.92;min-height:0;width:100%;object-position:center 30%" />
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Visual Identity<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>10 / 18</span></div>
-  <div class="notes">Hand this slide to whoever designs — it’s the spec, not inspiration. The non-negotiables: void-black base, one neon accent per composition, Archivo Black for anything under 3 words. The do/don’t split matters because emerging artists lose identity through inconsistency, not through bad taste. Note the QR placeholder belongs on slide 17 — keep identity clean here; functionality lives later.</div>
+  <div class="foot"><span><b>BARANGA</b> — Visual Identity<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>10 / 18</span></div>
+  <div class="notes">This page is the design spec. Non-negotiables: void-black base, one accent per frame, Archivo Black under three words. Emerging artists lose identity through inconsistency, not bad taste — the do/don’t split is the whole game. The teaser art bottom-right is the brand at its purest: mono photo, torn paper, hand-set type.</div>
 </section>
 
-<!-- ═══════════ SLIDE 11 — TIMELINE OVERVIEW ═══════════ -->
+<!-- 11 · TIMELINE -->
 <section class="slide" id="s11" data-title="12-Week Timeline">
-  <div class="kicker"><span class="dot"></span>12-Week Timeline Overview</div>
+  <div class="kick">12-Week Timeline · Overview</div>
   <h2>Three <span class="cyan">phases</span>, one <span class="accent">arc</span></h2>
-  <div class="row fill" style="align-items:stretch;margin-top:1%">
+  <div class="row fill" style="margin-top:.6%">
     <div class="phase p1">
-      <div class="wkrange">WEEKS 1–4</div>
+      <div class="rng">WEEKS 1–4</div>
       <h3>Foundation &amp; Awareness</h3>
-      <p class="small">Launch the Badman challenge, origin series &amp; UGC seeding. Lock identity, ship consistently, get in front of every UG Gen Z feed daily.</p>
-      <ul class="tick"><li>W1: Launch — challenge video + dance tutorial + album trailer</li><li>W2: Origin series — SALO, name meaning, Munyoro pride</li><li>W3: UGC seed — duets, stitches, first boost on winner</li><li>W4: Deep-cut teasers + mid-phase community poll</li></ul>
-      <div style="margin-top:auto"><span class="chip cyan">Goal: be everywhere, fast</span></div>
+      <p class="small">Launch the Badman challenge, tell the origin story, seed the UGC flywheel. Lock identity; get into every Gen Z feed daily.</p>
+      <ul><li><b>W1</b> — Launch: challenge film, dance tutorial, album trailer</li><li><b>W2</b> — Origin series: SALO, the name, Munyoro pride</li><li><b>W3</b> — UGC seed: duets, stitches, first boost on the winner</li><li><b>W4</b> — Deep-cut teasers: KAMPALA, PARADISE; community poll</li></ul>
+      <div class="goal">Be everywhere, fast</div>
     </div>
     <div class="phase p2">
-      <div class="wkrange">WEEKS 5–8</div>
+      <div class="rng">WEEKS 5–8</div>
       <h3>Engagement &amp; Growth</h3>
-      <p class="small">Convert viewers to fans: duets, lives, BTS, breakdowns, collaborations and first paid support on proven creatives.</p>
-      <ul class="tick"><li>W5: Fan duets, Q&amp;A lives, lyric breakdowns</li><li>W6: Peak challenges + collab shoutouts (STANDO / Ace Kaawa lane)</li><li>W7: Paid ads on winners + playlist push</li><li>W8: Testimonials + “Baranga fills the gap” series + review</li></ul>
-      <div style="margin-top:auto"><span class="chip" style="border-color:rgba(255,79,216,.4);color:var(--magenta)">Goal: turn views into a fanbase</span></div>
+      <p class="small">Turn viewers into fans: duets, lives, BTS, breakdowns, collab shoutouts — and the first paid support on proven creatives.</p>
+      <ul><li><b>W5</b> — Fan duets · live Q&amp;A · lyric breakdowns</li><li><b>W6</b> — Peak challenge week · collab shoutouts · Ace Kaawa lane</li><li><b>W7</b> — Paid on winners · heavy playlist push</li><li><b>W8</b> — Testimonials · “BARANGA fills the gap” · mid-campaign review</li></ul>
+      <div class="goal">Views → a fanbase</div>
     </div>
     <div class="phase p3">
-      <div class="wkrange">WEEKS 9–12</div>
+      <div class="rng">WEEKS 9–12</div>
       <h3>Amplify · Convert · Sustain</h3>
-      <p class="small">Scale what worked, ask for the save/follow/stream, stack social proof, and leave behind a system — not a spike.</p>
-      <ul class="tick"><li>W9: Scale top content + hard CTAs + radio lives</li><li>W10: Collab pushes + fan campaigns + media features</li><li>W11: Social-proof recaps + community join pushes</li><li>W12: Recap video + finale challenge + sustain roadmap</li></ul>
-      <div style="margin-top:auto"><span class="chip gold">Goal: make it stick after week 12</span></div>
+      <p class="small">Scale what worked, ask for the save / follow / stream, stack social proof — and leave a system behind, not a spike.</p>
+      <ul><li><b>W9</b> — Scale winners · streaming CTAs · radio lives</li><li><b>W10</b> — Collab push · fan campaigns · media features</li><li><b>W11</b> — Social-proof recaps · community milestone push</li><li><b>W12</b> — Recap film · finale challenge · 2027 roadmap</li></ul>
+      <div class="goal">Make it stick</div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Timeline<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>11 / 18</span></div>
-  <div class="notes">Draw the arc in the air: “attention → affection → action.” Phase names are literal: Foundation (be seen), Engagement (be felt), Amplify/Convert/Sustain (be chosen, then be kept). Emphasize that paid media appears only in phase 2, only on creatives already winning organically — this is the discipline that keeps the budget honest. The mini calendar strip was dropped in favor of these three phase cards for density; the weekly grid follows on slides 12–15.</div>
+  <div class="foot"><span><b>BARANGA</b> — Timeline<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>11 / 18</span></div>
+  <div class="notes">Draw the arc: attention → affection → action. Paid enters only in phase two, only on creatives already winning organically. Taglines map to phases: “You know it’s Baranga” → “Baranga is for us” → “You knew it.”</div>
 </section>
 
-<!-- ═══════════ SLIDE 12 — CALENDAR OVERVIEW ═══════════ -->
-<section class="slide" id="s12" data-title="Content Calendar Overview">
-  <div class="kicker"><span class="dot"></span>12-Week Content Calendar · Overview</div>
+<!-- 12 · CALENDAR OVERVIEW -->
+<section class="slide" id="s12" data-title="Content Calendar">
+  <div class="kick">12-Week Content Calendar · Overview</div>
   <h2>The <span class="cyan">weekly rhythm</span></h2>
   <div class="row fill">
-    <div class="panel" style="flex:1.15">
-      <div class="tag-label">Standing weekly cadence (customize to shoot dates)</div>
-      <table style="margin-top:.45em">
+    <div class="panel" style="flex:1.12">
+      <div class="tag" style="color:var(--cyan)">Standing cadence — launch window, December 2026</div>
+      <table style="margin-top:.4em">
         <thead><tr><th>Slot</th><th>Frequency</th><th>Owner</th></tr></thead>
         <tbody>
-          <tr><td>Short-form video (TikTok / Reels / Shorts)</td><td><b>4–7× / week</b></td><td>Content lead + artist</td></tr>
-          <tr><td>Stories (BTS, polls, reposts)</td><td><b>3–5× / day</b></td><td>Artist + community mgr</td></tr>
-          <tr><td>Long-form (YouTube / Live / interview)</td><td><b>1–2× / week</b></td><td>Video lead</td></tr>
-          <tr><td>Playlist pitch + blog/radio outreach</td><td><b>1× / week</b> · Fridays</td><td>Promo lead</td></tr>
-          <tr><td>Community reply session (“Baranga answers”)</td><td><b>1× / week</b> · Sundays</td><td>Community mgr</td></tr>
-          <tr><td>Metrics review + calendar tweak</td><td><b>Bi-weekly</b> · Fridays</td><td>Whole team, 30 min</td></tr>
+          <tr><td>Short-form (TikTok / Reels / Shorts)</td><td><b>4–7× / week</b></td><td>Content lead + artist</td></tr>
+          <tr><td>Stories — BTS, polls, reposts</td><td><b>3–5× / day</b></td><td>Artist + community</td></tr>
+          <tr><td>Long-form — YouTube / Live / interview</td><td><b>1–2× / week</b></td><td>Video lead</td></tr>
+          <tr><td>Playlist pitch + blog/radio outreach</td><td><b>Fridays</b></td><td>Promo lead</td></tr>
+          <tr><td>“BARANGA answers” — community replies</td><td><b>Sundays</b></td><td>Community manager</td></tr>
+          <tr><td>Metrics review + calendar tuning</td><td><b>Bi-weekly · Friday</b></td><td>Full team · 30 min</td></tr>
         </tbody>
       </table>
-      <div class="small" style="margin-top:.5em">Daily stand-up: 15-min morning batch (“what ships today?”), evening community sweep. Friday = numbers, not feelings.</div>
+      <div class="small" style="margin-top:.5em">Daily stand-up: 15 minutes, morning — “what ships today?” Evening: community sweep. Friday: numbers, not feelings.</div>
     </div>
     <div class="col" style="flex:1">
-      <div class="panel" style="flex:1;border-left:3px solid var(--cyan)">
-        <div class="tag-label" style="color:var(--cyan)">Weeks 1–4 · Foundation</div>
-        <p class="small" style="margin-top:.35em">Launch challenge · origin series · UGC seeding · deep-cut teasers (KAMPALA, PARADISE) · mid-phase poll. <b>Theme: “You know it’s Baranga.”</b></p>
-      </div>
-      <div class="panel" style="flex:1;border-left:3px solid var(--magenta)">
-        <div class="tag-label" style="color:var(--magenta)">Weeks 5–8 · Engagement</div>
-        <p class="small" style="margin-top:.35em">Fan duets · BTS recording · lyric breakdowns · peak challenges · collab shoutouts · paid on winners · “fills the gap” testimonials. <b>Theme: “Baranga is for us.”</b></p>
-      </div>
-      <div class="panel" style="flex:1;border-left:3px solid var(--gold)">
-        <div class="tag-label" style="color:var(--gold)">Weeks 9–12 · Amplify</div>
-        <p class="small" style="margin-top:.35em">Scale winners · streaming CTAs · lives &amp; radio · fan campaigns · social-proof recaps · finale challenge + 2027 sustain roadmap. <b>Theme: “You knew it.”</b></p>
-      </div>
-      <div class="row" style="gap:.5em;flex-wrap:wrap">
-        <span class="chip cyan">■ Video</span><span class="chip" style="border-color:rgba(255,255,255,.2)">■ Story</span><span class="chip green">■ Live</span><span class="chip gold">■ Paid</span><span class="chip red">■ Editorial</span>
-      </div>
+      <div class="panel fill"><div class="bar" style="background:var(--cyan)"></div><div class="tag" style="color:var(--cyan)">Weeks 1–4 · Foundation</div><p class="small" style="margin-top:.3em">Challenge launch · origin series · UGC seeding · KAMPALA / PARADISE teasers · mid-phase poll. <b style="color:var(--text)">Theme: “You know it’s Baranga.”</b></p></div>
+      <div class="panel fill"><div class="bar" style="background:var(--magenta)"></div><div class="tag" style="color:var(--magenta)">Weeks 5–8 · Engagement</div><p class="small" style="margin-top:.3em">Duets, BTS, breakdowns · peak challenge · collab shoutouts · paid on winners · “fills the gap” testimonials. <b style="color:var(--text)">Theme: “Baranga is for us.”</b></p></div>
+      <div class="panel fill"><div class="bar" style="background:var(--gold)"></div><div class="tag" style="color:var(--gold)">Weeks 9–12 · Amplify</div><p class="small" style="margin-top:.3em">Scale winners · save/follow CTAs · lives &amp; radio · fan campaigns · social proof · finale + 2027 roadmap. <b style="color:var(--text)">Theme: “You knew it.”</b></p></div>
+      <div class="row" style="gap:.45em;flex-wrap:wrap"><span class="chip cyan">■ Video</span><span class="chip">■ Story</span><span class="chip green">■ Live</span><span class="chip gold">■ Paid</span><span class="chip red">■ Editorial</span></div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Calendar Overview<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>12 / 18</span></div>
-  <div class="notes">This is the operational heartbeat — hand it out as a one-pager. Walk the cadence table first, then the three phase themes. Make clear these are working rhythms, not commandments: if a challenge underperforms in week 2, the format gets cut by week 3. The three campaign taglines map 1:1 to the phases — “You know it’s Baranga” (awareness), “Baranga is for us” (belonging), “You knew it” (vindication). Print the calendar appendix on slides 13–15 before the meeting.</div>
+  <div class="foot"><span><b>BARANGA</b> — Content Calendar<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>12 / 18</span></div>
+  <div class="notes">Hand this out as a one-pager. Cadence first, then the three themes. Rhythms, not commandments: a flat format is cut by week 3. The three taglines map to phases one-to-one.</div>
 </section>
-<!-- ═══════════ SLIDE 13 — CALENDAR WEEKS 1–4 ═══════════ -->
+<!-- 13 · WEEKS 1–4 -->
 <section class="slide" id="s13" data-title="Calendar · Weeks 1–4">
-  <div class="kicker"><span class="dot"></span>Detailed Calendar · Weeks 1–4 · Foundation</div>
-  <h2>Foundation <span class="cyan">&amp;</span> <span class="accent">awareness</span></h2>
-  <div class="grid" style="grid-template-columns:repeat(4,1fr);align-content:stretch">
+  <div class="kick">Detailed Calendar · Weeks 1–4</div>
+  <h2>Foundation &amp; <span class="accent">awareness</span></h2>
+  <div class="grid" style="grid-template-columns:repeat(4,1fr)">
     <div class="week">
-      <div class="wk"><b>WEEK 1 — LAUNCH</b><span class="tag-label">Go time</span></div>
-      <ul>
-        <li><b>Mon:</b> “You know it’s Baranga” intro video + pinned post across all platforms</li>
-        <li><b>Tue:</b> #BarangaBadman dance challenge launch (60–90s tutorial)</li>
-        <li><b>Wed:</b> CHAPTERS I NEVER WROTE album trailer (15–30s)</li>
-        <li><b>Thu:</b> Badman challenge fan video reposts + artist comment-everywhere sweep</li>
-        <li><b>Fri:</b> Soft playlist submissions + NRG Radio UG press blast</li>
-        <li><b>Weekend:</b> Hashtag blast; first community poll in WhatsApp channel</li>
-      </ul>
-      <div class="hook">Hook: “High school to Badman — you know it’s Baranga 🔥 Link in bio #BarangaBadman”</div>
+      <div class="wk"><b>WEEK 1 · LAUNCH</b><span>Go time</span></div>
+      <ul><li><b>Mon</b> — “You know it’s Baranga” intro; pinned everywhere</li><li><b>Tue</b> — #BarangaBadman challenge launch; 60–90s tutorial</li><li><b>Wed</b> — CHAPTERS I NEVER WROTE trailer, 15–30s</li><li><b>Thu</b> — Fan repost wave; artist comments across UG feeds</li><li><b>Fri</b> — Playlist submissions + NRG Radio UG press blast</li><li><b>Wknd</b> — Hashtag blast; first WhatsApp Channel poll</li></ul>
+      <div class="hook">“High school to Badman — you know it’s Baranga 🔥 Link in bio #BarangaBadman”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 2 — ORIGIN SERIES</b><span class="tag-label">The story</span></div>
-      <ul>
-        <li><b>Ep 1:</b> High-school story — writing SALO in class (B-roll + talking head)</li>
-        <li><b>Ep 2:</b> “Baranga means…” — name meaning + hometown reveal</li>
-        <li><b>Ep 3:</b> SALO true-story clip — what really happened (tasteful, no scandal)</li>
-        <li><b>Ep 4:</b> Munyoro pride — roots, family, uncle in the industry</li>
-        <li>Radio clip shares + NRG interview snippets cut vertical</li>
-      </ul>
-      <div class="hook">Hook: “Everyone asked where Badman came from. Ep 1: a classroom in western Uganda.”</div>
+      <div class="wk"><b>WEEK 2 · ORIGIN SERIES</b><span>The story</span></div>
+      <ul><li><b>Ep 1</b> — Writing SALO in class; B-roll + talking head</li><li><b>Ep 2</b> — “BARANGA means…” — name, hometown, meaning</li><li><b>Ep 3</b> — SALO, the true story — told his way, tastefully</li><li><b>Ep 4</b> — Munyoro pride: roots, family, the uncle in the industry</li><li><b>Also</b> — NRG interview snippets cut vertical; radio clip shares</li></ul>
+      <div class="hook">“Everyone asked where Badman came from. Ep 1: a classroom in western Uganda.”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 3 — UGC SEED</b><span class="tag-label">The people</span></div>
-      <ul>
-        <li>Duet/stitch prompts: “Do your Badman verse” + lyric-challenge template</li>
-        <li>DM 50 micro-creators (5K–100K) with pre-cleared audio + brief</li>
-        <li>Early fan-feature carousel — 10 fan covers/duets featured officially</li>
-        <li>First paid boost (UGX 100–150K) on the best-performing week-1 post</li>
-        <li>Media follow-ups: Red Pepper, Sqoop, UG blogs — pitch the origin story</li>
-      </ul>
-      <div class="hook">Hook: “I don’t need you to sing it right. I need you to feel it wrong — duet me.”</div>
+      <div class="wk"><b>WEEK 3 · UGC SEED</b><span>The people</span></div>
+      <ul><li><b>Prompt</b> — “Do your Badman verse” duet/stitch template</li><li><b>Outreach</b> — 50 micro-creators (5–100K), pre-cleared audio + brief</li><li><b>Feature</b> — Fan-feature carousel; 10 covers/duets reposted officially</li><li><b>Boost</b> — First paid push on the week-1 winner</li><li><b>Media</b> — Red Pepper, Sqoop, UG blogs — the origin story pitch</li></ul>
+      <div class="hook">“I don’t need you to sing it right. I need you to feel it — duet me.”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 4 — DEEP CUTS</b><span class="tag-label">Album push</span></div>
-      <ul>
-        <li>Deep-cut teasers: <b>KAMPALA</b> (DEEJAY KLVN) + <b>PARADISE</b> (TUNGI) — 20s viz snippets</li>
-        <li>Mid-phase recap reel: “The first 21 days of Badman”</li>
-        <li>Community poll: <b>“Which chapter hits hardest?”</b> (WhatsApp + IG Stories)</li>
-        <li>Playlist follow-up: send refreshed pitch with new streaming proof</li>
-        <li>Bi-weekly metrics review #1 — lock week 5–8 priorities</li>
-      </ul>
-      <div class="hook">Hook: “KAMPALA is the chapter nobody saw coming. Midnight drops soon.”</div>
+      <div class="wk"><b>WEEK 4 · DEEP CUTS</b><span>Album push</span></div>
+      <ul><li><b>Tease</b> — KAMPALA (DEEJAY KLVN) + PARADISE (TUNGI), 20s snippets</li><li><b>Recap</b> — “The first 21 days of Badman” — mid-phase reel</li><li><b>Poll</b> — “Which chapter hits hardest?” — WhatsApp + Stories</li><li><b>Pitch</b> — Playlist re-pitch with new streaming proof</li><li><b>Playlist note</b> — Winner of the poll becomes the serviced single</li></ul>
+      <div class="hook">“KAMPALA is the chapter nobody saw coming.”</div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Weeks 1–4<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>13 / 18</span></div>
-  <div class="notes">Week 1 is non-negotiable shipping discipline — if content slips here, nothing else matters. Week 2 is the heart: the origin series is what no competitor can copy. Watch UGC quality in week 3, not quantity — one great stitch beats 50 lazy ones. The week-4 poll is data disguised as engagement: the winning “chapter” becomes the single serviced in weeks 5–8. Budget guardrail: boost only the single best post of the week, never a grudge-boost of a flat one.</div>
+  <div class="foot"><span><b>BARANGA</b> — Weeks 1–4<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>13 / 18</span></div>
+  <div class="notes">Week 1 is shipping discipline — slip here and nothing else matters. Week 2 is the heart; no competitor can copy it. Week 3: quality over quantity. Week 4 poll = data disguised as engagement. Budget: one boost per week, always the winner.</div>
 </section>
 
-<!-- ═══════════ SLIDE 14 — CALENDAR WEEKS 5–8 ═══════════ -->
+<!-- 14 · WEEKS 5–8 -->
 <section class="slide" id="s14" data-title="Calendar · Weeks 5–8">
-  <div class="kicker"><span class="dot"></span>Detailed Calendar · Weeks 5–8 · Engagement</div>
-  <h2>Engagement <span class="cyan">&amp;</span> <span class="accent">growth</span></h2>
-  <div class="grid" style="grid-template-columns:repeat(4,1fr);align-content:stretch">
+  <div class="kick">Detailed Calendar · Weeks 5–8</div>
+  <h2>Engagement &amp; <span class="accent">growth</span></h2>
+  <div class="grid" style="grid-template-columns:repeat(4,1fr)">
     <div class="week">
-      <div class="wk"><b>WEEK 5 — FANS FIRST</b><span class="tag-label">Closeness</span></div>
-      <ul>
-        <li>Fan duet/stitch roundup #2 — bigger, glossier, fan-credited</li>
-        <li><b>Live Q&amp;A on IG/TikTok Live</b> — 45–60 min, promo’d 3 days ahead</li>
-        <li>BTS: studio session footage (tracking SALO vocals)</li>
-        <li>Lyric breakdowns: 1 verse/day for the KAMPALA & Badman bars</li>
-        <li>WhatsApp community: first “fans only” voice note from Baranga</li>
-      </ul>
-      <div class="hook">Hook: “Ask me anything — no PR filter, no manager on the line.”</div>
+      <div class="wk"><b>WEEK 5 · FANS FIRST</b><span>Closeness</span></div>
+      <ul><li><b>Recap</b> — Fan duet/stitch roundup #2, fan-credited</li><li><b>Live</b> — IG/TikTok Q&amp;A, 45–60 min, promo’d 3 days ahead</li><li><b>BTS</b> — Studio session: tracking the Badman vocals</li><li><b>Breakdowns</b> — One verse a day: KAMPALA &amp; Badman bars</li><li><b>Community</b> — “Fans only” voice note from BARANGA</li></ul>
+      <div class="hook">“Ask me anything — no PR filter, no manager on the line.”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 6 — PEAK CHALLENGE</b><span class="tag-label">Momentum</span></div>
-      <ul>
-        <li>Peak challenge push: duet with STANDO clip + Ace Kaawa shoutout tree</li>
-        <li>New formats: <b>Day-in-the-life</b> (artist) + <b>“Rate my outfit”</b> streetwear reels</li>
-        <li>Collab shoutout series — peers tagged into Baranga posts (reciprocity)</li>
-        <li>Stream-party listening session (Discord/WhatsApp) for album track most-voted in W4</li>
-        <li>UGC mid-campaign report: top creators public shoutout</li>
-      </ul>
-      <div class="hook">Hook: “STANDO gave me the nod. King Avo ran the chorus. We’re just getting started.”</div>
+      <div class="wk"><b>WEEK 6 · PEAK CHALLENGE</b><span>Momentum</span></div>
+      <ul><li><b>Push</b> — Peak challenge week; STANDO duet clip seeded everywhere</li><li><b>Formats</b> — “Day in the life” + “rate my fit” streetwear reels</li><li><b>Shoutouts</b> — Peer collab tags: STANDO, Ace Kaawa, King Avo</li><li><b>Listen</b> — Stream-party: the W4 poll-winning album track</li><li><b>UGC</b> — Creator leaderboard; public shoutouts</li></ul>
+      <div class="hook">“STANDO gave me the nod. King Avo ran the chorus. We’re just getting started.”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 7 — PAID PUSH</b><span class="tag-label">Amplify</span></div>
-      <ul>
-        <li>Paid ads (UG + diaspora lookalikes) on week 1–6 winning creatives only</li>
-        <li>Influencer seeding: 20 mid-tier UG creators get merch/vinyl + brief</li>
-        <li>Heavy playlist pitch week — resubmit Badman + KAMPALA with proof pack</li>
-        <li>NRG Radio UG interview airing + podcast booking push</li>
-        <li>Geo-target: Kampala, Mbarara, Fort Portal, London, Toronto</li>
-      </ul>
-      <div class="hook">Hook: “The whole city can hear it from here. Kampala → the world.”</div>
+      <div class="wk"><b>WEEK 7 · PAID PUSH</b><span>Amplify</span></div>
+      <ul><li><b>Ads</b> — UG + diaspora lookalikes; winners only</li><li><b>Seeding</b> — 20 mid-tier UG creators: merch + brief</li><li><b>Playlist</b> — Heavy pitch week: Badman + KAMPALA + proof pack</li><li><b>Radio</b> — NRG Radio UG interview airs; podcast bookings</li><li><b>Geo</b> — Kampala · Mbarara · Fort Portal · London · Toronto</li></ul>
+      <div class="hook">“The whole city can hear it from here. Kampala → the world.”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 8 — PROOF &amp; PIVOT</b><span class="tag-label">Mid-review</span></div>
-      <ul>
-        <li>Fan testimonial series — “What Badman means to me” (3–4 fan videos)</li>
-        <li><b>“Baranga fills the gap”</b> editorial-style mini-doc (90s)</li>
-        <li>Mid-campaign report: streams, listeners, followers, UGC count vs. targets</li>
-        <li>Optimize: kill flat formats, double winners, re-cut captions</li>
-        <li>Bi-weekly metrics review #2 — reset week 9–12 targets if needed</li>
-      </ul>
-      <div class="hook">Hook: “Two months ago nobody knew the name. Today the blogs are learning it.”</div>
+      <div class="wk"><b>WEEK 8 · PROOF &amp; PIVOT</b><span>Mid-review</span></div>
+      <ul><li><b>Fans</b> — “What Badman means to me” — 3–4 testimonial films</li><li><b>Doc</b> — “BARANGA fills the gap” — 90-second editorial</li><li><b>Report</b> — Mid-campaign: streams, listeners, followers, UGC vs. targets</li><li><b>Optimize</b> — Kill flat formats; double the winners; re-cut captions</li><li><b>Review</b> — Weeks 9–12 plan locked to what the numbers say</li></ul>
+      <div class="hook">“Two months ago nobody knew the name. Today the blogs are learning it.”</div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Weeks 5–8<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>14 / 18</span></div>
-  <div class="notes">Week 5–8 is where vanity becomes community. The live Q&amp;A is the highest-trust hour of the whole campaign — protect it from scripts. In week 7, paid support exists only to pour fuel on organic fire; the moment an ad outperforms organic, ask why the content team didn’t make it first. Week 8’s mid-campaign report is the honesty checkpoint: if targets are missed, reset them here, publicly with the team — never in week 11 under pressure.</div>
+  <div class="foot"><span><b>BARANGA</b> — Weeks 5–8<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>14 / 18</span></div>
+  <div class="notes">Vanity → community. The live is the highest-trust hour of the campaign — no scripts. Paid pours fuel on organic fire only. Week 8 is the honesty checkpoint: reset targets here if needed, never in week 11.</div>
 </section>
 
-<!-- ═══════════ SLIDE 15 — CALENDAR WEEKS 9–12 ═══════════ -->
+<!-- 15 · WEEKS 9–12 -->
 <section class="slide" id="s15" data-title="Calendar · Weeks 9–12">
-  <div class="kicker"><span class="dot"></span>Detailed Calendar · Weeks 9–12 · Amplify &amp; Sustain</div>
-  <h2>Amplify · Convert · <span class="accent">Sustain</span></h2>
-  <div class="grid" style="grid-template-columns:repeat(4,1fr);align-content:stretch">
+  <div class="kick">Detailed Calendar · Weeks 9–12</div>
+  <h2>Amplify · Convert · <span class="accent">sustain</span></h2>
+  <div class="grid" style="grid-template-columns:repeat(4,1fr)">
     <div class="week">
-      <div class="wk"><b>WEEK 9 — SCALE WINNERS</b><span class="tag-label">Push</span></div>
-      <ul>
-        <li>Scale top-3 performing pieces with fresh cuts + new hooks</li>
-        <li>Hard CTAs everywhere: <b>save · follow · stream Badman</b> + album deep cuts</li>
-        <li>Radio lives + IG/TikTok Live run — 2× this week</li>
-        <li>“Badman is for us” fan-anthem reel — make the fans the chorus</li>
-        <li>Playlist re-pitch with updated social proof numbers</li>
-      </ul>
-      <div class="hook">Hook: “Save it. Stream it. It’s already in the taxi playlist.”</div>
+      <div class="wk"><b>WEEK 9 · SCALE WINNERS</b><span>Push</span></div>
+      <ul><li><b>Scale</b> — Top-3 creatives re-cut with fresh hooks</li><li><b>CTAs</b> — Save · follow · stream Badman — explicit, everywhere</li><li><b>Lives</b> — Radio lives + IG/TikTok Live, 2× this week</li><li><b>Anthem</b> — “Badman is for us” — fans become the chorus</li><li><b>Playlist</b> — Re-pitch with updated proof</li></ul>
+      <div class="hook">“Save it. Stream it. It’s already in the taxi playlist.”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 10 — COLLAB PUSH</b><span class="tag-label">Network</span></div>
-      <ul>
-        <li>Collab pushes: STANDO, Andrinah, Ace Kaawa, King Avo — joint posts + behind-track stories</li>
-        <li>Fan campaign: #YouKnowItsBaranga — best fan story gets featured on official channel</li>
-        <li>Media features: 1 long-form interview (NRG/Podcast) + 2 blog features</li>
-        <li>WhatsApp broadcast: “Badman army” — coordinate listening sessions</li>
-      </ul>
-      <div class="hook">Hook: “This is what happens when Kampala raps together.”</div>
+      <div class="wk"><b>WEEK 10 · COLLAB PUSH</b><span>Network</span></div>
+      <ul><li><b>Collabs</b> — STANDO · Andrinah · Ace Kaawa · King Avo: joint posts, behind-the-track stories</li><li><b>Fan push</b> — #YouKnowItsBaranga — best fan story featured officially</li><li><b>Media</b> — 1 long-form interview + 2 blog features</li><li><b>Community</b> — “Badman army” broadcast; listening sessions coordinated</li></ul>
+      <div class="hook">“This is what happens when Kampala raps together.”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 11 — SOCIAL PROOF</b><span class="tag-label">Convert</span></div>
-      <ul>
-        <li>Social-proof recap: “X fans, Y videos, Z streams — you did this”</li>
-        <li>Conversion CTAs: pre-save next single + follow @_baranga push</li>
-        <li>Community join push: drive WhatsApp/Discord to 5K milestone</li>
-        <li>Show booking outreach with fresh metrics pack (mgmt/venues)</li>
-        <li>Bi-weekly metrics review #3 — final stretch lock</li>
-      </ul>
-      <div class="hook">Hook: “Numbers don’t lie. Check the streams — then join the army.”</div>
+      <div class="wk"><b>WEEK 11 · SOCIAL PROOF</b><span>Convert</span></div>
+      <ul><li><b>Recap</b> — “X fans, Y videos, Z streams — you did this”</li><li><b>CTAs</b> — Pre-save the next single; follow @_baranga</li><li><b>Milestone</b> — Drive WhatsApp community to 5,000</li><li><b>Shows</b> — Booking outreach with the metrics pack (mgmt / venues)</li><li><b>Review</b> — Final-stretch metrics lock: three Fridays of data</li></ul>
+      <div class="hook">“Numbers don’t lie. Check the streams — then join the army.”</div>
     </div>
     <div class="week">
-      <div class="wk"><b>WEEK 12 — FINALE</b><span class="tag-label">Land it</span></div>
-      <ul>
-        <li>Big recap video: 12 weeks in 90 seconds — the arc, the receipts</li>
-        <li><b>Thank-you post + finale challenge</b> — one last #BarangaBadman wave</li>
-        <li>2027 sustain roadmap reveal (next single + tour hint)</li>
-        <li>Full campaign report teaser for management/labels</li>
-        <li>Post-campaign debrief + evergreen content bank handover</li>
-      </ul>
-      <div class="hook">Hook: “You knew it. Now 2027 begins. — You know it’s Baranga.”</div>
+      <div class="wk"><b>WEEK 12 · FINALE</b><span>Land it</span></div>
+      <ul><li><b>Recap film</b> — 12 weeks in 90 seconds, with the receipts</li><li><b>Thanks</b> — Thank-you post + finale challenge; one last #BarangaBadman wave</li><li><b>Roadmap</b> — 2027 sustain reveal: next single, show hint</li><li><b>Report</b> — Campaign report teaser for management &amp; labels</li><li><b>Debrief</b> — Evergreen content bank handed to the team</li></ul>
+      <div class="hook">“You knew it. Now 2027 begins. — You know it’s Baranga.”</div>
     </div>
   </div>
-  <div class="row" style="justify-content:space-between;align-items:center;margin-top:.8%;gap:1%">
-    <div class="small" style="border:1px dashed rgba(245,197,66,.4);border-radius:10px;padding:.45em 1em"><b style="color:var(--gold)">STANDING:</b> Morning content batch · Evening community sweep · Friday analytics · Weekly playlist pitch · Reply-every-Sunday</div>
-    <div class="small" style="max-width:38ch;text-align:right">Columns for a production tracker: Day · Type · Platform · Hook · Asset · CTA · Owner — clone into Notion or Google Sheets.</div>
+  <div class="row" style="align-items:center;justify-content:space-between;margin-top:.8%;gap:1%">
+    <div class="small" style="border:1px dashed rgba(245,197,66,.4);border-radius:10px;padding:.45em 1em"><b style="color:var(--gold)">EVERY WEEK</b> — morning batch · evening community sweep · Friday analytics · weekly playlist pitch · Sunday replies</div>
+    <div class="small" style="text-align:right;max-width:42ch">Tracking columns: Day · Type · Platform · Hook · Asset · CTA · Owner</div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Weeks 9–12<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>15 / 18</span></div>
-  <div class="notes">Week 9 is the “ask” phase — after eight weeks of giving, it’s fair to explicitly request saves, follows and streams, and fans will respond. Week 10 leans on the collab web as distribution; every feature partner post should be treated as a mini-launch. Week 11 converts attention into owned audience; the 5K WhatsApp milestone is the success metric that outlives the algorithm. Close week 12 with gratitude, not noise — the recap video is the case study you show to labels and venues next.</div>
+  <div class="foot"><span><b>BARANGA</b> — Weeks 9–12<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>15 / 18</span></div>
+  <div class="notes">Week 9 is the ask — eight weeks of giving earns the explicit ask. Week 10: every partner post is a mini-launch. Week 11: the 5K community milestone outlives the algorithm. Week 12: gratitude, not noise — the recap film is the label/venue case study.</div>
 </section>
 
-<!-- ═══════════ SLIDE 16 — METRICS ═══════════ -->
+<!-- 16 · METRICS -->
 <section class="slide" id="s16" data-title="Success Metrics">
-  <div class="kicker"><span class="dot"></span>Success Metrics &amp; Tracking</div>
+  <div class="kick">Success Metrics &amp; Tracking</div>
   <h2>If it isn’t <span class="cyan">measured</span>,<br />it didn’t <span class="accent">happen</span></h2>
   <div class="row fill">
-    <div class="panel" style="flex:1.2">
-      <div class="tag-label">KPI targets — baseline → Week 12</div>
-      <table style="margin-top:.4em">
-        <thead><tr><th>Metric</th><th>Baseline*</th><th>Target (W12)</th><th>Source</th></tr></thead>
+    <div class="panel" style="flex:1.25">
+      <div class="tag" style="color:var(--cyan)">KPI board — baseline → Week 12</div>
+      <table style="margin-top:.35em">
+        <thead><tr><th>Metric</th><th>Baseline</th><th>Target · W12</th><th>Source</th></tr></thead>
         <tbody>
-          <tr><td>Spotify monthly listeners</td><td>~4,042</td><td><b>8–12K</b> (2–3×)</td><td>Spotify for Artists</td></tr>
-          <tr><td>Badman + album streams / 28 days</td><td>311K+ cumulative</td><td><b>+50–100%</b> WoW growth</td><td>Spotify for Artists</td></tr>
-          <tr><td>Followers (IG/TikTok/YT) added</td><td>—</td><td><b>+10–15K</b> combined</td><td>Native analytics</td></tr>
-          <tr><td>#BarangaBadman UGC videos</td><td>0</td><td><b>≥500</b> tagged posts</td><td>TikTok/IG tags</td></tr>
-          <tr><td>Playlist adds (editorial/indie)</td><td>—</td><td><b>≥3</b> incl. 1 UG editorial</td><td>Spotify / SubmitHub</td></tr>
-          <tr><td>Radio / interview slots</td><td>—</td><td><b>≥2</b> (NRG Radio UG etc.)</td><td>Booking log</td></tr>
-          <tr><td>Live show / showcase booked</td><td>—</td><td><b>≥1</b> in Kampala &amp; western UG</td><td>Venue LOI / poster</td></tr>
-          <tr><td>WhatsApp/Discord community</td><td>0</td><td><b>≥5,000</b> members</td><td>Channel analytics</td></tr>
+          <tr><td>Spotify monthly listeners</td><td>~4,042</td><td><b style="color:var(--gold)">8–12K · 2–3×</b></td><td>Spotify for Artists</td></tr>
+          <tr><td>Badman + album streams / 28d</td><td>311K+ cumulative</td><td><b style="color:var(--gold)">+50–100% WoW</b></td><td>Spotify for Artists</td></tr>
+          <tr><td>Followers added (IG / TikTok / YT)</td><td>—</td><td><b style="color:var(--gold)">+10–15K</b></td><td>Native analytics</td></tr>
+          <tr><td>#BarangaBadman UGC videos</td><td>0</td><td><b style="color:var(--gold)">≥ 500</b></td><td>TikTok / IG tags</td></tr>
+          <tr><td>Playlist adds (incl. 1 UG editorial)</td><td>—</td><td><b style="color:var(--gold)">≥ 3</b></td><td>SubmitHub · direct</td></tr>
+          <tr><td>Radio / interview slots</td><td>—</td><td><b style="color:var(--gold)">≥ 2</b> · NRG Radio UG</td><td>Booking log</td></tr>
+          <tr><td>Live show / showcase</td><td>—</td><td><b style="color:var(--gold)">≥ 1</b> · Kampala or western UG</td><td>Venue LOI</td></tr>
+          <tr><td>WhatsApp / Discord community</td><td>0</td><td><b style="color:var(--gold)">≥ 5,000 members</b></td><td>Channel analytics</td></tr>
         </tbody>
       </table>
-      <div class="small" style="margin-top:.45em">*Public approximations at research time — refresh all baselines in Week 0. Targets assume 12-week window starting Dec 2026.</div>
+      <div class="small" style="margin-top:.45em">Public figures as of Nov 2026. Baselines re-cut in Week 0; targets hold regardless.</div>
     </div>
     <div class="col" style="flex:1">
-      <div class="panel">
-        <div class="tag-label">Sample trajectory (illustrative)</div>
-        <svg viewBox="0 0 320 150" class="bar-chart" style="width:100%;margin-top:.4em" role="img" aria-label="Illustrative listener growth curve">
-          <line x1="30" y1="125" x2="310" y2="125" stroke="#2a2a48" stroke-width="1.5"/>
-          <line x1="30" y1="95" x2="310" y2="95" stroke="#1b1b33" stroke-width="1"/>
-          <line x1="30" y1="65" x2="310" y2="65" stroke="#1b1b33" stroke-width="1"/>
-          <line x1="30" y1="35" x2="310" y2="35" stroke="#1b1b33" stroke-width="1"/>
-          <text x="4" y="128" fill="#6f6f92" font-size="9">0</text>
-          <text x="4" y="98" fill="#6f6f92" font-size="9">4K</text>
-          <text x="4" y="68" fill="#6f6f92" font-size="9">8K</text>
-          <text x="4" y="38" fill="#6f6f92" font-size="9">12K</text>
-          <polyline fill="none" stroke="#2fd6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-            points="40,115 85,112 130,102 175,84 220,58 265,40 300,26" style="filter:drop-shadow(0 0 6px rgba(47,214,255,.7))"/>
-          <circle cx="40" cy="115" r="3.2" fill="#f5c542"/><circle cx="300" cy="26" r="3.6" fill="#f5c542"/>
-          <text x="32" y="142" fill="#9a9ab8" font-size="8">W1</text>
-          <text x="160" y="142" fill="#9a9ab8" font-size="8">W6</text>
-          <text x="288" y="142" fill="#9a9ab8" font-size="8">W12</text>
+      <div class="panel"><div class="tag" style="color:var(--cyan)">The expected curve</div>
+        <svg viewBox="0 0 320 148" style="width:100%;margin-top:.4em" role="img" aria-label="Listener growth curve W1 to W12">
+          <line x1="30" y1="124" x2="310" y2="124" stroke="#26264a" stroke-width="1.5"/>
+          <line x1="30" y1="92" x2="310" y2="92" stroke="#191930"/>
+          <line x1="30" y1="60" x2="310" y2="60" stroke="#191930"/>
+          <line x1="30" y1="28" x2="310" y2="28" stroke="#191930"/>
+          <text x="2" y="127" fill="#6f6f92" font-size="9">0</text><text x="2" y="95" fill="#6f6f92" font-size="9">4K</text><text x="2" y="63" fill="#6f6f92" font-size="9">8K</text><text x="2" y="31" fill="#6f6f92" font-size="9">12K</text>
+          <polyline fill="none" stroke="#2fd6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="40,114 85,111 130,100 175,82 220,56 265,38 300,24" style="filter:drop-shadow(0 0 6px rgba(47,214,255,.7))"/>
+          <circle cx="40" cy="114" r="3.2" fill="#f5c542"/><circle cx="175" cy="82" r="3.2" fill="#ff4fd8"/><circle cx="300" cy="24" r="3.6" fill="#f5c542"/>
+          <text x="33" y="140" fill="#9a9ab8" font-size="8">W1</text><text x="168" y="140" fill="#9a9ab8" font-size="8">W6 · UGC inflection</text><text x="283" y="140" fill="#9a9ab8" font-size="8">W12</text>
         </svg>
       </div>
-      <div class="panel">
-        <div class="tag-label">Toolstack</div>
-        <div class="row" style="flex-wrap:wrap;gap:.4em;margin-top:.4em"><span class="chip cyan">Spotify for Artists</span><span class="chip">YouTube Studio</span><span class="chip">IG / TikTok Insights</span><span class="chip gold">Metricool / Sprout</span><span class="chip">SubmitHub / Playlist Push</span><span class="chip green">WhatsApp Channel stats</span><span class="chip">Notion content DB</span><span class="chip">Google Looker dashboard</span></div>
+      <div class="panel"><div class="tag" style="color:var(--cyan)">Toolstack</div>
+        <div class="row" style="flex-wrap:wrap;gap:.4em;margin-top:.4em"><span class="chip cyan">Spotify for Artists</span><span class="chip">YouTube Studio</span><span class="chip">IG / TikTok Insights</span><span class="chip gold">Metricool</span><span class="chip">SubmitHub</span><span class="chip green">WhatsApp Channel stats</span><span class="chip">Notion content DB</span></div>
+        <div class="small" style="margin-top:.4em">One dashboard. Reviewed Fridays. UTM’d links on everything paid.</div>
       </div>
-      <div class="panel" style="border-left:3px solid var(--red)">
-        <div class="tag-label" style="color:#ff8a8a">Red flags</div>
-        <ul class="tick" style="margin-top:.35em"><li>Boosting flat creatives “because we paid”</li><li>Chasing vanity followers over saves/streams</li><li>Skipping weekly reviews in weeks 5–11</li></ul>
+      <div class="panel" style="border-left:3px solid var(--red)"><div class="tag" style="color:#ff8a8a">Red lines</div>
+        <ul class="tick" style="margin-top:.35em;gap:.35em"><li>Never boost a flat creative</li><li>Saves &amp; streams over vanity follows</li><li>Never skip a Friday review in weeks 5–11</li></ul>
       </div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Metrics<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>16 / 18</span></div>
-  <div class="notes">Set the rule: metrics are reviewed Friday, decisions are made Friday, never mid-week on emotion. The illustrative curve is not a promise — it’s the shape we expect if the content engine holds: flat weeks 1–2 (seeding), inflection at week 3 (UGC), compounding from week 6. If actuals beat target, bank the learnings for the 2027 cycle; if they miss, diagnose in this order: hook quality → posting cadence → CTA clarity → paid efficiency. The red flags are behaviors, not metrics — call them out by name in every review.</div>
+  <div class="foot"><span><b>BARANGA</b> — Metrics<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>16 / 18</span></div>
+  <div class="notes">Metrics are reviewed Friday, decisions made Friday — never on mid-week emotion. The curve: flat W1–2 (seeding), inflection W3–4 (UGC), compounding from W6. Miss targets? Diagnose in order: hook → cadence → CTA → paid efficiency. Red lines are behaviors, not KPIs.</div>
 </section>
-
-<!-- ═══════════ SLIDE 17 — NEXT STEPS ═══════════ -->
-<section class="slide" id="s17" data-title="Next Steps &amp; CTA">
-  <div class="kicker"><span class="dot"></span>Next Steps &amp; Call to Action</div>
-  <h2>Let’s <span class="accent">ship</span> it</h2>
+<!-- 17 · NEXT STEPS -->
+<section class="slide" id="s17" data-title="Next Steps">
+  <div class="kick">Next Steps</div>
+  <h2>The runway to <span class="accent">Week 1</span></h2>
   <div class="row fill">
-    <div class="col" style="flex:1.15;justify-content:center;gap:.7em">
-      <div class="check"><span class="box">✓</span>Lock budget, channels &amp; asset list (W0 · this week)</div>
-      <div class="check"><span class="box">✓</span>Build the full calendar in Notion / Google Sheets — assign owners</div>
-      <div class="check"><span class="box">✓</span>Shoot &amp; edit Week 1 assets: intro, dance tutorial, album trailer</div>
-      <div class="check"><span class="box">✓</span>Set up tracking: Spotify for Artists, dashboards, UTM’d links</div>
-      <div class="check"><span class="box">✓</span>Align w/ Baranga &amp; management — availability, approvals, fit checks</div>
-      <div class="check"><span class="box">✓</span>Launch Week 1 · <b>target: first full week of December 2026</b></div>
+    <div class="col" style="flex:1.18;justify-content:center;gap:.62em">
+      <div class="check"><span class="box">✓</span>Budget, channels &amp; asset list locked — sign-off this week</div>
+      <div class="check"><span class="box">✓</span>Calendar built in Notion / Google Sheets — owners assigned</div>
+      <div class="check"><span class="box">✓</span>Week 1 assets shot &amp; cut: intro film, dance tutorial, album trailer</div>
+      <div class="check"><span class="box">✓</span>Tracking live: Spotify for Artists, dashboards, UTM links</div>
+      <div class="check"><span class="box">✓</span>Artist alignment: availability, approvals, fit checks with management</div>
+      <div class="check"><span class="box">✓</span><b>Week 1 · first full week of December 2026</b> — the Badman challenge drops</div>
     </div>
-    <div class="col" style="flex:.85;justify-content:center;gap:.8em">
-      <div class="panel center" style="padding:1.4em">
-        <div class="tag-label">Countdown to launch</div>
-        <div style="font-family:'Archivo Black';font-size:clamp(40px,5.4vw,76px);line-height:1" class="neon-text">T–7<span style="font-size:.35em;color:var(--muted)"> DAYS</span></div>
-        <div class="small">Week 0 starts when budget &amp; assets are signed off</div>
+    <div class="col" style="flex:.82;justify-content:center;gap:.7em">
+      <div class="panel center" style="padding:1.3em 1em">
+        <div class="tag">Launch window</div>
+        <div style="font-family:'Archivo Black';font-size:clamp(38px,4.9vw,70px);line-height:.98;color:var(--cyan);text-shadow:0 0 30px rgba(47,214,255,.45)">DECEMBER<br />2026</div>
+        <div class="small" style="margin-top:.35em">Week 0 starts Monday after sign-off</div>
       </div>
-      <div class="panel center" style="padding:1.1em">
-        <svg viewBox="0 0 120 120" width="88" height="88" role="img" aria-label="QR placeholder linking to Spotify"><rect x="4" y="4" width="112" height="112" rx="10" fill="#0d0d1f" stroke="#2fd6ff" stroke-opacity=".5"/><g fill="#f4f4fb"><rect x="18" y="18" width="30" height="30"/><rect x="72" y="18" width="30" height="30"/><rect x="18" y="72" width="30" height="30"/><rect x="26" y="26" width="14" height="14" fill="#0d0d1f"/><rect x="80" y="26" width="14" height="14" fill="#0d0d1f"/><rect x="26" y="80" width="14" height="14" fill="#0d0d1f"/><rect x="58" y="18" width="8" height="8"/><rect x="58" y="34" width="8" height="8"/><rect x="70" y="46" width="8" height="8"/><rect x="18" y="58" width="8" height="8"/><rect x="50" y="58" width="8" height="8"/><rect x="86" y="58" width="16" height="8"/><rect x="58" y="74" width="8" height="8"/><rect x="58" y="90" width="24" height="8"/><rect x="90" y="74" width="12" height="12"/><rect x="34" y="58" width="8" height="8"/></g></svg>
-        <div class="small" style="margin-top:.5em">Scan me → <b>open.spotify.com/artist/Baranga</b><br />@_baranga · “Search ‘Baranga’ on every platform”</div>
-      </div>
+      <img class="art" src="assets/real/badman-cover.jpg" alt="Badman — official single cover" style="aspect-ratio:2.35;object-fit:cover;object-position:center 30%;width:100%" />
+      <div class="small" style="text-align:center"><b style="color:var(--text)">@_baranga</b> — search “Baranga” on Spotify · Apple Music · YouTube · Audiomack</div>
     </div>
   </div>
-  <div class="foot"><span><b>BARANGA</b> — Next Steps<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>17 / 18</span></div>
-  <div class="notes">Close with energy. The ask is explicit: sign-off on budget and the launch date, and commitment to the weekly cadence from the artist — without the artist posting, none of this runs. Assign owners in the room before leaving. The QR is a live placeholder — generate the final Spotify QR (free via Spotify for Artists) once the campaign URL is confirmed. End on: “Week 1 is either a launch or a missed window. Let’s pick launch.”</div>
+  <div class="foot"><span><b>BARANGA</b> — Next Steps<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>17 / 18</span></div>
+  <div class="notes">The ask in the room: budget + launch date sign-off, and artist commitment to the cadence — without the artist posting, none of this runs. Owners get assigned before people leave. Final line: “Week 1 is either a launch or a missed window. We’re doing launch.”</div>
 </section>
 
-<!-- ═══════════ SLIDE 18 — THANK YOU ═══════════ -->
-<section class="slide" id="s18" data-title="Thank You" style="padding:0">
-  <img src="assets/closing-neon.jpg" alt="Neon sign: You know it's Baranga — concept art" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-  <div style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%;padding:4% 5%;background:linear-gradient(0deg,rgba(2,2,8,.92) 0%,rgba(2,2,8,.25) 45%,transparent 70%)">
-    <div class="kicker" style="color:var(--gold)"><span class="dot" style="background:var(--gold);box-shadow:0 0 .8em var(--gold)"></span>Thank You</div>
-    <h2 style="font-size:clamp(30px,4.6vw,64px);margin:.2em 0 .25em">Let’s make them<br /><span class="accent">know it’s Baranga.</span></h2>
-    <div class="row" style="gap:.6em;flex-wrap:wrap;margin-bottom:1em">
-      <span class="chip cyan">open.spotify.com — search “Baranga”</span>
-      <span class="chip">music.apple.com — Baranga</span>
+<!-- 18 · THANK YOU -->
+<section class="slide" id="s18" data-title="Thank You" style="padding:0;background:#07070f">
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden">
+    <img src="assets/real/badman-cover.jpg" alt="Badman — official single cover, dimmed backdrop" style="height:150%;opacity:.30;filter:blur(2px) saturate(.9)" />
+    <div style="position:absolute;inset:0;background:radial-gradient(closest-side,rgba(7,7,15,.05),rgba(7,7,15,.78)),linear-gradient(0deg,#07070f 6%,transparent 45%)"></div>
+  </div>
+  <div style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:4% 6%">
+    <div class="kick" style="justify-content:center;color:var(--gold)">THANK YOU</div>
+    <div style="font-family:'Archivo Black';font-size:clamp(38px,6.6vw,96px);line-height:.98;margin:.25em 0 .2em;
+      background:linear-gradient(180deg,#fff 25%,#ffd76a 62%,#ff8a3d 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 0 34px rgba(245,197,66,.35))">YOU KNOW IT’S<br />BARANGA.</div>
+    <p class="lede" style="max-width:52ch;text-align:center;color:#d8d8ee">12 weeks. Three phases. One fanbase.<br />From high-school notebook to the whole timeline.</p>
+    <div class="row" style="gap:.55em;flex-wrap:wrap;justify-content:center;margin-top:1.1em">
+      <span class="chip cyan">Spotify — “BARANGA”</span>
+      <span class="chip">Apple Music — “BARANGA”</span>
       <span class="chip gold">YouTube — @_baranga</span>
       <span class="chip green">IG / TikTok — @_baranga</span>
+      <span class="chip">#BarangaBadman</span>
     </div>
-    <div class="small" style="border-top:1px solid var(--line);padding-top:.8em;color:#b9b9d4">Credits &amp; sources — Spotify · Apple Music · Shazam · YouTube · Musixmatch · Audiomack · NRG Radio UG interviews · official releases (SALO, Badman, Party Riddim, CHAPTERS I NEVER WROTE). Deck artwork (portrait, covers, neon) is AI-generated concept art. Campaign: 12 weeks · Dec 2026 → Feb 2027 · Kampala × Western Uganda.</div>
+    <div class="small" style="margin-top:1.4em;color:#8f8fb0;border-top:1px solid var(--line);padding-top:.8em">Sources — Spotify · Apple Music · Shazam · YouTube · Audiomack · Deezer · NRG Radio UG · official releases (SALO · Badman · Party Riddim · CHAPTERS I NEVER WROTE). Artwork shown is official release artwork of the respective rights holders.</div>
   </div>
-  <div class="foot" style="border-color:rgba(255,255,255,.12)"><span><b>BARANGA</b> — Thank You<span class="ug-dots"><i></i><i></i><i></i></span>UG</span><span>18 / 18</span></div>
-  <div class="notes">Leave the neon image up after you stop talking — it does the closing for you. If asked for the single most important thing: “Protect the Friday metrics review and the Sunday reply session — everything else is execution.” If asked about next steps beyond 12 weeks: 2027 single cycle, live showcase in Kampala + western Uganda, and a label/distribution conversation backed by this report. Thank the artist and management by name if they’re in the room.</div>
+  <div class="foot" style="border-color:rgba(255,255,255,.08)"><span><b>BARANGA</b> — Thank You<span class="ug"><i></i><i></i><i></i></span>Kampala</span><span>18 / 18</span></div>
+  <div class="notes">Let it land in silence. The one thing to remember: “Protect the Friday metrics review and the Sunday reply session — everything else is execution.” Next steps beyond week 12: 2027 single cycle, Kampala + western Uganda showcase, label/distribution conversation backed by this report. Thank the artist and management by name.</div>
 </section>
 
 </div><!-- /deck -->
 
-<div id="hud" aria-label="Slide controls">
-  <button id="prev" title="Previous (←)">‹</button>
-  <button id="notesBtn" title="Toggle speaker notes (N)">🗒</button>
-  <button id="printBtn" title="Print / Save as PDF (P)">🖨</button>
-  <button id="fsBtn" title="Fullscreen (F)">⛶</button>
-  <button id="next" title="Next (→)">›</button>
+<div id="hud">
+  <button id="prev" title="Previous" aria-label="Previous slide">‹</button>
+  <button id="notesBtn" title="Speaker notes (N)" aria-label="Toggle speaker notes">🗒</button>
+  <button id="printBtn" title="Print / PDF (P)" aria-label="Print deck">🖨</button>
+  <button id="fsBtn" title="Fullscreen (F)" aria-label="Fullscreen">⛶</button>
+  <button id="next" title="Next" aria-label="Next slide">›</button>
   <span id="counter">1 / 18</span>
 </div>
-
 <div id="notes" role="complementary" aria-label="Speaker notes"><h4>Speaker Notes — <span id="notesTitle"></span></h4><p id="notesBody"></p></div>
 
 <script>
 (function(){
   const slides=[...document.querySelectorAll('.slide')];
   let i=0;
-  const counter=document.getElementById('counter');
-  const progress=document.getElementById('progress');
-  const notes=document.getElementById('notes');
-  const notesBody=document.getElementById('notesBody');
-  const notesTitle=document.getElementById('notesTitle');
-  const notesBtn=document.getElementById('notesBtn');
-
+  const counter=document.getElementById('counter'), progress=document.getElementById('progress');
+  const notes=document.getElementById('notes'), notesBody=document.getElementById('notesBody');
+  const notesTitle=document.getElementById('notesTitle'), notesBtn=document.getElementById('notesBtn');
   function show(n){
     i=Math.max(0,Math.min(slides.length-1,n));
     slides.forEach((s,k)=>s.classList.toggle('active',k===i));
     counter.textContent=(i+1)+' / '+slides.length;
     progress.style.width=((i+1)/slides.length*100)+'%';
     const note=slides[i].querySelector('.notes');
-    notesBody.textContent=note?note.textContent.trim():'(no notes)';
+    notesBody.textContent=note?note.textContent.trim():'';
     notesTitle.textContent=slides[i].dataset.title||('Slide '+(i+1));
-    location.hash='slide-'+(i+1);
+    history.replaceState(null,'','#slide-'+(i+1));
   }
-  function fromHash(){
-    const m=/slide-(\d+)/.exec(location.hash);
-    if(m) show(parseInt(m[1],10)-1); else show(0);
-  }
+  function fromHash(){const m=/slide-(\d+)/.exec(location.hash);show(m?parseInt(m[1],10)-1:0)}
   document.getElementById('next').onclick=()=>show(i+1);
   document.getElementById('prev').onclick=()=>show(i-1);
   document.getElementById('printBtn').onclick=()=>window.print();
-  document.getElementById('fsBtn').onclick=()=>{
-    if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}
-    else{document.exitFullscreen&&document.exitFullscreen();}
-  };
-  notesBtn.onclick=()=>{notes.classList.toggle('show');notesBtn.classList.toggle('on');};
+  document.getElementById('fsBtn').onclick=()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}else{document.exitFullscreen&&document.exitFullscreen()}};
+  notesBtn.onclick=()=>{notes.classList.toggle('show');notesBtn.classList.toggle('on')};
   document.addEventListener('keydown',e=>{
     if(e.target.matches('input,textarea'))return;
     switch(e.key){
@@ -1038,7 +820,7 @@ ul.tick li::before{content:"▸";position:absolute;left:.2em;color:var(--gold)}
       case 'ArrowLeft': case 'PageUp': e.preventDefault(); show(i-1); break;
       case 'Home': show(0); break;
       case 'End': show(slides.length-1); break;
-      case 'n': case 'N': notes.classList.toggle('show'); notesBtn.classList.toggle('on'); break;
+      case 'n': case 'N': notesBtn.click(); break;
       case 'f': case 'F': document.getElementById('fsBtn').click(); break;
       case 'p': case 'P': window.print(); break;
     }
