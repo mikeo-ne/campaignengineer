@@ -1,35 +1,63 @@
-# campaignengineer — BARANGA · 12-Week Marketing & Promotion Campaign
+# 7H Campaign Engineer
 
-Presentation build for the BARANGA campaign review — emerging Ugandan Afro-Pop / Rap artist, Badman era.
+A small, local-first website for building artist campaign plans for **7H Music Group**. The first working plan is a **2027, 12-week campaign for Baranga**, prepared for review on 25 Nov 2026.
 
-## Deliverables
+The figures on the objectives and budget pages are what I’ll work toward in the campaign window; I’ll measure them as the work happens.
 
-| File | What it is |
+## What’s here
+
+| Path | What it is |
 |---|---|
-| `index.html` | Self-contained interactive HTML deck — dark/neon design, 18 slides, keyboard nav (←/→ · **N** speaker notes · **F** fullscreen · **P** print/PDF). Served over HTTP for the live preview. |
-| `Baranga_12-Week_Marketing_Campaign.pptx` | PowerPoint build (16:9) mirroring the deck, with **speaker notes on every slide**. Opens in PowerPoint; imports into Google Slides. |
-| `assets/real/` | **Official artwork from the releases** — Badman (feat. STANDO & Andrinah, 5844655 Records DK), Party Riddim (Ace Kaawa & BARANGA), CHAPTERS I NEVER WROTE (teaser + album art), plus an official studio-session still from the Badman era. |
-| `build_pptx.py` | Regenerates the `.pptx`. |
+| `index.html` | The campaign homepage: the 18-slide order, the plan, a reusable builder, downloads and references. |
+| `presentation.html` | The live 18-slide browser deck with speaker notes, keyboard navigation, fullscreen and print support. |
+| `download.html` | Download page for the PDF and editable PowerPoint. |
+| `downloads/Baranga_12-Week_Campaign_Strategy.pdf` | The 18-page printable version of the assignment. |
+| `downloads/Baranga_12-Week_Campaign_Slides.pptx` | The editable 16:9 PowerPoint with 18 slides and speaker notes. |
+| `Baranga_12-Week_Marketing_Campaign.pptx` | Root-level compatibility copy of the same deck. |
+| `RESEARCH.md` | Working notes, platform facts and references. |
+| `data/campaign.json` | The single source of truth for the site, PDF and slides. |
+| `briefs/` | The supplied 7H brief and concept note. |
+| `assets/` | Local CSS, JavaScript, icons and supplied 7H/rights-holder artwork. |
+| `build_assets.py` | Regenerates `assets/js/campaign-data.js`, the PDF, the PPTX and the root-level PowerPoint copy from `data/campaign.json`. |
 
-## View the deck
+## Slide order
+
+The deck follows the required 18-slide assignment order:
+
+1. Title / one job
+2. Objectives
+3. “BUT FIRST...”
+4. Audience profile
+5. Biggest end benefit
+6. “SO... WHO IS BARANGA ...ACTUALLY?”
+7. Brand archetype
+8. Identity equation
+9. Brand signature
+10. Competitors
+11. Strengths / weaknesses
+12. “HOW DO WE BEAT THEM?”
+13. Positioning / strategy
+14. Tactics
+15. Playlist tactics
+16. Timeline · Weeks 1–6
+17. Timeline · Weeks 7–12
+18. Thank you
+
+See [`RESEARCH.md#assignment-slide-order`](RESEARCH.md#assignment-slide-order) for the working note.
+
+## Run it locally
 
 ```bash
-python3 -m http.server 8080   # then open http://localhost:8080/
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python build_assets.py
+python3 -m http.server 8080 --bind 0.0.0.0
 ```
 
-`Ctrl/Cmd + P` saves the HTML deck to PDF (16:9, one slide per page).
+Then open `index.html`, `presentation.html` or `download.html` from the local server. The site uses local CSS, JavaScript, SVG icons and supplied artwork — no CDN, external font, analytics or backend is required.
 
-## Rebuild the PowerPoint
+## Before launch
 
-```bash
-python3 -m venv .venv && .venv/bin/pip install python-pptx pillow
-.venv/bin/python build_pptx.py
-```
+I’ll set the exact 12-week dates, campaign owner, budget currency, audio clearances, venue/ticketing terms and Week 0 private DSP baselines with the team before launch. “2027” is the campaign heading.
 
-## Fact sources
-
-Apple Music (artist ID 1764683984) · Spotify · Shazam · Audiomack (@badman-rare) · Deezer (artist 53724222) · NRG Radio UG · YouTube.
-Releases: **SALO** 24 Aug 2024 · **Do you?** Jan 2025 · **Confirm** (feat. Smokie Cee) Feb 2025 · **Badman** (feat. STANDO & Andrinah) 3 May 2025 · **CHAPTERS I NEVER WROTE** 8 May 2026 (7 tracks) · **Island Kiss** (Smokie Cee feat. BARANGA) Aug 2026 · **Party Riddim** (Ace Kaawa & BARANGA) Aug 2025.
-
-Figures marked “~” are public approximations (Nov 2026); Week 0 re-baselines them in Spotify for Artists.
-Artwork shown belongs to the respective rights holders and is used within the artist’s own campaign materials.
+Supplied artwork belongs to the respective rights holders and is used for this internal campaign.
