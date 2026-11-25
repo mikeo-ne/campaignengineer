@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7H Campaign Engineer — Baranga 2027</title>
+<meta name="description" content="A 12-week 2027 campaign plan for Baranga and 7H Music Group, with a live deck, PDF and editable slides.">
+<meta name="theme-color" content="#07080d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23f5c542%22/><text x=%2250%22 y=%2268%22 text-anchor=%22middle%22 font-family=%22Arial Black%22 font-size=%2245%22 fill=%22%2317120a%22>7H</text></svg>">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">7H</span><span>Campaign Engineer<small>Baranga · 2027</small></span></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="active" href="index.html">Overview</a>
+      <a href="#slide-order">Slide order</a>
+      <a href="#plan">The plan</a>
+      <a href="presentation.html">Live deck</a>
+      <a href="download.html">Downloads</a>
+      <a href="#builder">Create a campaign</a>
+      <a href="#references">References</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Open navigation"><svg class="icon"><use href="#i-menu"></use></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="overview">
+    <div class="hero-media"><img src="assets/campaign/artist-baranga.jpg" alt="Baranga press photo"></div>
+    <div class="hero-copy" style="padding-left:max(20px,calc((100vw - 1220px)/2));padding-right:32px">
+      <div class="eyebrow">7H Music Group · Campaign assignment · 24 Nov 2026</div>
+      <h1>I’ll present Baranga’s <span>2027 campaign.</span></h1>
+      <p class="lede">One artist, one 12-week plan and one clear assignment order. I’ll build awareness around Baranga’s music, turn attention into community, and measure the work as it happens.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="presentation.html"><svg class="icon"><use href="#i-slides"></use></svg> Open the live deck</a>
+        <a class="btn" href="download.html"><svg class="icon"><use href="#i-download"></use></svg> Get the PDF + slides</a>
+      </div>
+      <div class="hero-meta" id="official-links"></div>
+    </div>
+  </section>
+
+  <section class="status-strip" aria-label="Where I’m starting">
+    <div class="container" style="width:100%"><div class="status-grid" id="status-grid"></div></div>
+  </section>
+
+  <section class="section tight" id="slide-order">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">01 / The slide order</div>
+          <h2>Here’s how I’ll take you through the plan.</h2>
+        </div>
+        <p class="lede">Eighteen slides, in the order the assignment asks for. One idea per slide, with room to breathe.</p>
+      </div>
+      <div class="structure-grid" id="structure-grid"></div>
+      <div class="source-line" style="margin-top:18px">
+        <a href="RESEARCH.md#assignment-slide-order" target="_blank" rel="noopener">Read the working note <svg class="icon"><use href="#i-external"></use></svg></a>
+        <a href="presentation.html">Open the 18-slide deck <svg class="icon"><use href="#i-slides"></use></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="plan">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">02 / The plan</div>
+          <h2>This is what I’ll execute.</h2>
+        </div>
+        <p class="lede">I’ll start from Baranga’s released music and the supplied brief, then work through the 12-week window with a Friday review every week.</p>
+      </div>
+      <div class="strategy-hero" id="strategy-hero"></div>
+
+      <h3 style="margin:42px 0 0">What I’ll work toward</h3>
+      <div class="objective-grid grid-4" id="objectives-grid"></div>
+
+      <h3 style="margin:48px 0 0">The 12-week rollout</h3>
+      <div class="timeline" id="timeline"></div>
+
+      <h3 style="margin:48px 0 0">The budget I’ll work with</h3>
+      <div class="budget-layout" id="budget-layout"></div>
+      <div class="card" style="margin-top:22px">
+        <h3>How I’ll keep score</h3>
+        <ul class="measurement-list" id="measurement-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section builder-section" id="builder">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">03 / Reusable builder</div>
+          <h2>I can reuse this system for the next 7H artist.</h2>
+        </div>
+        <p class="lede">The form starts with the Baranga plan. I can clear it, save a draft, import a plan or export the working notes for another campaign.</p>
+      </div>
+      <div class="builder-layout">
+        <form class="builder-panel" id="campaign-form">
+          <h3>Campaign inputs</h3>
+          <div class="form-grid">
+            <div class="field"><label for="artistName">Artist name</label><input id="artistName" name="artistName" placeholder="Artist name"></div>
+            <div class="field"><label for="project">Project / release</label><input id="project" name="project" placeholder="Release or campaign focus"></div>
+            <div class="field full"><label for="objective">Primary objective</label><textarea id="objective" name="objective" placeholder="What I’ll work toward"></textarea></div>
+            <div class="field full"><label for="audience">Audience starting point</label><textarea id="audience" name="audience" placeholder="Who, where, and how they discover music"></textarea></div>
+            <div class="field"><label for="territory">Territory</label><input id="territory" name="territory" placeholder="e.g. Kampala / East Africa"></div>
+            <div class="field"><label for="budget">Budget</label><input id="budget" name="budget" placeholder="Amount + currency"></div>
+            <div class="field"><label for="startDate">Week 1 start</label><input id="startDate" name="startDate" type="date"></div>
+            <div class="field"><label for="reviewDate">Sign-off / review</label><input id="reviewDate" name="reviewDate" type="date"></div>
+            <div class="field full"><label for="channels">Primary channels</label><input id="channels" name="channels" placeholder="DSPs, social, community, radio, press"></div>
+            <div class="field full"><label for="cadence">Content &amp; review cadence</label><input id="cadence" name="cadence" placeholder="Publishing, outreach and analytics rhythm"></div>
+            <div class="field full"><label for="visual">Visual direction</label><input id="visual" name="visual" placeholder="Styling, photography and asset rules"></div>
+            <div class="field">
+              <label for="planStage">Plan stage</label>
+              <select id="planStage" name="planStage">
+                <option>Ready to review</option>
+                <option>Draft in progress</option>
+                <option>Adding links</option>
+              </select>
+            </div>
+            <div class="field"><label for="import-file">Import plan JSON</label><input id="import-file" type="file" accept="application/json" hidden></div>
+            <div class="field full"><label for="proofLinks">Source URLs · one per line</label><textarea id="proofLinks" name="proofLinks" placeholder="https://…"></textarea></div>
+            <div class="field full"><label for="notes">Owner notes</label><textarea id="notes" name="notes" placeholder="Owners, dependencies, dates I’ll set before launch"></textarea></div>
+          </div>
+          <div class="builder-actions">
+            <button class="btn primary" type="button" id="save-campaign"><svg class="icon"><use href="#i-save"></use></svg> Save draft</button>
+            <button class="btn" type="button" id="use-baranga"><svg class="icon"><use href="#i-check"></use></svg> Baranga plan</button>
+            <button class="btn" type="button" id="blank-campaign"><svg class="icon"><use href="#i-plus"></use></svg> Blank plan</button>
+            <button class="btn" type="button" id="export-json"><svg class="icon"><use href="#i-file"></use></svg> Export JSON</button>
+            <button class="btn" type="button" id="export-md"><svg class="icon"><use href="#i-download"></use></svg> Export notes</button>
+            <button class="btn" type="button" id="import-plan"><svg class="icon"><use href="#i-upload"></use></svg> Import</button>
+          </div>
+          <div class="saved-row">
+            <select id="saved-campaigns" aria-label="Saved campaigns"></select>
+            <button class="btn small" type="button" id="delete-campaign" aria-label="Delete selected campaign"><svg class="icon"><use href="#i-trash"></use></svg></button>
+          </div>
+        </form>
+        <aside class="builder-preview">
+          <div class="preview-head"><span>Plan preview</span><span class="badge">Live</span></div>
+          <div id="plan-preview-content"></div>
+        </aside>
+      </div>
+    </div>
+    <div class="toast" id="builder-toast" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="download-cta" id="downloads">
+    <div class="container">
+      <div class="section-kicker">04 / Presentation package</div>
+      <h2>My files are ready for tomorrow’s review.</h2>
+      <p class="lede">I’ll use the live deck in the room, then leave the PDF and editable slides with the 7H team.</p>
+      <div class="download-cards">
+        <a class="download-card" href="downloads/Baranga_12-Week_Campaign_Strategy.pdf" download>
+          <div class="icon-box"><svg class="icon"><use href="#i-file"></use></svg></div><h3>Campaign PDF</h3><p>The 18-page printable version of the plan.</p><span class="link-label">Download <svg class="icon"><use href="#i-download"></use></svg></span>
+        </a>
+        <a class="download-card" href="downloads/Baranga_12-Week_Campaign_Slides.pptx" download>
+          <div class="icon-box"><svg class="icon"><use href="#i-slides"></use></svg></div><h3>Presentation slides</h3><p>The editable 16:9 deck with speaker notes.</p><span class="link-label">Download <svg class="icon"><use href="#i-download"></use></svg></span>
+        </a>
+        <a class="download-card" href="download.html">
+          <div class="icon-box"><svg class="icon"><use href="#i-download"></use></svg></div><h3>Download page</h3><p>Both files, references and the browser deck.</p><span class="link-label">Open <svg class="icon"><use href="#i-arrow"></use></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="references">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">05 / References</div>
+          <h2>The links behind the plan.</h2>
+        </div>
+        <p class="lede">Platform pages, the awards ballot, the 7H site, the supplied brief and the campaign working notes.</p>
+      </div>
+      <div class="sources-grid" id="sources-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>7H Music Group · Baranga 2027 campaign</span>
+    <span>Prepared 24 Nov 2026 · Review 25 Nov 2026</span>
+  </div>
+</footer>
+<script src="assets/js/campaign-data.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
